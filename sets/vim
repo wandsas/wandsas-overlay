@@ -1,0 +1,38 @@
+
+# -----------------------------------------------------------------------------
+# Vim
+# -----------------------------------------------------------------------------
+
+app-editors/vim
+app-vim/airline
+app-vim/align
+app-vim/colorschemes
+app-vim/colorsel
+app-vim/ctrlp
+app-vim/pathogen
+app-vim/recover
+app-vim/txtfmt
+app-vim/vim-spell-en
+app-vim/vim-spell-fr
+app-vim/xsl-syntax
+app-vim/yankring
+app-vim/emmet
+app-vim/vimpython
+app-vim/vimtex
+app-vim/vimclojure
+app-vim/vim-tmux
+app-vim/vim-rest-console
+app-vim/vim-misc
+app-vim/vim-flake8
+app-vim/rust-vim
+app-vim/editorconfig-vim
+app-vim/ackvim
+app-vim/bash-support
+
+# -----------------------------------------------------------------------------
+# Neovim
+# -----------------------------------------------------------------------------
+
+app-editors/neovim
+dev-ruby/neovim-ruby-client
+dev-python/neovim-python-client
