@@ -17,12 +17,26 @@ else
 fi
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+git +tmux +vim +zsh"
+IUSE="+git +tmux +vim +zsh +emacs +sh-libs"
 
 src_install() {
+	insinto /etc/skel
+	use git && doins etc/skel/.gitconfig
+	use emacs && doins etc/skel/.emacs
+	use vim && doins etc/vim/.vim
+	insinto /etc/grml
+	use sh-libs && doins /etc/grml/lsb-functions
+	use sh-libs && doins /etc/grml/screen_multisession
+	use sh-libs && doins /etc/grml/screenrc
+	use sh-libs && doins /etc/grml/screenrc_acpi
+	use sh-libs && doins /etc/grml/screenrc_generic
+	use sh-libs && doins /etc/grml/script-functions
+	use sh-libs && doins /etc/grml/sysexits-sh
 	insinto /etc
-	use git && newins etc/skel/.gitconfig gitconfig
 	use tmux && doins etc/tmux.conf
+	use zsh && doins etc/grml_colors
+	use zsh && doins etc/grml_nocolors
+	use zsh && doins etc/minimal-shellrc
 	insinto /etc/vim
 	use vim && doins etc/vim/vimrc
 	insinto /etc/zsh
