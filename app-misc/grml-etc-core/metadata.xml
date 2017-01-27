@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer>
-		<email>mrueg@gentoo.org</email>
-		<name>Manuel Rüger</name>
+		<email>wandsas.dev@gmail.com</email>
+		<name>Sascha Wander</name>
 	</maintainer>
 	<use>
 		<flag name='git'>Install grml gitconfig systemwide</flag>
