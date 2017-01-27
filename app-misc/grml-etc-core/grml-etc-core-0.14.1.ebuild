@@ -5,15 +5,15 @@
 EAPI=5
 
 DESCRIPTION="Core configuration files of Grml"
-HOMEPAGE="http://git.grml.org/?p=grml-etc-core.git"
+HOMEPAGE="http://github.com/wandsas/grml-etc-core.git"
 
 if [[ ${PV} = *9999 ]]; then
 	inherit git-r3
 	KEYWORDS=""
-	EGIT_REPO_URI="git://git.grml.org/grml-etc-core.git"
+	EGIT_REPO_URI="git://github.com/wandsas/grml-etc-core.git"
 else
 	KEYWORDS="~amd64 ~arm"
-	SRC_URI="http://deb.grml.org/pool/main/g/${PN}/${PN}_${PV}.tar.gz"
+	SRC_URI="https://github.com/grml/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 LICENSE="GPL-2"
 SLOT="0"
