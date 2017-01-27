@@ -23,7 +23,7 @@ src_install() {
 	insinto /etc/skel
 	use git && doins etc/skel/.gitconfig
 	use emacs && doins etc/skel/.emacs
-	use vim && doins etc/vim/.vim
+	use vim && doins etc/skel/.vim
 	insinto /etc/grml
 	use sh-libs && doins /etc/grml/lsb-functions
 	use sh-libs && doins /etc/grml/screen_multisession
