@@ -9,10 +9,10 @@ HOMEPAGE="http://github.com/wandsas/grml-etc-core.git"
 
 if [[ ${PV} = *9999 ]]; then
 	inherit git-r3
-	KEYWORDS=""
+	KEYWORDS="~x64-macos ~x86-macos"
 	EGIT_REPO_URI="git://github.com/wandsas/grml-etc-core.git"
 else
-	KEYWORDS="~amd64 ~arm"
+	KEYWORDS="~x64-macos ~x86-macos"
 	SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 LICENSE="GPL-2"
