@@ -3,8 +3,8 @@
 # Vim
 # -----------------------------------------------------------------------------
 
-app-vim/ackvim
 app-editors/vim
+app-vim/ackvim
 app-vim/airline
 app-vim/align
 app-vim/bash-support
@@ -13,12 +13,36 @@ app-vim/colorsel
 app-vim/ctrlp
 app-vim/emmet
 app-vim/editorconfig-vim
+app-vim/easyalign
+app-vim/easytags
+app-vim/fuzzyfinder
+app-vim/fugitive
+app-vim/gundo
+app-vim/gitlog
+app-vim/gitgutter
+app-vim/git-patch-tags
+app-vim/nerdtree
+app-vim/nerdtree-tabs
 app-vim/pathogen
+app-vim/perl-support
+app-vim/python-mode
+app-vim/pyclewn
+app-vim/pydoc
 app-vim/recover
+app-vim/rails
 app-vim/rust-vim
+app-vim/searchcomplete
+app-vim/session
+app-vim/snipmate
+app-vim/sudoedit
+app-vim/syntastic
+app-vim/tagbar
+app-vim/taglist
 app-vim/txtfmt
+app-vim/undotree
+app-vim/unite
 app-vim/vim-spell-en
-app-vim/vim-spell-fr
+app-vim/vim-spell-de
 app-vim/vimpython
 app-vim/vimtex
 app-vim/vimclojure
