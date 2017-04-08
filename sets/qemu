@@ -1,31 +1,11 @@
-
-app-pda/ifuse
-#app-pda/fusepod
-
 app-emulation/fuse
 app-emulation/qemu
 app-emulation/aqemu
-app-emulation/qemu-guest-agent
-app-emulation/qemu-init-scripts
-#app-emulation/libvirt
-
-dev-embedded/scratchbox
-#dev-embedded/scratchbox2
-dev-embedded/scratchbox-devkit-qemu
-dev-embedded/scratchbox-devkit-perl
-dev-embedded/scratchbox-devkit-git
-dev-embedded/scratchbox-devkit-doctools
-dev-embedded/scratchbox-devkit-cputransp
-dev-embedded/scratchbox-devkit-debian
-dev-embedded/scratchbox-devkit-apt-https
-dev-embedded/scratchbox-devkit-debian-squeeze
+app-emulation/libvirt
 
 dev-python/fusepy
-
 dev-perl/Fuse
-
 dev-java/prefuse
-
 dev-libs/go-fuse
 
 dev-util/schroot

@@ -1,8 +1,3 @@
-
-# -----------------------------------------------------------------------------
-# Vim
-# -----------------------------------------------------------------------------
-
 app-editors/vim
 app-vim/ackvim
 app-vim/airline
@@ -11,6 +6,8 @@ app-vim/bash-support
 app-vim/colorschemes
 app-vim/colorsel
 app-vim/ctrlp
+app-vim/ctx
+app-vim/yanking
 app-vim/emmet
 app-vim/editorconfig-vim
 app-vim/easyalign
