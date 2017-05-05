@@ -3,6 +3,8 @@ dev-lang/go
 dev-libs/libgit2
 dev-python/github3
 dev-python/pygit2
+app-text/po4a
+app-text/asciidoc
 dev-util/bless
 dev-util/ccache
 dev-util/colorgcc

@@ -40,6 +40,14 @@ app-vim/undotree
 app-vim/unite
 app-vim/vim-spell-en
 app-vim/vim-spell-de
+app-vim/emmet
+app-vim/editorconfig-vim
+app-vim/pathogen
+app-vim/recover
+app-vim/rust-vim
+app-vim/txtfmt
+app-vim/vim-spell-en
+app-vim/vim-spell-fr
 app-vim/vimpython
 app-vim/vimtex
 app-vim/vimclojure
@@ -48,12 +56,5 @@ app-vim/vim-misc
 app-vim/vim-flake8
 app-vim/xsl-syntax
 app-vim/youcompleteme
-app-vim/yankring
 
-# -----------------------------------------------------------------------------
-# Neovim
-# -----------------------------------------------------------------------------
-
-app-editors/neovim
-dev-ruby/neovim-ruby-client
-dev-python/neovim-python-client
+app-editors/gvim

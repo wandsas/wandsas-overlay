@@ -1,20 +1,11 @@
+#app-emulation/libvirt
 app-emulation/fuse
 app-emulation/qemu
 app-emulation/aqemu
-app-emulation/libvirt
 
-dev-python/fusepy
-dev-perl/Fuse
-dev-java/prefuse
-dev-libs/go-fuse
-
-dev-util/schroot
 dev-util/febootstrap
 dev-util/cmake-fedora
 dev-util/debootstrap
+dev-util/schroot
 sys-apps/debianutils
-
-sys-fs/fuse
-sys-fs/fuse-exfat
-sys-fs/fuse-zip
-sys-fs/fuseiso
+sys-block/nbd
