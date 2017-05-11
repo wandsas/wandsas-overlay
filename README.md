@@ -1,4 +1,11 @@
-MIT License
+# Config for tmux "terminal multiplexer"
+
+## References
+
+* [tmux] (https://github.com/tmux/tmux)
+
+
+## MIT License
 
 Copyright (c) 2017 wandsas
 
