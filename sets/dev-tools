@@ -1,5 +1,8 @@
+app-misc/colordiff
 dev-java/oracle-jdk-bin
 dev-lang/go
+dev-lang/ruby
+dev-lang/python
 dev-libs/libgit2
 dev-python/github3
 dev-python/pygit2
@@ -14,7 +17,7 @@ dev-util/valgrind
 dev-util/ninja
 dev-util/cutils
 dev-util/patchutils
-dev-vcs/git-deps
+dev-util/colorgcc
 dev-vcs/git-flow
 dev-vcs/git-tools
 dev-vcs/topgit
