@@ -1,8 +1,13 @@
-# Config for tmux "terminal multiplexer"
+# tmux-config (my configs for tmux respective tmuxinator and screen)
+
 
 ## References
 
-* [tmux] (https://github.com/tmux/tmux)
+* [tmux - terminal multiplexer] <https://github.com/tmux/tmux>
+
+* [GNU Screen - full-screen window-manger multiplexing physical terminals] <https://www.gnu.org/software/screen/>
+
+* [tmuxinator - create and manage complex tmux sessions easily] <https://github.com/tmuxinator/tmuxinator>
 
 
 ## MIT License
