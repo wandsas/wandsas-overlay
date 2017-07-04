@@ -1,7 +1,7 @@
 # tmux-config (my configs for tmux respective tmuxinator and screen)
 
 
-## References
+## References:
 
 * [tmux - terminal multiplexer] <https://github.com/tmux/tmux>
 
