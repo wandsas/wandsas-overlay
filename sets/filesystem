@@ -14,7 +14,9 @@ sys-apps/gptfdisk
 sys-block/gparted
 sys-block/parted
 sys-fs/btrfs-progs
+sys-fs/bcache-tools
 sys-fs/dosfstools
+sys-fs/extundelete
 sys-fs/e2fsprogs
 sys-fs/hfsutils
 sys-fs/hfsplusutils
@@ -24,3 +26,4 @@ sys-fs/cryptsetup
 sys-fs/xfsprogs
 sys-fs/fuse
 sys-fs/fuseiso
+

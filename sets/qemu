@@ -12,6 +12,7 @@ dev-util/cmake-fedora
 dev-util/rpmdevtools
 dev-util/debootstrap
 dev-util/schroot
+sys-apps/pacman
 sys-apps/yum
 sys-apps/debianutils
 sys-block/nbd
