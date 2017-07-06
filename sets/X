@@ -1,4 +1,10 @@
+app-eselect/eselect-opengl
+app-eselect/eselect-mesa
 app-text/mupdf
+app-misc/tmux
+app-misc/tmux-mem-cpu-load
+app-misc/screen
+dev-perl/perl-URxvt
 media-gfx/gpicview
 media-gfx/pqiv
 media-gfx/qiv
@@ -43,4 +49,3 @@ x11-misc/slim
 x11-terms/xterm
 x11-terms/st
 x11-terms/rxvt-unicode
-dev-perl/perl-URxvt

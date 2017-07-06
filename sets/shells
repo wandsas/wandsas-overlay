@@ -1,0 +1,7 @@
+app-eselect/sh
+app-shells/bash
+app-shells/bash-completion
+app-shells/dash
+app-shells/zsh
+app-shells/zsh-completions
+app-shells/gentoo-zsh-completions
