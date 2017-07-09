@@ -1,5 +1,6 @@
 app-eselect/eselect-emacs
 app-eselect/eselect-vi
+app-editors/vim
 app-editors/neovim
 dev-python/neovim-python-client
 dev-ruby/neovim-ruby-client

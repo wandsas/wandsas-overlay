@@ -1,4 +1,4 @@
-app-eselect/sh
+app-eselect/eselect-sh
 app-shells/bash
 app-shells/bash-completion
 app-shells/dash

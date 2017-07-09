@@ -1,15 +1,15 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-  <name><![CDATA[bar]]></name>
+  <name><![CDATA[wandsas]]></name>
   <description lang="en"><![CDATA[wandsas gentoo overlay]]></description>
   <homepage>https://github.com/wandsas/wandsas-overlay</homepage>
   <owner type="person">
     <email>sascha.wander@gmail.com</email>
-    <name><![CDATA[tokiclover]]></name>
+    <name><![CDATA[wandsas]]></name>
   </owner>
   <source type="git">https://github.com/wandsas/wandsas-overlay.git</source>
-  <source type="git">https://wandsas@bitbucket.org/wandsas/wandsas-overlay.git</source>
+  <source type="git">https://gitlab.com/wandsas/wandsas-overlay.git</source>
   <feed>https://github.com/wandsas/wandsas-overlay/commits/master.atom</feed>
   </repo>
 </repositories>

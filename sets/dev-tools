@@ -1,9 +1,11 @@
+app-eselect/eselect-ctags
 app-misc/colordiff
 app-text/po4a
 app-text/asciidoc
 dev-libs/libgit2
 dev-python/github3
 dev-python/pygit2
+dev-python/python-ctags
 dev-util/bless
 dev-util/ccache
 dev-util/colorgcc
@@ -13,6 +15,8 @@ dev-util/valgrind
 dev-util/ninja
 dev-util/cutils
 dev-util/patchutils
+dev-util/glade
+dev-util/ctags
 sys-devel/crossdev
 sys-devel/gdb
 sys-devel/distcc
