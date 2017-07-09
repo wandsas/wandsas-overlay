@@ -3,6 +3,9 @@ app-misc/colordiff
 app-text/po4a
 app-text/asciidoc
 dev-libs/libgit2
+dev-lang/perl
+dev-lang/rust
+dev-lang/go
 dev-python/github3
 dev-python/pygit2
 dev-python/python-ctags
