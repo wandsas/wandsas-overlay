@@ -5,6 +5,7 @@ dev-util/cmake-fedora
 dev-util/rpmdevtools
 dev-util/debootstrap
 dev-util/schroot
+net-misc/apt-cacher-ng
 sys-apps/pacman
 sys-apps/yum
 sys-apps/debianutils
@@ -21,7 +22,7 @@ app-emulation/lxd
 app-emulation/libvirt
 app-emulation/libvirt-glib
 #app-emulation/libvirt-snmp
-#app-emulation/libguestfs
+app-emulation/libguestfs
 
 app-emulation/docker
 #app-emulation/docker-compose

@@ -1,0 +1,10 @@
+diff --git a/po/POTFILES b/po/POTFILES
+--- a/po/POTFILES
++++ b/po/POTFILES
+@@ -1,7 +1,5 @@
+ align/scan.c
+-builder/index-parse.c
+ builder/index-parser-c.c
+-builder/index-scan.c
+ builder/index-struct.c
+ builder/index-validate
