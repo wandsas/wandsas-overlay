@@ -22,7 +22,6 @@ app-emulation/libvirt
 app-emulation/libvirt-glib
 #app-emulation/libvirt-snmp
 #app-emulation/libguestfs
-app-emulation/vagrant
 
 app-emulation/docker
 #app-emulation/docker-compose
