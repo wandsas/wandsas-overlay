@@ -15,7 +15,7 @@ lxqt-base/lxqt-session
 lxqt-base/lxqt-runner
 lxqt-base/powermanagement
 lxqt-base/lxqt-sudo
-lxqt-base/qtplugin
+lxqt-base/lxqt-qtplugin
 
 #lxde-base/lxappearance
 #lxde-base/lxrandr
