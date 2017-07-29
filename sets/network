@@ -2,6 +2,7 @@
 net-analyzer/tcpdump
 net-analyzer/gnu-netcat
 net-dns/dnsmasq
+net-dns/bind-tools
 net-dns/ldns-utils
 net-firewall/ipset
 net-firewall/iptables
