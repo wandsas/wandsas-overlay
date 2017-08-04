@@ -1,0 +1,15 @@
+mail-client/mutt
+mail-mta/msmtp
+net-mail/offlineimap
+net-mail/mairix
+net-mail/mailutils
+
+net-news/newsbeuter
+net-nntp/slrn
+
+net-irc/irssi
+net-irc/irssi-otr
+net-irc/irssistats
+net-irc/quassel-irssi
+net-im/corebird
+

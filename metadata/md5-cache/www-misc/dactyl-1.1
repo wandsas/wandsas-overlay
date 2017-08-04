@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install
+DEPEND=app-arch/zip net-misc/curl sys-apps/sed
+DESCRIPTION=Efficient and keyboard friendly vim UI interface add-on
+EAPI=5
+HOMEPAGE=https://5digits/org https://github.com/5digits/dactyl
+IUSE=+firefox +plugins songbird thunderbird
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT
+RDEPEND=app-arch/zip net-misc/curl sys-apps/sed virtual/awk
+REQUIRED_USE=|| ( firefox songbird thunderbird )
+SLOT=0
+SRC_URI=https://github.com/5digits/dactyl/archive/pentadactyl-1.1.tar.gz plugins? ( http://5digits.org/plugins/browser-improvements.js -> dactyl-plugins-browser-improvements.js ) plugins? ( http://5digits.org/plugins/curl.js -> dactyl-plugins-curl.js ) plugins? ( http://5digits.org/plugins/fix-focus.js -> dactyl-plugins-fix-focus.js ) plugins? ( http://5digits.org/plugins/flashblock.js -> dactyl-plugins-flashblock.js ) plugins? ( http://5digits.org/plugins/http-headers.js -> dactyl-plugins-http-headers.js ) plugins? ( http://5digits.org/plugins/jQuery.js -> dactyl-plugins-jQuery.js ) plugins? ( http://5digits.org/plugins/jscompletion.js -> dactyl-plugins-jscompletion.js ) plugins? ( http://5digits.org/plugins/noscript.js -> dactyl-plugins-noscript.js ) plugins? ( http://5digits.org/plugins/useragent.js -> dactyl-plugins-useragent.js ) plugins? ( http://5digits.org/plugins/xpcom.js -> dactyl-plugins-xpcom.js )
+_eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	8fec6b1eb195836560e70b66d98fb163
+_md5_=da5303c62eb1bc72ca53d84238dc2321

@@ -1,0 +1,17 @@
+dev-perl/AnyEvent-I3
+media-gfx/gpicview
+media-gfx/pqiv
+media-gfx/qiv
+sys-apps/udevil
+x11-misc/i3blocks-gaps
+x11-libs/xcb-util-xrm
+x11-misc/i3status
+x11-misc/i3lock
+x11-misc/rofi
+x11-misc/dmenu
+x11-misc/spacefm
+x11-misc/polybar
+x11-misc/unclutter-xfixes
+x11-misc/gsimplecal
+x11-misc/clipit
+x11-wm/i3-gaps

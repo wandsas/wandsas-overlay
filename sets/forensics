@@ -1,0 +1,5 @@
+app-exploits/exploitdb
+dev-db/sqlmap
+net-analyzer/nmap
+net-analyzer/sqlninja
+app-eselect/eselect-metasploit

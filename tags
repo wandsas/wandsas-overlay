@@ -1,0 +1,50 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+-1,4 +1,4	sys-libs/libpstat/files/Makefile-DESTDIR.patch	/^@@ -1,4 +1,4 @@$/;"	h	modifiedFile:a/Makefile
+-1,7 +1,5	app-emulation/libguestfs/files/1.36/001_POTFILES.patch	/^@@ -1,7 +1,5 @@$/;"	h	modifiedFile:a/po/POTFILES
+-14,12 +14,12	x11-misc/srandrd/files/srandrd-0.4-Makefile.patch	/^@@ -14,12 +14,12 @@$/;"	h	modifiedFile:Makefile.orig
+-163,11 +163,11	sys-apps/less/files/code2color-0.2.patch	/^@@ -163,11 +163,11 @@$/;"	h	modifiedFile:code2color
+-1794,12 +1794,8	x11-wm/fluxbox/files/gentoo_style_location-1.1.x.patch	/^@@ -1794,12 +1794,8 @@ fi$/;"	h	modifiedFile:a/util/fluxbox-generate_menu.in
+-3192,7 +3192,7	sys-apps/less/files/code2color-0.2.patch	/^@@ -3192,7 +3192,7 @@$/;"	h	modifiedFile:code2color
+-330,13 +330,13	x11-wm/fluxbox/files/1.3.5-generate_menu-printf-fix.patch	/^@@ -330,13 +330,13 @@ searchForIcon(){$/;"	h	modifiedFile:a/util/fluxbox-generate_menu.in
+-356,7 +356,8	x11-wm/fluxbox/files/osx-has-otool.patch	/^@@ -356,7 +356,8 @@$/;"	h	modifiedFile:util/fbsetbg
+-36,6 +36,7	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^@@ -36,6 +36,7 @@$/;"	h	modifiedFile:a/src/vfs/vfs-volume-nohal.c
+-54,18 +54,18	sys-libs/libpstat/files/Makefile-DESTDIR.patch	/^@@ -54,18 +54,18 @@$/;"	h	modifiedFile:a/Makefile
+-55,7 +55,6	app-emulation/libguestfs/files/1.36/002_POTFILES-ml.patch	/^@@ -55,7 +55,6 @@$/;"	h	modifiedFile:a/po/POTFILES-ml
+-648,24 +648,29	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^@@ -648,24 +648,29 @@ void Toolbar::setPlacement(Toolbar::Placement where) {$/;"	h	modifiedFile:a/src/Toolbar.cc
+-673,21 +678,24	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^@@ -673,21 +678,24 @@ void Toolbar::setPlacement(Toolbar::Placement where) {$/;"	h	modifiedFile:a/src/Toolbar.cc
+-7,7 +7,7	x11-misc/rofi/files/rofi-0.15.12-Werror.patch	/^@@ -7,7 +7,7 @@$/;"	h	modifiedFile:a/configure.ac
+-80,18 +80,18	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^@@ -80,18 +80,18 @@ const struct {$/;"	h	modifiedFile:a/src/Toolbar.cc
+HELP_MESSAGE	scripts/header-update.pl	/^sub HELP_MESSAGE {$/;"	s
+Makefile.orig	x11-misc/srandrd/files/srandrd-0.4-Makefile.patch	/^--- Makefile.orig	2016-09-10 11:17:28.398893952 +0200$/;"	m
+Usage	scripts/header-update.pl	/^  Usage: $0 [OPTIONS] FILES$/;"	l
+VERSION_MESSAGE	scripts/header-update.pl	/^sub VERSION_MESSAGE {$/;"	s
+a/Makefile	sys-libs/libpstat/files/Makefile-DESTDIR.patch	/^--- a\/Makefile	2015-08-05 10:31:47.712994203 +0200$/;"	m
+a/configure.ac	x11-misc/rofi/files/rofi-0.15.12-Werror.patch	/^--- a\/configure.ac$/;"	m
+a/po/POTFILES	app-emulation/libguestfs/files/1.36/001_POTFILES.patch	/^--- a\/po\/POTFILES$/;"	m
+a/po/POTFILES-ml	app-emulation/libguestfs/files/1.36/002_POTFILES-ml.patch	/^--- a\/po\/POTFILES-ml$/;"	m
+a/src/Toolbar.cc	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^--- a\/src\/Toolbar.cc$/;"	m
+a/src/vfs/vfs-volume-nohal.c	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^--- a\/src\/vfs\/vfs-volume-nohal.c$/;"	m
+a/util/fluxbox-generate_menu.in	x11-wm/fluxbox/files/1.3.5-generate_menu-printf-fix.patch	/^--- a\/util\/fluxbox-generate_menu.in$/;"	m
+a/util/fluxbox-generate_menu.in	x11-wm/fluxbox/files/gentoo_style_location-1.1.x.patch	/^--- a\/util\/fluxbox-generate_menu.in$/;"	m
+candidate	sets.conf	/^world-candidate = True$/;"	k	section:wandsas-sets
+class	sets.conf	/^class = portage.sets.files.StaticFileSet$/;"	k	section:wandsas-sets
+code2color	sys-apps/less/files/code2color-0.2.patch	/^--- code2color$/;"	m
+directory	sets.conf	/^directory = ${repository:wandsas}\/sets\/$/;"	k	section:wandsas-sets
+guesscompress	sys-apps/less/files/lesspipe.sh	/^guesscompress() {$/;"	f
+lesspipe	sys-apps/less/files/lesspipe.sh	/^lesspipe() {$/;"	f
+lesspipe_file	sys-apps/less/files/lesspipe.sh	/^lesspipe_file() {$/;"	f
+location	wandsas.conf	/^location = \/var\/db\/repos\/wandsas$/;"	k	section:wandsas
+manifests	metadata/layout.conf	/^thin-manifests = true$/;"	k
+masters	metadata/layout.conf	/^masters = gentoo$/;"	k
+multiset	sets.conf	/^multiset = True$/;"	k	section:wandsas-sets
+sync	wandsas.conf	/^auto-sync = yes$/;"	k	section:wandsas
+type	wandsas.conf	/^sync-type = git$/;"	k	section:wandsas
+uri	wandsas.conf	/^sync-uri = git:\/\/github.com\/wandsas\/wandsas-overlay.git$/;"	k	section:wandsas
+util/fbsetbg	x11-wm/fluxbox/files/osx-has-otool.patch	/^--- util\/fbsetbg$/;"	m
+wandsas	wandsas.conf	/^[wandsas]$/;"	s
+wandsas-sets	sets.conf	/^[wandsas-sets]$/;"	s
