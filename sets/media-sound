@@ -32,10 +32,7 @@ media-sound/timidity++
 media-sound/mp3c
 media-sound/id3
 media-sound/beets
-
-media-video/ffmpeg
-media-video/mpv
-media-video/x264-encoder
+media-sound/abcde
 
 net-misc/youtube-dl
 
