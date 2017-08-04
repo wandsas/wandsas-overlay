@@ -1,9 +1,0 @@
-app-admin/stow
-dev-vcs/mr
-dev-vcs/git
-dev-vcs/git-tools
-dev-vcs/topgit
-dev-vcs/mercurial
-dev-vcs/subversion
-dev-vcs/mr
-sys-apps/etckeeper

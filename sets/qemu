@@ -1,13 +1,13 @@
 app-arch/dpkg
 app-arch/rpm
-dev-util/febootstrap
-dev-util/cmake-fedora
-dev-util/rpmdevtools
+#dev-util/febootstrap
+#dev-util/cmake-fedora
+#dev-util/rpmdevtools
 dev-util/debootstrap
 dev-util/schroot
 net-misc/apt-cacher-ng
-sys-apps/pacman
-sys-apps/yum
+#sys-apps/pacman
+#sys-apps/yum
 sys-apps/debianutils
 sys-block/nbd
 sys-fs/lxcfs
@@ -22,7 +22,7 @@ app-emulation/lxd
 app-emulation/libvirt
 app-emulation/libvirt-glib
 #app-emulation/libvirt-snmp
-app-emulation/libguestfs
+#app-emulation/libguestfs
 
 app-emulation/docker
 #app-emulation/docker-compose
