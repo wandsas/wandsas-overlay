@@ -48,7 +48,6 @@ app-misc/screen
 x11-terms/xterm
 x11-terms/st
 x11-terms/rxvt-unicode
-dev-perl/perl-URxvt
 x11-misc/urxvt-font-size
 x11-misc/urxvt-perls
 x11-misc/urxvtconfig
