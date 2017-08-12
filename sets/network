@@ -1,0 +1,27 @@
+net-analyzer/fail2ban
+net-analyzer/tcpdump
+net-analyzer/gnu-netcat
+net-dns/dnsmasq
+net-dns/bind-tools
+net-dns/ldns-utils
+net-firewall/ipset
+net-firewall/iptables
+#net-ftp/ncftp
+net-libs/ldns
+net-misc/rclone
+net-misc/dhcpcd
+net-misc/dhcpcd-ui
+net-misc/chrony
+net-misc/bridge-utils
+net-misc/iputils
+net-misc/openssh
+net-misc/tipcutils
+net-misc/connman
+net-misc/pacrunner
+net-misc/mosh
+sys-apps/iproute2
+sys-apps/usermode-utilities
+sys-apps/net-tools
+sys-apps/ethtool
+# -*- mode: sh -*-
+# vim:fenc=utf-8:ft=sh:

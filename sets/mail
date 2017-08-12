@@ -1,0 +1,21 @@
+# mail
+mail-client/mutt
+mail-mta/msmtp
+net-mail/offlineimap
+net-mail/mairix
+net-mail/mailutils
+# rss-reader
+net-news/newsbeuter
+net-nntp/slrn
+net-nntp/slrnconf
+# irc
+net-irc/weechat
+net-irc/irssi
+net-irc/irssi-otr
+net-irc/irssistats
+net-irc/quassel-irssi
+# twitter
+net-im/corebird
+# -*- mode: sh -*-
+# vim:fenc=utf-8:ft=sh:
+

@@ -1,0 +1,51 @@
+# arch
+#sys-apps/pacman
+# Fedora tools
+#app-arch/rpm
+#dev-util/febootstrap
+#dev-util/cmake-fedora
+#dev-util/rpmdevtools
+#sys-apps/yum
+# Debian stuff
+app-arch/dpkg
+dev-util/debootstrap
+dev-util/schroot
+net-misc/apt-cacher-ng
+sys-apps/debianutils
+# qemu/kvm
+app-emulation/qemu
+app-emulation/qemu-init-scripts
+app-emulation/aqemu
+app-emulation/virt-manager
+sys-block/nbd
+# libvirt
+app-emulation/libvirt
+app-emulation/libvirt-glib
+#app-emulation/libvirt-snmp
+# libguestfs
+#app-emulatuion/libguestfs-appliance
+#app-emulation/libguestfs
+# lxc
+app-emulation/lxc
+app-emulation/lxd
+sys-fs/lxcfs
+# docker
+app-emulation/docker
+#app-emulation/docker-compose
+#app-emulation/docker-gc
+#app-emulation/docker-machine
+app-emulation/docker-machine-kvm
+#app-emulation/docker-proxy
+#app-emulation/docker-registry
+#app-emulation/docker-runc
+#app-emulation/docker-swarm
+dev-python/libvirt-python
+#dev-python/docker-py
+#dev-python/docker-pycreds
+#dev-python/dockerpty
+#dev-util/docker-distribution-prune
+#dev-util/docker-ls
+#net-fs/docker-volume-netshare
+#sys-auth/docker_auth
+# -*- mode: sh -*-
+# vim:fenc=utf-8:ft=sh:

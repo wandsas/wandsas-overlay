@@ -1,5 +1,11 @@
+app-eselect/eselect-metasploit
 app-exploits/exploitdb
 dev-db/sqlmap
 net-analyzer/nmap
 net-analyzer/sqlninja
-app-eselect/eselect-metasploit
+net-analyzer/metasploit
+net-analyzer/metasploit-payloads
+net-analyzer/metasploit_payloads-mettle
+net-analyzer/metasploit_data_models
+# -*- mode: sh -*-
+# vim:fenc=utf-8:ft=sh:

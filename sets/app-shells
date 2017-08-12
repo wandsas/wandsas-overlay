@@ -1,9 +1,0 @@
-app-eselect/eselect-sh
-app-shells/bash
-app-shells/bash-completion
-app-shells/dash
-app-shells/zsh
-app-shells/zsh-completions
-app-shells/gentoo-zsh-completions
-app-shells/peco
-app-shells/fzf
