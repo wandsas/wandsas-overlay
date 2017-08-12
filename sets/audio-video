@@ -24,7 +24,7 @@ media-sound/mpc
 media-sound/mpd
 #media-sound/forked-daapd
 #media-sound/ncmpc
-media-sound/ncmpcpp
+#media-sound/ncmpcpp
 media-sound/timidity++
 media-sound/mp3c
 media-sound/id3
