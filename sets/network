@@ -17,7 +17,7 @@ net-misc/iputils
 net-misc/openssh
 net-misc/tipcutils
 net-misc/connman
-net-misc/pacrunner
+#net-misc/pacrunner
 net-misc/mosh
 sys-apps/iproute2
 sys-apps/usermode-utilities
