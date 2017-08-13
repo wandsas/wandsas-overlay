@@ -28,6 +28,9 @@
 -135,7 +146,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -135,7 +146,7 @@ test_expect_success PERL 'second update has correct .git\/cvs-revisions' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -136,7 +136,7	x11-terms/rxvt-unicode/files/rxvt-unicode-9.21-xsubpp.patch	/^@@ -136,7 +136,7 @@$/;"	h	modifiedFile:a/src/Makefile.in
 -14,12 +14,12	x11-misc/srandrd/files/srandrd-0.4-Makefile.patch	/^@@ -14,12 +14,12 @@$/;"	h	modifiedFile:Makefile.orig
+-14,18 +14,18	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^@@ -14,18 +14,18 @@$/;"	h	modifiedFile:a/config.mk
+-14,18 +14,18	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^@@ -14,18 +14,18 @@$/;"	h	modifiedFile:a/config.mk
+-14,18 +14,18	x11-misc/dmenu/files/dmenu-9999-gentoo.patch	/^@@ -14,18 +14,18 @@$/;"	h	modifiedFile:a/config.mk
 -14,6 +14,17	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -14,6 +14,17 @@$/;"	h	modifiedFile:a/t/t9603-cvsimport-patchsets.sh
 -148,12 +159,12	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -148,12 +159,12 @@ test_expect_success PERL 'import from a CVS working tree' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -14903,7 +14903,9	media-sound/jack-audio-connection-kit/files/jack-audio-connection-kit-0.121.3-freebsd.patch	/^@@ -14903,7 +14903,9 @@$/;"	h	modifiedFile:configure
@@ -61,6 +64,7 @@
 -2932,6 +2932,17	x11-terms/rxvt-unicode/files/rxvt-unicode-9.14-clear.patch	/^@@ -2932,6 +2932,17 @@$/;"	h	modifiedFile:a/src/command.C
 -3,13 +3,10	media-sound/jack_capture/files/jack_capture-0.9.70-Makefile.patch	/^@@ -3,13 +3,10 @@$/;"	h	modifiedFile:a/Makefile
 -3,14 +3,25	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -3,14 +3,25 @@$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
+-30,6 +30,8	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^@@ -30,6 +30,8 @@$/;"	h	modifiedFile:a/src/main.c
 -301,7 +303,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -301,7 +303,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -319,6 +341,10	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -319,6 +341,10 @@ sub get_mw_pages {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -3192,7 +3192,7	sys-apps/less/files/code2color-0.2.patch	/^@@ -3192,7 +3192,7 @@$/;"	h	modifiedFile:code2color
@@ -70,6 +74,7 @@
 -34,6 +34,17	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -34,6 +34,17 @@$/;"	h	modifiedFile:a/t/t9601-cvsimport-vendor-branch.sh
 -346,7 +348,9	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -346,7 +348,9 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -356,7 +356,8	x11-wm/fluxbox/files/osx-has-otool.patch	/^@@ -356,7 +356,8 @@$/;"	h	modifiedFile:util/fbsetbg
+-36,6 +36,7	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^@@ -36,6 +36,7 @@$/;"	h	modifiedFile:a/src/vfs/vfs-volume-nohal.c
 -373,7 +377,8	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -373,7 +377,8 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -381,6 +381,24	sys-process/runit/files/runit-2.1-runsv-logdir.patch	/^@@ -381,6 +381,24 @@ int ctrl(struct svdir *s, char c) {$/;"	h	modifiedFile:a/src/runsv.c
 -381,6 +381,24	sys-process/supervision/runit/files/runit-2.1-runsv-logdir.patch	/^@@ -381,6 +381,24 @@ int ctrl(struct svdir *s, char c) {$/;"	h	modifiedFile:a/src/runsv.c
@@ -89,6 +94,9 @@
 -49,13 +47,13	www-client/surf/files/surf-9999-gentoo.patch	/^@@ -49,13 +47,13 @@$/;"	h	modifiedFile:a/Makefile
 -496,6 +498,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -496,6 +498,7 @@ LIB_OBJS =$/;"	h	modifiedFile:a/Makefile
 -5,12 +5,12	x11-misc/netwmpager/files/netwmpager-2.04-libX11.patch	/^@@ -5,12 +5,12 @@$/;"	h	modifiedFile:Makefile
+-5,8 +5,8	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^@@ -5,8 +5,8 @@$/;"	h	modifiedFile:a/config.mk
+-5,8 +5,8	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^@@ -5,8 +5,8 @@$/;"	h	modifiedFile:a/config.mk
+-5,8 +5,8	x11-misc/dmenu/files/dmenu-9999-gentoo.patch	/^@@ -5,8 +5,8 @@$/;"	h	modifiedFile:a/config.mk
 -50,6 +56,7	x11-misc/netwmpager/files/netwmpager-2.04-libX11.patch	/^@@ -50,6 +56,7 @@$/;"	h	modifiedFile:configure
 -516,7 +521,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -516,7 +521,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -532,12 +535,13	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -532,12 +535,13 @@ SCRIPT_LIB += git-sh-i18n$/;"	h	modifiedFile:a/Makefile
@@ -175,6 +183,9 @@ a/Makefile	www-client/surf/files/surf-9999-gentoo.patch	/^--- a\/Makefile$/;"	m
 a/Makefile.in	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-case-insensitive-fs.patch	/^--- a\/Makefile.in$/;"	m
 a/config.mk	www-client/surf/files/surf-2.0-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	www-client/surf/files/surf-9999-gentoo.patch	/^--- a\/config.mk$/;"	m
+a/config.mk	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^--- a\/config.mk$/;"	m
+a/config.mk	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^--- a\/config.mk$/;"	m
+a/config.mk	x11-misc/dmenu/files/dmenu-9999-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/configure.ac	x11-misc/rofi/files/rofi-0.15.12-Werror.patch	/^--- a\/configure.ac$/;"	m
 a/contrib/mw-to-git/Makefile	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^--- a\/contrib\/mw-to-git\/Makefile$/;"	m
 a/contrib/mw-to-git/git-remote-mediawiki.perl	dev-vcs/git/files/git-2.7.0-mediawiki-500pages.patch	/^--- a\/contrib\/mw-to-git\/git-remote-mediawiki.perl$/;"	m
@@ -190,6 +201,7 @@ a/src/Toolbar.cc	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^--- a\/src\/Too
 a/src/command.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.14-clear.patch	/^--- a\/src\/command.C$/;"	m
 a/src/command.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^--- a\/src\/command.C	Wed Dec 21 22:59:04 2011 +0100$/;"	m
 a/src/init.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.05_no-MOTIF-WM-INFO.patch	/^--- a\/src\/init.C	15 Jul 2008 16:41:22 -0000	1.253$/;"	m
+a/src/main.c	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^--- a\/src\/main.c$/;"	m
 a/src/optinc.h	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^--- a\/src\/optinc.h	Wed Dec 21 22:59:04 2011 +0100$/;"	m
 a/src/rsinc.h	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^--- a\/src\/rsinc.h	Wed Dec 21 22:59:04 2011 +0100$/;"	m
 a/src/runsv.c	sys-process/runit/files/runit-2.1-runsv-logdir.patch	/^--- a\/src\/runsv.c$/;"	m
@@ -199,6 +211,7 @@ a/src/rxvtperl.xs	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-popups-hangs.pa
 a/src/screen.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-no-urgency-if-focused.diff	/^--- a\/src\/screen.C$/;"	m
 a/src/sv.c	sys-process/runit/files/runit-2.1-sv-check.patch	/^--- a\/src\/sv.c$/;"	m
 a/src/sv.c	sys-process/supervision/runit/files/runit-2.1-sv-check.patch	/^--- a\/src\/sv.c$/;"	m
+a/src/vfs/vfs-volume-nohal.c	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^--- a\/src\/vfs\/vfs-volume-nohal.c$/;"	m
 a/src/xdefaults.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^--- a\/src\/xdefaults.C	Wed Dec 21 22:59:04 2011 +0100$/;"	m
 a/t/t9200-git-cvsexportcommit.sh	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^--- a\/t\/t9200-git-cvsexportcommit.sh$/;"	m
 a/t/t9400-git-cvsserver-server.sh	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^--- a\/t\/t9400-git-cvsserver-server.sh$/;"	m

@@ -8,7 +8,7 @@ app-cdr/gaffitter
 app-cdr/iat
 # graphic
 app-text/mupdf
-app-text/pdftk
+#app-text/pdftk
 media-gfx/gimp
 media-gfx/inkscape
 # sound stuff

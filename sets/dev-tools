@@ -24,6 +24,8 @@ app-text/asciidoc
 app-vim/fluxbox-syntax
 # languages
 dev-java/oracle-jdk-bin
+#dev-jave/ecj-gcj
+#dev-java/gcj-jdk
 dev-lang/perl
 dev-lang/go
 dev-lang/ruby
