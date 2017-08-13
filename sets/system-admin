@@ -38,7 +38,8 @@ sys-fs/eudev
 sys-power/acpid
 sys-power/pmtools
 sys-process/at
-sys-process/fcron
+#sys-process/fcron
+sys-process/cronie
 sys-process/ftop
 sys-process/htop
 sys-process/lsof
