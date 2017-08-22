@@ -58,6 +58,7 @@ dev-util/patchutils
 dev-util/glade
 dev-util/ctags
 dev-util/cmake
+dev-util/waf
 dev-vcs/mr
 dev-vcs/git
 dev-vcs/mercurial

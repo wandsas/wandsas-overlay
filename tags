@@ -5,6 +5,7 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
+-0,0 +1,44	media-sound/jack_mixer/files/missing-gconf-2.m4.patch	/^@@ -0,0 +1,44 @@$/;"	h	newFile:m4/gconf-2.m4
 -1,2 +1,34	net-analyzer/check_mk/files/check_mk.patch	/^@@ -1,2 +1,34 @@$/;"	h	modifiedFile:usr/bin/check_mk
 -1,4 +1,4	sys-libs/libpstat/files/Makefile-DESTDIR.patch	/^@@ -1,4 +1,4 @@$/;"	h	modifiedFile:a/Makefile
 -1,7 +1,5	app-emulation/libguestfs/files/1.36/001_POTFILES.patch	/^@@ -1,7 +1,5 @@$/;"	h	modifiedFile:a/po/POTFILES
@@ -16,25 +17,35 @@
 -1078,15 +1078,7	x11-terms/rxvt-unicode/files/rxvt-unicode-9.05_no-MOTIF-WM-INFO.patch	/^@@ -1078,15 +1078,7 @@$/;"	h	modifiedFile:a/src/init.C
 -11,6 +11,11	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -11,6 +11,11 @@ if ! test_have_prereq PERL; then$/;"	h	modifiedFile:a/t/t9200-git-cvsexportcommit.sh
 -11,9 +11,15	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -11,9 +11,15 @@ cvs CLI client via git-cvsserver server'$/;"	h	modifiedFile:a/t/t9400-git-cvsserver-server.sh
+-1109,10 +1076,22	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^@@ -1109,10 +1076,22 @@$/;"	h	modifiedFile:SConstruct
+-1122,7 +1101,6	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^@@ -1122,7 +1101,6 @@$/;"	h	modifiedFile:SConstruct
 -113,7 +113,7	x11-terms/mrxvt/files/mrxvt-0.5.4-libpng14.patch	/^@@ -113,7 +113,7 @@$/;"	h	modifiedFile:src/mpng.c
+-1138,8 +1116,7	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^@@ -1138,8 +1116,7 @@$/;"	h	modifiedFile:SConstruct
 -114,7 +125,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -114,7 +125,7 @@ test_expect_success PERL 'update cvs module' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -1167,6 +1172,13	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^@@ -1167,6 +1172,13 @@$/;"	h	modifiedFile:a/doc/rxvt.1.pod
 -1195,12 +1195,14	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-font-width.patch	/^@@ -1195,12 +1195,14 @@$/;"	h	modifiedFile:a/src/rxvtfont.C
 -12,7 +12,7	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^@@ -12,7 +12,7 @@ ifndef V$/;"	h	modifiedFile:a/perl/Makefile
+-12,7 +12,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-Makefile.patch	/^@@ -12,7 +12,7 @@$/;"	h	modifiedFile:Makefile
+-125,7 +125,6	media-libs/lilv/files/ldconfig.patch	/^@@ -125,7 +125,6 @@ def build(bld):$/;"	h	modifiedFile:serd-0.4.2.orig/wscript
+-1251,9 +1228,9	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^@@ -1251,9 +1228,9 @@$/;"	h	modifiedFile:SConstruct
 -126,7 +137,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -126,7 +137,7 @@ test_expect_success PERL 'cvsimport.module config works' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -1263,7 +1289,6	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -1263,7 +1289,6 @@ my %cached_mw_namespace_id;$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
+-132,7 +132,9	media-sound/ladish/files/ladish-1-libdir.patch	/^@@ -132,7 +132,9 @@$/;"	h	modifiedFile:wscript
 -1327,7 +1327,7	x11-terms/mrxvt/files/mrxvt-0.5.4-001-fix-segfault-when-wd-empty.patch	/^@@ -1327,7 +1327,7 @@$/;"	h	modifiedFile:src/tabbar.c
 -1331,7 +1356,12	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -1331,7 +1356,12 @@ sub get_mw_namespace_id {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -135,7 +146,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -135,7 +146,7 @@ test_expect_success PERL 'second update has correct .git\/cvs-revisions' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -136,7 +136,7	x11-terms/rxvt-unicode/files/rxvt-unicode-9.21-xsubpp.patch	/^@@ -136,7 +136,7 @@$/;"	h	modifiedFile:a/src/Makefile.in
+-137,9 +137,12	media-sound/rosegarden/files/rosegarden-12.12.25-debug.patch	/^@@ -137,9 +137,12 @@$/;"	h	modifiedFile:rosegarden-12.12.25/configure.ac
 -14,12 +14,12	x11-misc/srandrd/files/srandrd-0.4-Makefile.patch	/^@@ -14,12 +14,12 @@$/;"	h	modifiedFile:Makefile.orig
 -14,18 +14,18	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^@@ -14,18 +14,18 @@$/;"	h	modifiedFile:a/config.mk
 -14,18 +14,18	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^@@ -14,18 +14,18 @@$/;"	h	modifiedFile:a/config.mk
 -14,18 +14,18	x11-misc/dmenu/files/dmenu-9999-gentoo.patch	/^@@ -14,18 +14,18 @@$/;"	h	modifiedFile:a/config.mk
 -14,6 +14,17	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -14,6 +14,17 @@$/;"	h	modifiedFile:a/t/t9603-cvsimport-patchsets.sh
+-1441,7 +1418,7	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^@@ -1441,7 +1418,7 @@$/;"	h	modifiedFile:SConstruct
 -148,12 +159,12	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -148,12 +159,12 @@ test_expect_success PERL 'import from a CVS working tree' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -14903,7 +14903,9	media-sound/jack-audio-connection-kit/files/jack-audio-connection-kit-0.121.3-freebsd.patch	/^@@ -14903,7 +14903,9 @@$/;"	h	modifiedFile:configure
 -15,18 +15,16	www-client/surf/files/surf-2.0-gentoo.patch	/^@@ -15,18 +15,16 @@$/;"	h	modifiedFile:a/Makefile
+-150,7 +150,7	media-sound/fluidsynth/files/configure.ac.patch	/^@@ -150,7 +150,7 @@$/;"	h	modifiedFile:configure.ac
 -152,7 +152,8	media-sound/jack-audio-connection-kit/files/jack-audio-connection-kit-0.121.3-sparc-cpuinfo.patch	/^@@ -152,7 +152,8 @@$/;"	h	modifiedFile:old/config/os/gnu-linux/time.c
 -153,7 +155,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -153,7 +155,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -16,18 +16,16	www-client/surf/files/surf-9999-gentoo.patch	/^@@ -16,18 +16,16 @@$/;"	h	modifiedFile:a/Makefile
@@ -48,33 +59,74 @@
 -189,7 +189,9	dev-vcs/git/files/git-2.5.1-freebsd-10.x-no-iconv.patch	/^@@ -189,7 +189,9 @@ ifeq ($(uname_O),Cygwin)$/;"	h	modifiedFile:git-2.5.1.orig/config.mak.uname
 -1927,11 +1927,11	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-no-urgency-if-focused.diff	/^@@ -1927,11 +1927,11 @@$/;"	h	modifiedFile:a/src/screen.C
 -21,6 +21,12	x11-misc/netwmpager/files/netwmpager-2.04-libX11.patch	/^@@ -21,6 +21,12 @@$/;"	h	modifiedFile:configure
+-21,6 +21,23	media-sound/rezound/files/undefined-function.patch	/^@@ -21,6 +21,23 @@$/;"	h	modifiedFile:config/common.h.orig
 -2125,7 +2150,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -2125,7 +2150,7 @@ LOCALIZED_SH = $(SCRIPT_SH)$/;"	h	modifiedFile:a/Makefile
 -2197,10 +2197,46	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^@@ -2197,10 +2197,46 @@$/;"	h	modifiedFile:a/src/command.C
 -22,7 +22,7	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^@@ -22,7 +22,7 @@ INSTALL = install$/;"	h	modifiedFile:a/contrib/mw-to-git/Makefile
+-22,8 +22,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -22,8 +22,7 @@$/;"	h	modifiedFile:plugins/control2midi/control2midi.cpp
 -227,7 +227,13	sys-process/runit/files/runit-2.1-sv-check.patch	/^@@ -227,7 +227,13 @@ int check(char *a) {$/;"	h	modifiedFile:a/src/sv.c
 -227,7 +227,13	sys-process/supervision/runit/files/runit-2.1-sv-check.patch	/^@@ -227,7 +227,13 @@ int check(char *a) {$/;"	h	modifiedFile:a/src/sv.c
+-23,7 +23,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -23,7 +23,7 @@$/;"	h	modifiedFile:plugins/peakmeter/peakmeter.cpp
+-23,7 +23,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -23,7 +23,7 @@$/;"	h	modifiedFile:plugins/sineshaper/sineshaper.hpp
+-23,7 +23,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -23,7 +23,7 @@$/;"	h	modifiedFile:plugins/peakmeter/peakmeter.cpp
+-23,7 +23,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -23,7 +23,7 @@$/;"	h	modifiedFile:plugins/sineshaper/sineshaper.hpp
+-23,8 +23,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -23,8 +23,7 @@$/;"	h	modifiedFile:plugins/sineshaper/sineshaper.cpp
+-23,9 +23,9	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^@@ -23,9 +23,9 @@$/;"	h	modifiedFile:apps/Makefile
+-24,10 +24,10	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^@@ -24,10 +24,10 @@$/;"	h	modifiedFile:apps/Makefile
 -24,6 +24,8	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -24,6 +24,8 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
+-24,7 +24,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -24,7 +24,7 @@$/;"	h	modifiedFile:plugins/klaviatur/klaviatur.cpp
+-24,8 +24,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -24,8 +24,7 @@$/;"	h	modifiedFile:plugins/arpeggiator/arpeggiator.cpp
+-2499,6 +2499,7	media-video/ffmpeg/files/ladspadl.patch	/^@@ -2499,6 +2499,7 @@ hqdn3d_filter_deps="gpl"$/;"	h	modifiedFile:a/configure
 -25,6 +25,9	x11-terms/xvt/files/xvt-pts.patch	/^@@ -25,6 +25,9 @@ $/;"	h	modifiedFile:a/ttyinit.c
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/math-constants/math-constants.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/math-functions/math-functions.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/peakmeter/peakmeter_gtk.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/sineshaper/sineshaper_gtk.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/math-constants/math-constants.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/math-functions/math-functions.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/peakmeter/peakmeter_gtk.cpp
+-25,7 +25,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:plugins/sineshaper/sineshaper_gtk.cpp
+-25,7 +25,7	media-sound/zita-ajbridge/files/zita-ajbridge-0.4.0-Makefile.patch	/^@@ -25,7 +25,7 @@$/;"	h	modifiedFile:source/Makefile
+-25,8 +25,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -25,8 +25,7 @@$/;"	h	modifiedFile:plugins/beep/beep_gtk.cpp
+-25,8 +25,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -25,8 +25,7 @@$/;"	h	modifiedFile:plugins/klaviatur/klaviatur.cpp
+-251,19 +251,19	media-libs/libffado/files/libffado-2.2.1-jack-version.patch	/^@@ -251,19 +251,19 @@$/;"	h	modifiedFile:SConstruct
 -256,6 +261,23	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -256,6 +261,23 @@ sub get_mw_tracked_categories {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -259,16 +259,29	dev-vcs/git/files/git-2.7.0-mediawiki-500pages.patch	/^@@ -259,16 +259,29 @@ sub get_mw_tracked_categories {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -26,6 +26,7	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^@@ -26,6 +26,7 @@$/;"	h	modifiedFile:a/src/optinc.h
+-26,7 +26,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -26,7 +26,7 @@$/;"	h	modifiedFile:plugins/klaviatur/klaviatur_gtk.cpp
+-26,7 +26,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -26,7 +26,7 @@$/;"	h	modifiedFile:plugins/envelope/envelope_gtk.cpp
 -261,6 +261,7	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^@@ -261,6 +261,7 @@$/;"	h	modifiedFile:a/src/xdefaults.C
+-27,7 +27,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^@@ -27,7 +27,7 @@$/;"	h	modifiedFile:plugins/rudolf556/rudolf556.cpp
+-27,7 +27,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -27,7 +27,7 @@$/;"	h	modifiedFile:plugins/rudolf556/rudolf556.cpp
 -27,7 +27,7	x11-terms/xvt/files/xvt-makefile.patch	/^@@ -27,7 +27,7 @@$/;"	h	modifiedFile:xvt-1.0/Makefile.orig
 -273,6 +273,8	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -273,6 +273,8 @@ all::$/;"	h	modifiedFile:a/Makefile
+-28,10 +28,8	media-sound/laditools/files/python-enum34.patch	/^@@ -28,10 +28,8 @@$/;"	h	modifiedFile:laditools-1.1.0/laditools/ladish.py
+-28,8 +28,7	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^@@ -28,8 +28,7 @@$/;"	h	modifiedFile:plugins/beep/beep.cpp
+-28,9 +28,6	media-sound/zynaddsubfx/files/zynaddsubfx-2.5.4-docs.patch	/^@@ -28,9 +28,6 @@ include(CTestConfig.cmake)$/;"	h	modifiedFile:zynaddsubfx-2.5.2.orig/CMakeLists.txt
+-287,7 +287,8	media-sound/ardour/files/ardour-3.5.7-syslibs.patch	/^@@ -287,7 +287,8 @@ def configure(conf):$/;"	h	modifiedFile:a/ardour-3.5.74/libs/ardour/wscript
+-29,7 +29,7	media-sound/laditools/files/python-enum34.patch	/^@@ -29,7 +29,7 @@$/;"	h	modifiedFile:laditools-1.1.0/INSTALL
 -2932,6 +2932,17	x11-terms/rxvt-unicode/files/rxvt-unicode-9.14-clear.patch	/^@@ -2932,6 +2932,17 @@$/;"	h	modifiedFile:a/src/command.C
 -3,13 +3,10	media-sound/jack_capture/files/jack_capture-0.9.70-Makefile.patch	/^@@ -3,13 +3,10 @@$/;"	h	modifiedFile:a/Makefile
 -3,14 +3,25	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -3,14 +3,25 @@$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -30,6 +30,8	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^@@ -30,6 +30,8 @@$/;"	h	modifiedFile:a/src/main.c
 -301,7 +303,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -301,7 +303,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
+-31,7 +31,7	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^@@ -31,7 +31,7 @@$/;"	h	modifiedFile:libs/Makefile
+-31,8 +31,7	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^@@ -31,8 +31,7 @@$/;"	h	modifiedFile:libs/Makefile
 -319,6 +341,10	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -319,6 +341,10 @@ sub get_mw_pages {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -3192,7 +3192,7	sys-apps/less/files/code2color-0.2.patch	/^@@ -3192,7 +3192,7 @@$/;"	h	modifiedFile:code2color
 -321,7 +323,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -321,7 +323,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -33,7 +30,7	media-sound/jack_capture/files/jack_capture-0.9.70-Makefile.patch	/^@@ -33,7 +30,7 @@$/;"	h	modifiedFile:a/Makefile
 -330,13 +330,13	x11-wm/fluxbox/files/1.3.5-generate_menu-printf-fix.patch	/^@@ -330,13 +330,13 @@ searchForIcon(){$/;"	h	modifiedFile:a/util/fluxbox-generate_menu.in
+-332,5 +332,5	media-libs/libffado/files/libffado-2.2.1-flags.patch	/^@@ -332,5 +332,5 @@$/;"	h	modifiedFile:SConstruct
+-332,7 +333,7	media-sound/ardour/files/ardour-3.5.7-syslibs.patch	/^@@ -332,7 +333,7 @@ def build(bld):$/;"	h	modifiedFile:a/ardour-3.5.74/libs/ardour/wscript
 -34,6 +34,17	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -34,6 +34,17 @@$/;"	h	modifiedFile:a/t/t9601-cvsimport-vendor-branch.sh
+-34,6 +34,8	media-sound/ladish/files/ladish-1-include.patch	/^@@ -34,6 +34,8 @@$/;"	h	modifiedFile:a/daemon/loader.c
+-34,7 +34,7	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^@@ -34,7 +34,7 @@$/;"	h	modifiedFile:apps/Makefile
 -346,7 +348,9	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -346,7 +348,9 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -356,7 +356,8	x11-wm/fluxbox/files/osx-has-otool.patch	/^@@ -356,7 +356,8 @@$/;"	h	modifiedFile:util/fbsetbg
 -36,6 +36,7	x11-misc/spacefm/files/spacefm-include-sysmacros.patch	/^@@ -36,6 +36,7 @@$/;"	h	modifiedFile:a/src/vfs/vfs-volume-nohal.c
+-36,7 +36,7	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^@@ -36,7 +36,7 @@$/;"	h	modifiedFile:apps/Makefile
+-37,7 +37,7	media-sound/zita-ajbridge/files/zita-ajbridge-0.4.0-Makefile.patch	/^@@ -37,7 +37,7 @@$/;"	h	modifiedFile:source/Makefile
 -373,7 +377,8	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -373,7 +377,8 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -381,6 +381,24	sys-process/runit/files/runit-2.1-runsv-logdir.patch	/^@@ -381,6 +381,24 @@ int ctrl(struct svdir *s, char c) {$/;"	h	modifiedFile:a/src/runsv.c
 -381,6 +381,24	sys-process/supervision/runit/files/runit-2.1-runsv-logdir.patch	/^@@ -381,6 +381,24 @@ int ctrl(struct svdir *s, char c) {$/;"	h	modifiedFile:a/src/runsv.c
@@ -83,16 +135,24 @@
 -405,7 +410,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -405,7 +410,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -41,9 +41,9	x11-terms/xvt/files/xvt-int-main.patch	/^@@ -41,9 +41,9 @@$/;"	h	modifiedFile:xvt-1.0/xvt.c.orig
 -410,44 +411,6	x11-terms/xvt/files/xvt-ttyinit-svr4pty.diff	/^@@ -410,44 +411,6 @@$/;"	h	modifiedFile:ttyinit.c
+-414,6 +414,15	media-sound/ardour/files/ardour-2.8.11-flags.patch	/^@@ -414,6 +414,15 @@$/;"	h	modifiedFile:ardour-2.8.11/SConstruct.orig
+-416,5 +445,6	media-libs/libffado/files/libffado-2.2.1-flags.patch	/^@@ -416,5 +445,6 @@$/;"	h	modifiedFile:SConstruct
 -419,7 +424,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -419,7 +424,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -42,23 +53,23	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -42,23 +53,23 @@ EOF$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
+-42,7 +42,7	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^@@ -42,7 +42,7 @@$/;"	h	modifiedFile:apps/Makefile
 -44,13 +42,13	www-client/surf/files/surf-2.0-gentoo.patch	/^@@ -44,13 +42,13 @@$/;"	h	modifiedFile:a/Makefile
+-44,7 +44,7	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^@@ -44,7 +44,7 @@$/;"	h	modifiedFile:apps/Makefile
+-45,14 +45,15	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^@@ -45,14 +45,15 @@$/;"	h	modifiedFile:libs/Makefile
 -455,6 +455,11	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^@@ -455,6 +455,11 @@$/;"	h	modifiedFile:a/doc/rxvt.1.pod
 -46,6 +46,7	x11-terms/xvt/files/xvt-ttyinit-svr4pty.diff	/^@@ -46,6 +46,7 @@$/;"	h	modifiedFile:ttyinit.c
+-46,7 +45,8	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^@@ -46,7 +45,8 @@$/;"	h	modifiedFile:libs/Makefile
+-46,7 +46,7	media-sound/zita-ajbridge/files/zita-ajbridge-0.4.0-Makefile.patch	/^@@ -46,7 +46,7 @@$/;"	h	modifiedFile:source/Makefile
 -464,7 +427,6	x11-terms/xvt/files/xvt-ttyinit-svr4pty.diff	/^@@ -464,7 +427,6 @@$/;"	h	modifiedFile:ttyinit.c
 -478,32 +496,9	sys-process/runit/files/runit-2.1-runsv-logdir.patch	/^@@ -478,32 +496,9 @@ int main(int argc, char **argv) {$/;"	h	modifiedFile:a/src/runsv.c
 -478,32 +496,9	sys-process/supervision/runit/files/runit-2.1-runsv-logdir.patch	/^@@ -478,32 +496,9 @@ int main(int argc, char **argv) {$/;"	h	modifiedFile:a/src/runsv.c
 -49,13 +47,13	www-client/surf/files/surf-9999-gentoo.patch	/^@@ -49,13 +47,13 @@$/;"	h	modifiedFile:a/Makefile
 -496,6 +498,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -496,6 +498,7 @@ LIB_OBJS =$/;"	h	modifiedFile:a/Makefile
+-499,6 +499,20	media-libs/mesa/files/glx_ro_text_segm.patch	/^@@ -499,6 +499,20 @@$/;"	h	modifiedFile:configure.ac.orig
 -5,12 +5,12	x11-misc/netwmpager/files/netwmpager-2.04-libX11.patch	/^@@ -5,12 +5,12 @@$/;"	h	modifiedFile:Makefile
 -5,8 +5,8	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^@@ -5,8 +5,8 @@$/;"	h	modifiedFile:a/config.mk
 -5,8 +5,8	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^@@ -5,8 +5,8 @@$/;"	h	modifiedFile:a/config.mk
@@ -103,13 +163,18 @@
 -54,18 +54,18	sys-libs/libpstat/files/Makefile-DESTDIR.patch	/^@@ -54,18 +54,18 @@$/;"	h	modifiedFile:a/Makefile
 -545,24 +549,26	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -545,24 +549,26 @@ NO_INSTALL += git-remote-testgit$/;"	h	modifiedFile:a/Makefile
 -55,7 +55,6	app-emulation/libguestfs/files/1.36/002_POTFILES-ml.patch	/^@@ -55,7 +55,6 @@$/;"	h	modifiedFile:a/po/POTFILES-ml
+-56,6 +56,9	media-sound/rezound/files/undefined-function.patch	/^@@ -56,6 +56,9 @@$/;"	h	modifiedFile:src/frontend_fox/FXWaveCanvas.cpp.orig
 -56,7 +53,7	media-sound/jack_capture/files/jack_capture-0.9.70-Makefile.patch	/^@@ -56,7 +53,7 @@$/;"	h	modifiedFile:a/Makefile
+-56,7 +56,7	media-plugins/ll-plugins/files/ll-plugins-0.2.8-Makefile.patch	/^@@ -56,7 +56,7 @@$/;"	h	modifiedFile:Makefile
+-56,9 +56,7	media-sound/ardour/files/ardour-3.5.7-syslibs.patch	/^@@ -56,9 +56,7 @@ children = [$/;"	h	modifiedFile:a/ardour-3.5.74/wscript
 -57,15 +57,20	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -57,15 +57,20 @@ check_status_options() {$/;"	h	modifiedFile:a/t/t9401-git-cvsserver-crlf.sh
+-57,7 +57,7	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^@@ -57,7 +57,7 @@$/;"	h	modifiedFile:libs/Makefile
 -571,12 +577,13	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -571,12 +577,13 @@ install-python-script: $(SCRIPT_PYTHON_INS)$/;"	h	modifiedFile:a/Makefile
 -572,6 +572,11	net-analyzer/check_mk/files/check_mk-1.2.4p5-setup.sh.patch	/^@@ -572,6 +572,11 @@$/;"	h	modifiedFile:check_mk-1.2.4p5.orig/setup.sh
 -581,7 +586,8	net-analyzer/check_mk/files/check_mk-1.2.4p5-setup.sh.patch	/^@@ -581,7 +586,8 @@$/;"	h	modifiedFile:check_mk-1.2.4p5.orig/setup.sh
 -59,8 +59,13	app-backup/rdiff-backup/files/rdiff-backup-1.3.3-librsync-1.0.0.patch	/^@@ -59,8 +59,13 @@$/;"	h	modifiedFile:rdiff-backup-1.2.8/_librsyncmodule.c
 -6,6 +6,17	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -6,6 +6,17 @@$/;"	h	modifiedFile:a/t/t9602-cvsimport-branches-tags.sh
+-60,7 +60,7	media-sound/fluidsynth/files/configure.ac.patch	/^@@ -60,7 +60,7 @@$/;"	h	modifiedFile:configure.ac
 -63,6 +63,11	dev-vcs/git/files/git-2.7.0-mediawiki-subpages.patch	/^@@ -63,6 +63,11 @@$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -63,6 +64,10	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -63,6 +64,10 @@ chomp(@tracked_pages);$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -637,7 +642,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -637,7 +642,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
@@ -122,19 +187,28 @@
 -718,15 +723,15	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -718,15 +723,15 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -74,7 +74,7	dev-vcs/git/files/git-2.2.0-svn-fe-linking.patch	/^@@ -74,7 +74,7 @@$/;"	h	modifiedFile:git-2.2.0/contrib/svn-fe/Makefile
 -75,6 +75,8	net-analyzer/check_mk/files/apache_status.patch	/^@@ -75,6 +75,8 @@$/;"	h	modifiedFile:usr/share/check_mk/checks/apache_status
+-78,5 +78,6	media-libs/libffado/files/libffado-2.2.1-flags.patch	/^@@ -78,5 +78,6 @@$/;"	h	modifiedFile:SConstruct
 -80,18 +80,18	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^@@ -80,18 +80,18 @@ const struct {$/;"	h	modifiedFile:a/src/Toolbar.cc
+-807,9 +816,6	media-sound/ardour/files/ardour-2.8.11-flags.patch	/^@@ -807,9 +816,6 @@$/;"	h	modifiedFile:ardour-2.8.11/SConstruct.orig
 -83,7 +83,7	x11-terms/mrxvt/files/mrxvt-0.5.4-libpng14.patch	/^@@ -83,7 +83,7 @@$/;"	h	modifiedFile:src/mpng.c
 -86,3 +86,5	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-case-insensitive-fs.patch	/^@@ -86,3 +86,5 @@$/;"	h	modifiedFile:a/Makefile.in
 -86,7 +97,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -86,7 +97,7 @@ EOF$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 -869,9 +874,9	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -869,9 +874,9 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
+-871,9 +871,8	media-sound/jack_mixer/files/empty_name_on_rename.patch	/^@@ -871,9 +871,8 @@ class ChannelPropertiesDialog(gtk.Dialog):$/;"	h	modifiedFile:a/channel.py
+-88,12 +89,40	media-libs/libffado/files/libffado-2.2.1-flags.patch	/^@@ -88,12 +89,40 @@$/;"	h	modifiedFile:SConstruct
+-883,6 +882,7	media-sound/jack_mixer/files/empty_name_on_rename.patch	/^@@ -883,6 +882,7 @@ class ChannelPropertiesDialog(gtk.Dialog):$/;"	h	modifiedFile:a/channel.py
 -884,9 +889,9	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -884,9 +889,9 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
+-89,7 +89,10	media-sound/rezound/files/fix-ladspa-path.patch	/^@@ -89,7 +89,10 @@ string gJACKInputPortNames[64];$/;"	h	modifiedFile:a/src/backend/settings.cpp
+-891,39 +891,6	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^@@ -891,39 +891,6 @@$/;"	h	modifiedFile:SConstruct
 -9,10 +9,10	app-backup/snapper/files/cron-confd.patch	/^@@ -9,10 +9,10 @@$/;"	h	modifiedFile:old/scripts/snapper-daily
 -9,10 +9,10	app-backup/snapper/files/cron-confd.patch	/^@@ -9,10 +9,10 @@$/;"	h	modifiedFile:old/scripts/snapper-hourly
 -927,7 +935,7	dev-vcs/git/files/git-2.7.0-mediawiki-subpages.patch	/^@@ -927,7 +935,7 @@ sub mw_import_revids {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -928,7 +933,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -928,7 +933,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
 -929,7 +929,9	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-popups-hangs.patch	/^@@ -929,7 +929,9 @@$/;"	h	modifiedFile:a/src/rxvtperl.xs
 -93,7 +95,7	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -93,7 +95,7 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
+-933,9 +933,9	media-sound/jack_mixer/files/empty_name_on_rename.patch	/^@@ -933,9 +933,9 @@ class OutputChannelPropertiesDialog(ChannelPropertiesDialog):$/;"	h	modifiedFile:a/channel.py
 -952,7 +952,7	x11-terms/mrxvt/files/mrxvt-0.5.4-libpng14.patch	/^@@ -952,7 +952,7 @@$/;"	h	modifiedFile:configure.ac
+-955,7 +961,9	media-sound/ardour/files/ardour-2.8.14-boost-150.patch	/^@@ -955,7 +961,9 @@$/;"	h	modifiedFile:SConstruct
 -97,7 +108,7	dev-vcs/git/files/git-2.12.0-optional-cvs.patch	/^@@ -97,7 +108,7 @@ test_expect_success PERL 'update git module' '$/;"	h	modifiedFile:a/t/t9600-cvsimport.sh
 Accept	dev-vcs/git/files/git-daemon.socket	/^Accept=true$/;"	k	section:Socket
 Alias	net-misc/connman/files/connman.service	/^Alias=net.connman.service$/;"	k	section:Install
@@ -154,8 +228,14 @@ Install	dev-vcs/git/files/git-daemon.socket	/^[Install]$/;"	s
 Install	net-misc/connman/files/connman.service	/^[Install]$/;"	s
 Install	net-misc/dhcpcd/files/dhcpcd.service	/^[Install]$/;"	s
 ListenStream	dev-vcs/git/files/git-daemon.socket	/^ListenStream=9418$/;"	k	section:Socket
+Makefile	media-plugins/ll-plugins/files/ll-plugins-0.2.8-Makefile.patch	/^--- Makefile	2014-10-23 10:53:08.351017920 +0200$/;"	m
 Makefile	x11-misc/netwmpager/files/netwmpager-2.04-libX11.patch	/^--- Makefile$/;"	m
 Makefile.orig	x11-misc/srandrd/files/srandrd-0.4-Makefile.patch	/^--- Makefile.orig	2016-09-10 11:17:28.398893952 +0200$/;"	m
+SConstruct	media-libs/libffado/files/libffado-2.2.1-flags.patch	/^--- \/trunk\/libffado\/SConstruct (revision 2575)$/;"	m
+SConstruct	media-libs/libffado/files/libffado-2.2.1-flags.patch	/^--- \/trunk\/libffado\/SConstruct (revision 2576)$/;"	m
+SConstruct	media-libs/libffado/files/libffado-2.2.1-jack-version.patch	/^--- \/trunk\/libffado\/SConstruct (revision 2538)$/;"	m
+SConstruct	media-sound/ardour/files/ardour-2.8.14-boost-150.patch	/^--- \/home\/mad\/ardour-2.8.14\/SConstruct      2012-11-21 00:30:54.000000000 +0100$/;"	m
+SConstruct	media-sound/ardour/files/ardour-2.8.14-syslibs.patch	/^--- SConstruct$/;"	m
 Service	dev-vcs/git/files/git-daemon_at-r1.service	/^[Service]$/;"	s
 Service	net-misc/connman/files/connman.service	/^[Service]$/;"	s
 Service	net-misc/dhcpcd/files/dhcpcd.service	/^[Service]$/;"	s
@@ -181,16 +261,21 @@ a/Makefile	sys-libs/libpstat/files/Makefile-DESTDIR.patch	/^--- a\/Makefile	2015
 a/Makefile	www-client/surf/files/surf-2.0-gentoo.patch	/^--- a\/Makefile$/;"	m
 a/Makefile	www-client/surf/files/surf-9999-gentoo.patch	/^--- a\/Makefile$/;"	m
 a/Makefile.in	x11-terms/rxvt-unicode/files/rxvt-unicode-9.06-case-insensitive-fs.patch	/^--- a\/Makefile.in$/;"	m
+a/ardour-3.5.74/libs/ardour/wscript	media-sound/ardour/files/ardour-3.5.7-syslibs.patch	/^--- a\/ardour-3.5.74\/libs\/ardour\/wscript 2013-11-05 20:20:03.000000000 +0100$/;"	m
+a/ardour-3.5.74/wscript	media-sound/ardour/files/ardour-3.5.7-syslibs.patch	/^--- a\/ardour-3.5.74\/wscript     2013-11-05 20:20:03.000000000 +0100$/;"	m
+a/channel.py	media-sound/jack_mixer/files/empty_name_on_rename.patch	/^--- a\/channel.py$/;"	m
 a/config.mk	www-client/surf/files/surf-2.0-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	www-client/surf/files/surf-9999-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	x11-misc/dmenu/files/dmenu-9999-gentoo.patch	/^--- a\/config.mk$/;"	m
+a/configure	media-video/ffmpeg/files/ladspadl.patch	/^--- a\/configure$/;"	m
 a/configure.ac	x11-misc/rofi/files/rofi-0.15.12-Werror.patch	/^--- a\/configure.ac$/;"	m
 a/contrib/mw-to-git/Makefile	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^--- a\/contrib\/mw-to-git\/Makefile$/;"	m
 a/contrib/mw-to-git/git-remote-mediawiki.perl	dev-vcs/git/files/git-2.7.0-mediawiki-500pages.patch	/^--- a\/contrib\/mw-to-git\/git-remote-mediawiki.perl$/;"	m
 a/contrib/mw-to-git/git-remote-mediawiki.perl	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^--- a\/contrib\/mw-to-git\/git-remote-mediawiki.perl$/;"	m
 a/contrib/mw-to-git/git-remote-mediawiki.perl	dev-vcs/git/files/git-2.7.0-mediawiki-subpages.patch	/^--- a\/contrib\/mw-to-git\/git-remote-mediawiki.perl$/;"	m
+a/daemon/loader.c	media-sound/ladish/files/ladish-1-include.patch	/^--- a\/daemon\/loader.c$/;"	m
 a/doc/rxvt.1.pod	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^--- a\/doc\/rxvt.1.pod	Wed Dec 21 22:59:04 2011 +0100$/;"	m
 a/perl/Makefile	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^--- a\/perl\/Makefile$/;"	m
 a/perl/Makefile.PL	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^--- a\/perl\/Makefile.PL$/;"	m
@@ -198,6 +283,7 @@ a/po/POTFILES	app-emulation/libguestfs/files/1.36/001_POTFILES.patch	/^--- a\/po
 a/po/POTFILES-ml	app-emulation/libguestfs/files/1.36/002_POTFILES-ml.patch	/^--- a\/po\/POTFILES-ml$/;"	m
 a/src/Makefile.in	x11-terms/rxvt-unicode/files/rxvt-unicode-9.21-xsubpp.patch	/^--- a\/src\/Makefile.in$/;"	m
 a/src/Toolbar.cc	x11-wm/fluxbox/files/fix-hidden-toolbar.patch	/^--- a\/src\/Toolbar.cc$/;"	m
+a/src/backend/settings.cpp	media-sound/rezound/files/fix-ladspa-path.patch	/^--- a\/src\/backend\/settings.cpp$/;"	m
 a/src/command.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.14-clear.patch	/^--- a\/src\/command.C$/;"	m
 a/src/command.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.19-secondary-wheel.patch	/^--- a\/src\/command.C	Wed Dec 21 22:59:04 2011 +0100$/;"	m
 a/src/init.C	x11-terms/rxvt-unicode/files/rxvt-unicode-9.05_no-MOTIF-WM-INFO.patch	/^--- a\/src\/init.C	15 Jul 2008 16:41:22 -0000	1.253$/;"	m
@@ -227,6 +313,9 @@ a/util/fluxbox-generate_menu.in	x11-wm/fluxbox/files/gentoo_style_location-1.1.x
 agent_port	net-analyzer/check_mk/files/main.mk	/^agent_port = 6556$/;"	m
 all_hosts	net-analyzer/check_mk/files/main.mk	/^all_hosts = [$/;"	m
 always_cleanup_autochecks	net-analyzer/check_mk/files/main.mk	/^always_cleanup_autochecks = True$/;"	m
+apps/Makefile	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^--- apps\/Makefile	2014-10-19 15:52:26.722494548 +0200$/;"	m
+apps/Makefile	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^--- apps\/Makefile	2014-10-19 15:06:40.412543730 +0200$/;"	m
+ardour-2.8.11/SConstruct.orig	media-sound/ardour/files/ardour-2.8.11-flags.patch	/^--- ardour-2.8.11\/SConstruct.orig$/;"	m
 bulkwalk_hosts	net-analyzer/check_mk/files/main.mk	/^bulkwalk_hosts = [$/;"	m
 candidate	sets.conf	/^world-candidate = True$/;"	k	section:wandsas-sets
 chdir	www-apps/searx/files/searx-daemon.ini	/^chdir = \/var\/www\/searx\/$/;"	k	section:uwsgi
@@ -241,9 +330,12 @@ cluster_max_cachefile_age	net-analyzer/check_mk/files/main.mk	/^cluster_max_cach
 clustered_services	net-analyzer/check_mk/files/main.mk	/^clustered_services = []$/;"	m
 clusters	net-analyzer/check_mk/files/main.mk	/^clusters = {}$/;"	m
 code2color	sys-apps/less/files/code2color-0.2.patch	/^--- code2color$/;"	m
+config/common.h.orig	media-sound/rezound/files/undefined-function.patch	/^--- config\/common.h.orig	2004-12-23 20:00:50.710795840 +0100$/;"	m
 configure	media-sound/jack-audio-connection-kit/files/jack-audio-connection-kit-0.121.3-freebsd.patch	/^--- configure	2012-05-29 11:10:22.000000000 -0400$/;"	m
 configure	x11-misc/netwmpager/files/netwmpager-2.04-libX11.patch	/^--- configure$/;"	m
+configure.ac	media-sound/fluidsynth/files/configure.ac.patch	/^--- configure.ac	2014-10-22 11:11:27.562034756 +0200$/;"	m
 configure.ac	x11-terms/mrxvt/files/mrxvt-0.5.4-libpng14.patch	/^--- configure.ac$/;"	m
+configure.ac.orig	media-libs/mesa/files/glx_ro_text_segm.patch	/^--- configure.ac.orig	2008-11-17 23:19:38.000000000 +0100$/;"	m
 datasource_programs	net-analyzer/check_mk/files/main.mk	/^datasource_programs = [$/;"	m
 debug_log	net-analyzer/check_mk/files/main.mk	/^debug_log = "\/var\/nagios\/check_mk_debug.log"$/;"	m
 define_contactgroups	net-analyzer/check_mk/files/main.mk	/^define_contactgroups = True$/;"	m
@@ -270,13 +362,18 @@ inventory_check_do_scan	net-analyzer/check_mk/files/main.mk	/^inventory_check_do
 inventory_check_severity	net-analyzer/check_mk/files/main.mk	/^inventory_check_severity = 1$/;"	m
 inventory_max_cachefile_age	net-analyzer/check_mk/files/main.mk	/^inventory_max_cachefile_age = 300 # seconds$/;"	m
 ipaddresses	net-analyzer/check_mk/files/main.mk	/^ipaddresses = {$/;"	m
+laditools-1.1.0/INSTALL	media-sound/laditools/files/python-enum34.patch	/^--- laditools-1.1.0\/INSTALL$/;"	m
+laditools-1.1.0/laditools/ladish.py	media-sound/laditools/files/python-enum34.patch	/^--- laditools-1.1.0\/laditools\/ladish.py$/;"	m
 lesspipe	sys-apps/less/files/lesspipe.sh	/^lesspipe() {$/;"	f
 lesspipe_file	sys-apps/less/files/lesspipe.sh	/^lesspipe_file() {$/;"	f
+libs/Makefile	media-libs/zita-alsa-pcmi/files/zita-alsa-pcmi-0.2.0-Makefile.patch	/^--- libs\/Makefile	2014-10-19 22:10:30.595088323 +0200$/;"	m
+libs/Makefile	media-libs/zita-resampler/files/zita-resampler-1.3.0-Makefile.patch	/^--- libs\/Makefile	2014-10-19 15:06:49.630543565 +0200$/;"	m
 livestatus_unix_socket	net-analyzer/check_mk/files/main.mk	/^livestatus_unix_socket             = '\/var\/nagios\/rw\/live'$/;"	m
 location	wandsas.conf	/^location = \/var\/db\/repos\/wandsas$/;"	k	section:wandsas
 logging	www-apps/searx/files/searx-daemon.ini	/^disable-logging = true$/;"	k	section:uwsgi
 logwatch_notes_url	net-analyzer/check_mk/files/main.mk	/^logwatch_notes_url                 = "\/nagios\/logwatch.php?host=%s&file=%s"$/;"	m
 logwatch_notes_url	net-analyzer/check_mk/files/main.mk	/^logwatch_notes_url = "\/nagios\/logwatch.php?host=%s&file=%s"$/;"	m
+m4/gconf-2.m4	media-sound/jack_mixer/files/missing-gconf-2.m4.patch	/^+++ m4\/gconf-2.m4	2011-11-07 14:11:06.000000000 +0000$/;"	n
 manifests	metadata/layout.conf	/^thin-manifests = true$/;"	k
 master	www-apps/searx/files/searx-daemon.ini	/^master = true$/;"	k	section:uwsgi
 masters	metadata/layout.conf	/^masters = gentoo$/;"	k
@@ -296,11 +393,36 @@ only_hosts	net-analyzer/check_mk/files/main.mk	/^only_hosts = [$/;"	m
 parents	net-analyzer/check_mk/files/main.mk	/^parents = [$/;"	m
 perfdata_format	net-analyzer/check_mk/files/main.mk	/^perfdata_format = "pnp"$/;"	m
 plugin	www-apps/searx/files/searx-daemon.ini	/^plugin = python27$/;"	k	section:uwsgi
+plugins/arpeggiator/arpeggiator.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/arpeggiator\/arpeggiator.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/beep/beep.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/beep\/beep.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/beep/beep_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/beep\/beep_gtk.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/control2midi/control2midi.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/control2midi\/control2midi.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/envelope/envelope_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/envelope\/envelope_gtk.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/klaviatur/klaviatur.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/klaviatur\/klaviatur.cpp	2014-10-23 22:06:21.220037021 +0200$/;"	m
+plugins/klaviatur/klaviatur.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/klaviatur\/klaviatur.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/klaviatur/klaviatur_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/klaviatur\/klaviatur_gtk.cpp	2014-10-23 22:06:36.040037068 +0200$/;"	m
+plugins/math-constants/math-constants.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/math-constants\/math-constants.cpp	2014-10-23 22:07:33.958037251 +0200$/;"	m
+plugins/math-constants/math-constants.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/math-constants\/math-constants.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/math-functions/math-functions.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/math-functions\/math-functions.cpp	2014-10-23 22:07:50.788037304 +0200$/;"	m
+plugins/math-functions/math-functions.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/math-functions\/math-functions.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/peakmeter/peakmeter.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/peakmeter\/peakmeter.cpp	2014-10-23 22:08:05.625037350 +0200$/;"	m
+plugins/peakmeter/peakmeter.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/peakmeter\/peakmeter.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/peakmeter/peakmeter_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/peakmeter\/peakmeter_gtk.cpp	2014-10-23 22:08:18.119037390 +0200$/;"	m
+plugins/peakmeter/peakmeter_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/peakmeter\/peakmeter_gtk.cpp	2014-10-23 22:27:00.986040930 +0200$/;"	m
+plugins/rudolf556/rudolf556.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/rudolf556\/rudolf556.cpp	2014-10-23 22:08:36.396037447 +0200$/;"	m
+plugins/rudolf556/rudolf556.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/rudolf556\/rudolf556.cpp	2014-10-23 22:27:00.987040930 +0200$/;"	m
+plugins/sineshaper/sineshaper.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/sineshaper\/sineshaper.cpp	2014-10-23 22:27:00.987040930 +0200$/;"	m
+plugins/sineshaper/sineshaper.hpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/sineshaper\/sineshaper.hpp	2014-10-23 22:28:45.575041260 +0200$/;"	m
+plugins/sineshaper/sineshaper.hpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/sineshaper\/sineshaper.hpp	2014-10-23 22:27:00.987040930 +0200$/;"	m
+plugins/sineshaper/sineshaper_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-0.2.8-lv2-c++-tools-include.patch	/^--- plugins\/sineshaper\/sineshaper_gtk.cpp	2014-10-23 22:09:32.705037625 +0200$/;"	m
+plugins/sineshaper/sineshaper_gtk.cpp	media-plugins/ll-plugins/files/ll-plugins-9999-lv2-c++-tools-include.patch	/^--- plugins\/sineshaper\/sineshaper_gtk.cpp	2014-10-23 22:27:00.987040930 +0200$/;"	m
 pnp_url	net-analyzer/check_mk/files/main.mk	/^pnp_url                            = '\/pnp\/'$/;"	m
 rdiff-backup-1.2.8/_librsyncmodule.c	app-backup/rdiff-backup/files/rdiff-backup-1.3.3-librsync-1.0.0.patch	/^--- rdiff-backup-1.2.8\/_librsyncmodule.c			2009-03-16 15:36:21.000000000 +0100$/;"	m
+rosegarden-12.12.25/configure.ac	media-sound/rosegarden/files/rosegarden-12.12.25-debug.patch	/^--- rosegarden-12.12.25\/configure.ac$/;"	m
 rrd_path	net-analyzer/check_mk/files/main.mk	/^rrd_path                           = '\/var\/nagios\/perfdata'$/;"	m
 rrdcached_socket	net-analyzer/check_mk/files/main.mk	/^rrdcached_socket                   = '\/run\/rrdcached.sock'$/;"	m
 scanparent_hosts	net-analyzer/check_mk/files/main.mk	/^scanparent_hosts = [$/;"	m
+serd-0.4.2.orig/wscript	media-libs/lilv/files/ldconfig.patch	/^--- serd-0.4.2.orig\/wscript$/;"	m
 service_dependencies	net-analyzer/check_mk/files/main.mk	/^service_dependencies = [$/;"	m
 service_descriptions	net-analyzer/check_mk/files/main.mk	/^service_descriptions = {$/;"	m
 service_groups	net-analyzer/check_mk/files/main.mk	/^service_groups = [$/;"	m
@@ -311,6 +433,8 @@ snmp_hosts	net-analyzer/check_mk/files/main.mk	/^snmp_hosts = [ (['snmp'], ALL_H
 snmpv2c_hosts	net-analyzer/check_mk/files/main.mk	/^snmpv2c_hosts = [ (['v2c'], ALL_HOSTS) ]$/;"	m
 socket	www-apps/searx/files/searx-daemon.ini	/^chmod-socket = 666$/;"	k	section:uwsgi
 socket	www-apps/searx/files/searx-daemon.ini	/^socket = \/tmp\/searx.socket$/;"	k	section:uwsgi
+source/Makefile	media-sound/zita-ajbridge/files/zita-ajbridge-0.4.0-Makefile.patch	/^--- source\/Makefile	2012-11-01 01:30:56.224700444 +0000$/;"	m
+src/frontend_fox/FXWaveCanvas.cpp.orig	media-sound/rezound/files/undefined-function.patch	/^--- src\/frontend_fox\/FXWaveCanvas.cpp.orig	2004-12-23 20:18:55.790838600 +0100$/;"	m
 src/mpng.c	x11-terms/mrxvt/files/mrxvt-0.5.4-libpng14.patch	/^--- src\/mpng.c$/;"	m
 src/tabbar.c	x11-terms/mrxvt/files/mrxvt-0.5.4-001-fix-segfault-when-wd-empty.patch	/^--- src\/tabbar.c	(revision 337)$/;"	m
 sync	wandsas.conf	/^auto-sync = yes$/;"	k	section:wandsas
@@ -328,6 +452,8 @@ uwsgi	www-apps/searx/files/searx-daemon.ini	/^[uwsgi]$/;"	s
 wandsas	wandsas.conf	/^[wandsas]$/;"	s
 wandsas-sets	sets.conf	/^[wandsas-sets]$/;"	s
 workers	www-apps/searx/files/searx-daemon.ini	/^workers = 1$/;"	k	section:uwsgi
+wscript	media-sound/ladish/files/ladish-1-libdir.patch	/^--- wscript	2011-12-19 17:05:10.000000000 +0100$/;"	m
 www_group	net-analyzer/check_mk/files/main.mk	/^www_group = "apache"$/;"	m
 xvt-1.0/Makefile.orig	x11-terms/xvt/files/xvt-makefile.patch	/^--- xvt-1.0\/Makefile.orig	2009-09-04 15:45:08.000000000 +0200$/;"	m
 xvt-1.0/xvt.c.orig	x11-terms/xvt/files/xvt-int-main.patch	/^--- xvt-1.0\/xvt.c.orig	2009-09-04 15:49:13.000000000 +0200$/;"	m
+zynaddsubfx-2.5.2.orig/CMakeLists.txt	media-sound/zynaddsubfx/files/zynaddsubfx-2.5.4-docs.patch	/^--- zynaddsubfx-2.5.2.orig\/CMakeLists.txt$/;"	m

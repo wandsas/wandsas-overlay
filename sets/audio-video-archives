@@ -20,7 +20,7 @@ media-gfx/inkscape
 media-sound/jack-audio-connection-kit
 media-sound/qjackctl
 media-sound/jack_mixer
-media-sound/jackbeet
+media-sound/jackbeat
 media-sound/jack_capture
 media-sound/jack2
 media-sound/jack-smf-utils

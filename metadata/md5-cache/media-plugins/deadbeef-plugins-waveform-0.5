@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install unpack
+DEPEND=dev-db/sqlite:3
+DESCRIPTION=Waveform seekbar plugin for DeaDBeeF audio player
+EAPI=5
+HOMEPAGE=http://deadbeef-wf.sf.net https://github.com/cboxdoerfer/ddb_waveform_seekbar
+IUSE=gtk gtk3
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=media-sound/deadbeef-0.6.0[curl,gtk?,gtk3?] dev-db/sqlite:3
+REQUIRED_USE=|| ( gtk gtk3 )
+SLOT=0
+SRC_URI=https://github.com/cboxdoerfer/ddb_waveform_seekbar/archive/v0.5.tar.gz -> deadbeef-plugins-waveform-0.5.tar.gz
+_eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	185a06792159ca143528e7010368e8af	vcs-snapshot	03289f51c769cf409d200d2d628cdd6e
+_md5_=05cf9e3603664fde9e9a35b3998f9b00

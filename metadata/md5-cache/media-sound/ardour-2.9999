@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=media-libs/aubio media-libs/liblo sci-libs/fftw:3.0 media-libs/freetype:2 >=dev-libs/glib-2.10.1:2 dev-cpp/glibmm:2 >=x11-libs/gtk+-2.8.1:2 >=dev-libs/libxml2-2.6:2 >=media-libs/libsndfile-1.0.18 >=media-libs/libsamplerate-0.1 >=media-libs/rubberband-1.6.0 >=media-libs/libsoundtouch-1.6.0 media-libs/flac media-libs/raptor:2 >=media-libs/liblrdf-0.4.0-r20 >=media-sound/jack-audio-connection-kit-0.120 >=gnome-base/libgnomecanvas-2 media-libs/vamp-plugin-sdk dev-libs/libxslt dev-libs/libsigc++:2 >=dev-cpp/gtkmm-2.16:2.4 >=dev-cpp/libgnomecanvasmm-2.26:2.6 media-libs/alsa-lib x11-libs/pango x11-libs/cairo media-libs/libart_lgpl virtual/libusb:0 dev-libs/boost curl? ( net-misc/curl ) lv2? ( >=media-libs/slv2-0.6.1 media-libs/lilv media-libs/suil ) virtual/pkgconfig nls? ( virtual/libintl ) dev-vcs/git
+DESCRIPTION=multi-track hard disk recording software
+EAPI=5
+HOMEPAGE=http://ardour.org/
+IUSE=curl debug nls lv2
+LICENSE=GPL-2
+RDEPEND=media-libs/aubio media-libs/liblo sci-libs/fftw:3.0 media-libs/freetype:2 >=dev-libs/glib-2.10.1:2 dev-cpp/glibmm:2 >=x11-libs/gtk+-2.8.1:2 >=dev-libs/libxml2-2.6:2 >=media-libs/libsndfile-1.0.18 >=media-libs/libsamplerate-0.1 >=media-libs/rubberband-1.6.0 >=media-libs/libsoundtouch-1.6.0 media-libs/flac media-libs/raptor:2 >=media-libs/liblrdf-0.4.0-r20 >=media-sound/jack-audio-connection-kit-0.120 >=gnome-base/libgnomecanvas-2 media-libs/vamp-plugin-sdk dev-libs/libxslt dev-libs/libsigc++:2 >=dev-cpp/gtkmm-2.16:2.4 >=dev-cpp/libgnomecanvasmm-2.26:2.6 media-libs/alsa-lib x11-libs/pango x11-libs/cairo media-libs/libart_lgpl virtual/libusb:0 dev-libs/boost curl? ( net-misc/curl ) lv2? ( >=media-libs/slv2-0.6.1 media-libs/lilv media-libs/suil )
+SLOT=2
+_eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	fdo-mime	21ef5adf81836863efa968f2a25cff64	flag-o-matic	61cad4fb5d800b29d484b27cb033f59b	git-2	d3d780fdae818c0a83fd5e9e4eadfa2c	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	185a06792159ca143528e7010368e8af	versionator	c80ccf29e90adea7c5cae94b42eb76d0
+_md5_=8d40d58c986348bef45ed1adb8b7c99b
