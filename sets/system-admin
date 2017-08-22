@@ -22,7 +22,7 @@ sys-boot/syslinux
 sys-kernel/dracut
 # kernel
 #sys-kernel/gentoo-sources
-#sys-kernel/hardened-sources
+sys-kernel/hardened-sources
 sys-kernel/git-sources
 sys-apps/pciutils
 sys-apps/usbutils
