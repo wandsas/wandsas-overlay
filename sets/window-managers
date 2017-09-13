@@ -1,70 +1,84 @@
-# fluxbox
+# {{{ fluxbox
+
 x11-wm/fluxbox
 x11-themes/fluxbox-styles-fluxmod
-x11-misc/tint2
-# bspwm
-x11-wm/bspwm
-# dwm
-x11-wm/dwm
-# lxde
+#x11-misc/tint
+#x11-misc/tintwizard
+app-vim/fluxbox-syntax
+
+# }}}
+# {{{ some lxde and other helper-tools
+
 lxde-base/lxrandr
 lxde-base/lxappearance
 lxde-base/lxtask
-# NOT wanted lxde packages
-# lxde-base/lxsession
+lxde-base/lxsession
 # lxde-base/lxsession-edit
-# lxde-base/lxde-meta
-# lxde-base/lxde-common
 # lxde-base/lxde-icon-theme
-# lxde-base/lxshortcut
-# lxde-base/lxlauncher
-# lxde-base/lxinput
-# lxde-base/lxmenu-data
-# lxde-base/lxdm
-# lxde-base/lxterminal
-# lxde-base/lxpanel
-# lxde-base/lxmenu-data
-# lxde-base/lxmusic
-# i3
-dev-perl/AnyEvent-I3
-media-gfx/gpicview
+
+x11-misc/clipit
+#media-gfx/gpicview
 media-gfx/pqiv
 media-gfx/feh
 media-gfx/scrot
-x11-libs/xcb-util-xrm
+
+# }}}}
+# {{{ i3
+
+x11-wm/i3-gaps
 x11-misc/i3blocks-gaps
 x11-misc/i3status
 x11-misc/i3lock
+
+# menu
 x11-misc/rofi
 x11-misc/dmenu
+
+# file-manager
 x11-misc/spacefm
 sys-apps/udevil
+
+# bar
 x11-misc/polybar
-x11-misc/unclutter-xfixes
-x11-misc/clipit
-x11-misc/compton
+
+# notification-daemon
+
 x11-misc/dunst
-x11-wm/i3-gaps
-# themes
-x11-themes/faenza-icon-theme
-x11-themes/gtk-engines
-x11-themes/human-icon-theme
-x11-themes/tango-icon-theme
-x11-themes/vanilla-dmz-aa-xcursors
-x11-themes/vanilla-dmz-xcursors
-x11-themes/gnome-themes-standard
-x11-themes/ardoise-xcursor-theme
-x11-themes/adwaita-icon-theme
+
+x11-misc/unclutter-xfixes
+dev-perl/AnyEvent-I3
+x11-libs/xcb-util-xrm
+
+# }}}
+# {{{ bspwm
+
+#x11-wm/bspwm
+
+# }}}
+# {{{ dwm
+
+i#x11-wm/dwm
+
+# }}}
+# {{{ themes
+
+#x11-themes/gtk-engines
 x11-themes/gtk-engines-adwaita
-# fonts
-media-fonts/droid
+x11-themes/gnome-themes-standard
+x11-themes/adwaita-icon-theme
+#x11-themes/human-icon-theme
+#x11-themes/tango-icon-theme
+
+# }}}
+# {{{ fonts
+
 media-fonts/hack
+media-fonts/terminus-font
 media-fonts/font-cursor-misc
 media-fonts/font-misc-misc
 media-fonts/font-mutt-misc
-media-fonts/terminus-font
+
 media-fonts/nerd-fonts
 media-fonts/fontawesome
-media-fonts/noto
-# -*- mode: sh -*-
-# vim:fenc=utf-8:ft=sh:
+
+# }}}

@@ -1,0 +1,65 @@
+# {{{ cd/dvd
+
+app-cdr/cdemu
+app-cdr/cuetools
+app-cdr/cdrtools
+app-cdr/cdw
+app-cdr/dvd+rw-tools
+app-cdr/gaffitter
+app-cdr/iat
+
+# }}}
+# {{{ media-sound
+
+media-sound/jack-audio-connection-kit
+media-sound/qjackctl
+media-sound/jack_mixer
+media-sound/jackbeat
+media-sound/jack_capture
+media-sound/jack2
+media-sound/jack-smf-utils
+media-sound/jack-rack
+media-sound/jack-keyboard
+media-sound/patchage
+media-sound/ardour
+media-sound/a2jmidid
+media-sound/deadbeef
+media-sound/alsa-utils
+media-sound/alsa-utils
+media-sound/ecasound
+media-sound/mpc
+media-sound/mpd
+media-sound/mpdas
+media-sound/ncmpcpp
+media-sound/timidity++
+media-sound/mp3c
+media-sound/id3
+media-sound/beets
+media-sound/abcde
+net-misc/youtube-dl
+
+# }}}
+# {{{ media-video
+
+media-video/x264-encoder
+media-video/ffmpeg
+media-video/mpv
+media-video/vapoursynth
+media-video/vlc
+
+# }}}
+# {{{ media-libs
+
+media-libs/alsa-lib
+media-libs/mutagen
+media-libs/alsa-oss
+media-libs/x265
+media-libs/libmpdclient
+
+# }}}
+# {{{ media-plugins
+
+media-plugins/ladspa-bs2b
+media-plugins/alsa-plugins
+
+# }}}

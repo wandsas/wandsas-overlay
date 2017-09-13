@@ -5,5 +5,3 @@ sys-apps/gradm
 sys-apps/paxctl
 sys-apps/paxctld
 dev-python/pypax
-# -*- mode: sh -*-
-# vim:fenc=utf-8:ft=sh:

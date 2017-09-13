@@ -1,0 +1,63 @@
+# {{{ app-eselect
+
+app-eselect/eselect-ctags
+app-eselect/eselect-python
+app-eselect/eselect-ruby
+app-eselect/eselect-rails
+app-eselect/eselect-scala
+app-eselect/eselect-lua
+app-eselect/eselect-java
+app-eselect/eselect-rust
+
+# }}}
+# {{{ app-text
+
+app-misc/colordiff
+app-text/po4a
+app-text/asciidoc
+
+# {{{ dev-lang
+
+dev-java/oracle-jdk-bin
+#dev-jave/ecj-gcj
+#dev-java/gcj-jdk
+dev-lang/perl
+dev-lang/go
+dev-lang/ruby
+dev-lang/python
+dev-lang/lua
+dev-lang/luajit
+dev-lang/rust
+dev-lang/scala
+
+# }}}
+# {{{ dev-libs
+
+dev-libs/libgit2
+dev-python/github3
+dev-python/pygit2
+dev-python/python-ctags
+dev-python/neovim-python-client
+dev-ruby/neovim-ruby-client
+dev-ruby/rails
+dev-ruby/bundler
+
+# }}}
+# {{{ build-system 
+
+sys-devel/crossdev
+sys-devel/gdb
+dev-util/cmake
+dev-util/waf
+dev-util/ctags
+dev-perl/Parse-ExuberantCTags
+dev-util/bless
+dev-util/colorgcc
+dev-util/strace
+dev-util/valgrind
+dev-util/ninja
+dev-util/cutils
+dev-util/patchutils
+dev-util/glade
+
+# }}}

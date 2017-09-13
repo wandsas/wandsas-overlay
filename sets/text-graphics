@@ -1,0 +1,26 @@
+# {{{ app-text
+
+app-text/mupdf
+app-text/pdftk
+
+# }}}
+# {{{ latex
+
+# latext distribution texlive
+app-text/texlive
+#dev-texlive/lexlive-latexextra
+#dev-texlive/texlive-langgerman
+#dev-tex/latex2html
+#dev-tex/html2latex
+app-vim/vim-latex
+
+app-text/libreoffice
+app-office/libreoffice-l10n
+
+# }}}
+# {{{ media-gfx
+
+media-gfx/gimp
+media-gfx/inkscape
+
+# }}}

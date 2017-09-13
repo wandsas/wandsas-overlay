@@ -1,0 +1,12 @@
+# {{{ dev-vcs
+
+dev-vcs/git
+dev-vcs/subversion
+dev-vcs/mercurial
+dev-vcs/mr
+dev-vcs/hub::gentoo
+dev-vcs/mr
+app-admin/stow
+sys-apps/etckeeper
+
+# }}}

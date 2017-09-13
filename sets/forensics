@@ -1,11 +1,24 @@
-app-eselect/eselect-metasploit
+# {{{ expoit
+
 app-exploits/exploitdb
-dev-db/sqlmap
-net-analyzer/nmap
+
+# }}}
+# {{{ sql-inject
 net-analyzer/sqlninja
+
+dev-db/sqlmap
+
+# }}}
+# {{{ network-monitoring
+
+net-analyzer/nmap
+
+# }}}
+# {{{ penetration-testing
+
 net-analyzer/metasploit
 net-analyzer/metasploit-payloads
 net-analyzer/metasploit_payloads-mettle
 net-analyzer/metasploit_data_models
-# -*- mode: sh -*-
-# vim:fenc=utf-8:ft=sh:
+
+# }}}

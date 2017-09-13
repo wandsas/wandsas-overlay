@@ -6,5 +6,5 @@ HOMEPAGE=http://github.com/wandsas/grml-etc-core.git
 IUSE=+git +tmux +vim +zsh
 LICENSE=GPL-2
 SLOT=0
-_eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390
+_eclasses_=git-r3	4f7ddb4119309845d6687213171ab445
 _md5_=8a96ea5184f4c4ba7e9f6c693470bd47

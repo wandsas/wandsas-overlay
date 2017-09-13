@@ -1,18 +1,34 @@
-net-analyzer/fail2ban
-net-analyzer/tcpdump
-net-analyzer/gnu-netcat
+# {{{ dns/dhcp
+
 net-dns/dnsmasq
 net-dns/bind-tools
 net-dns/ldns-utils
-net-firewall/ipset
-net-firewall/iptables
-#net-ftp/ncftp
-net-libs/ldns
-net-misc/rclone
 net-misc/dhcpcd
 net-misc/dhcpcd-ui
+
+# }}}
+# {{{ iptables
+
+net-firewall/ipset
+net-firewall/iptables
+
+# }}}
+# {{{ ntp
+
 net-misc/chrony
+
+# }}}
+
+# {{{ network-devices helper
+
+sys-apps/net-tools
+sys-apps/usermode-utilities
+sys-apps/ethtool
 net-misc/bridge-utils
+
+# }}}
+# {{{ network-protocols ipc helper
+
 net-misc/iputils
 net-misc/openssh
 net-misc/tipcutils
@@ -20,8 +36,13 @@ net-misc/connman
 #net-misc/pacrunner
 net-misc/mosh
 sys-apps/iproute2
-sys-apps/usermode-utilities
-sys-apps/net-tools
-sys-apps/ethtool
-# -*- mode: sh -*-
-# vim:fenc=utf-8:ft=sh:
+
+# }}}
+# {{{ network-analyzer
+
+#net-analyzer/fail2ban
+net-analyzer/tcpdump
+net-analyzer/gnu-netcat
+net-ftp/ncftp
+
+# }}}

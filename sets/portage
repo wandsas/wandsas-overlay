@@ -1,3 +1,5 @@
+# {{{ portage
+
 app-portage/cfg-update
 app-portage/eix
 app-portage/elogv
@@ -7,5 +9,11 @@ app-portage/gentoolkit
 app-portage/getdelta
 app-portage/layman
 app-portage/portage-utils
-# -*- mode: sh -*-
-# vim:fenc=utf-8:ft=sh:
+
+# }}}
+# {{{ package migration helper
+
+app-admin/perl-cleaner
+app-admin/python-updater
+
+# }}}
