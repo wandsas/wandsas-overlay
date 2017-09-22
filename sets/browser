@@ -5,11 +5,11 @@ www-client/lynx
 www-client/w3m
 
 # }}}
-# {{{ surf browser from suckless.org
+# {{{ surf - lightweight browser from suckless.org
 www-client/surf
 
 # }}}
-# {{{ firefox
+# {{{ mozilla firefox
 
 www-client/firefox
 

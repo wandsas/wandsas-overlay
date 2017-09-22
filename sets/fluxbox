@@ -1,3 +1,7 @@
+# {{{ fluxbox window-manager
+
 x11-wm/fluxbox
 x11-themes/fluxbox-styles-fluxmod
 app-vim/fluxbox-syntax
+
+# }}}

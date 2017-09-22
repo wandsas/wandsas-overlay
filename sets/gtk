@@ -1,20 +1,45 @@
-#x11-misc/tint
+# {{{ tint - lightweight panel/taskbar
+#x11-misc/tint2
 #x11-misc/tintwizard
+
+# }}}
+# {{{ rofi - window switcher, run dialog and dmenu replacement
+
 x11-misc/rofi
+
+# }}}
+# {{{ dmenu - highly customizable, and efficient menu for the X Window System
+
 x11-misc/dmenu
+
+# }}}
+# {{{ gtk-engines & -themes
+
 #x11-themes/gtk-engines
 x11-themes/gtk-engines-adwaita
 x11-themes/gnome-themes-standard
 x11-themes/adwaita-icon-theme
+
+# }}}
+# {{{ spacefm - multi-panel tabbed file-manager
+
 x11-misc/spacefm
 sys-apps/udevil
+
+# }}}
+# {{{ some gtk-configuration-tools from the LXDE Desktop
+
 lxde-base/lxrandr
 lxde-base/lxappearance
 lxde-base/lxtask
 lxde-base/lxsession
+
+# }}}
+# {{{ other gtk-tools
+
 x11-misc/clipit
-#media-gfx/gpicview
+media-gfx/gpicview
 media-gfx/pqiv
-media-gfx/feh
-media-gfx/scrot
 app-arch/xarchiver
+
+# }}}

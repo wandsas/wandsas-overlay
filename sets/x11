@@ -13,7 +13,7 @@ x11-apps/xkbutils
 x11-misc/xcalib
 
 # }}}
-# x11 apps
+# x11-apps
 
 x11-apps/setxkbmap
 x11-apps/xcmsdb
@@ -79,7 +79,7 @@ dev-libs/libxdg-basedir
 dev-python/pyxdg
 
 # }}}
-# {{{ uxterm
+# {{{ xterm
 
 x11-terms/xterm
 
@@ -97,5 +97,11 @@ x11-misc/urxvtconfig
 app-misc/tmux
 app-misc/tmux-mem-cpu-load
 app-misc/screen
+
+# }}}
+# {{{ feh & scrot - lightweight image-viewer and screen capture utilities
+
+media-gfx/fehg
+media-gfx/scrot
 
 # }}}

@@ -17,10 +17,14 @@ app-shells/zsh-completions
 app-shells/gentoo-zsh-completions
 
 # }}}
+# {{{ midnight-commander - text-based file-manager
+
+app-misc/mc
+
+# }}}
 # {{{ other shell utilities
 
 app-text/tree
-app-misc/mc
 app-shells/peco
 app-shells/fzf
 
