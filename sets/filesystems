@@ -1,0 +1,66 @@
+# {{{ filesystems
+
+# BTRFS
+sys-fs/btrfs-progs
+
+# XFS
+# sys-fs/xfsprogs
+
+# EXT2/EXT4
+sys-fs/e2fsprogs
+sys-fs/extundelete
+
+# FAT16/FAT32
+sys-fs/dosfstools
+
+# caching for other slower disks
+# sys-fs/bcache-tools
+
+# zram, provides a form of virtual memory compression.
+# (increases performance and avoids paging to disk
+sys-block/zram-init
+
+# AUFS (AnotherUnionFS) - Overlay filesystem
+# sys-fs/aufs-standalone
+# sys-fs/aufs-util
+
+
+# HFS+ (Apple OSX filesystem)
+# sys-fs/hfsutils
+# sys-fs/hfsplusutils
+
+# FUSE (Filesystem in Userspace)
+# sys-fs/fuse
+# sys-fs/fuseiso
+
+# }}}
+# {{{ nfs - network-filesystem
+
+net-fs/nfs-utils
+net-fs/autofs
+
+# }}}
+# {{{ partition-manager
+
+sys-apps/gptfdisk
+sys-block/gparted
+sys-block/parted
+
+# {{{ data recovery
+
+app-admin/testdisk
+
+# }}}
+# {{{ btrfs-snapshots and -backup
+
+app-backup/btrbk
+app-backup/snapper
+
+# }}}
+# {{{ compression
+
+app-arch/p7zip
+app-arch/tar
+dev-libs/libtar
+
+# }}}

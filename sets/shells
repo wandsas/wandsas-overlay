@@ -1,0 +1,27 @@
+# {{{ eselect-sh
+
+app-eselect/eselect-sh
+
+# }}}
+# {{{ bash
+
+app-shells/bash
+app-shells/bash-completion
+app-shells/gentoo-bashcomp
+
+# }}}
+# {{{ zsh
+
+app-shells/zsh
+app-shells/zsh-completions
+app-shells/gentoo-zsh-completions
+
+# }}}
+# {{{ other shell utilities
+
+app-text/tree
+app-misc/mc
+app-shells/peco
+app-shells/fzf
+
+# }}}
