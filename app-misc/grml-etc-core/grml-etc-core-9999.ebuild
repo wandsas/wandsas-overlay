@@ -17,14 +17,30 @@ else
 fi
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+git +tmux +vim +zsh"
+IUSE="+colors +git +tmux +screen +mercurial +vim +zsh +functions.sh"
 
 src_install() {
 	insinto /etc
+	use colors && newins etc/grml_colors grml_colors
 	use git && newins etc/skel/.gitconfig gitconfig
+	use mercurial && newins etc/skel/.hgrc mercurial/hgrc
 	use tmux && doins etc/tmux.conf
 	insinto /etc/vim
 	use vim && doins etc/vim/vimrc
+	
 	insinto /etc/zsh
 	use zsh && doins etc/zsh/zshrc
+	use zsh && doins etc/zsh/zlogin
+	use zsh && doins etc/zsh/zlogout
+	use zsh && doins etc/zsh/zprofile
+
+	insinto /etc/grml
+	use screenrc && doins /etc/grml/screenrc
+	use screenrc && doins /etc/grml/screenrc_acpi
+	use screenrc && doins /etc/grml/screenrc_generic
+	use screenrc && doins /etc/grml/screen_multisession
+	use functions.sh && doins /etc/grml/lsb-functions
+	use functions.sh && doins /etc/grml/script-functions
+	use functions.sh && doins /etc/grml/sysexits-sh
+
 }

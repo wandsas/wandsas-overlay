@@ -1,4 +1,4 @@
-# {{{ app-text
+# {{{ pdf
 
 app-text/mupdf
 app-text/pdftk
@@ -6,21 +6,29 @@ app-text/pdftk
 # }}}
 # {{{ latex
 
-# latext distribution texlive
 app-text/texlive
-#dev-texlive/lexlive-latexextra
-#dev-texlive/texlive-langgerman
-#dev-tex/latex2html
-#dev-tex/html2latex
+dev-texlive/texlive-latexextra
+dev-tex/latex2html
+dev-tex/html2latex
+app-tex/texi2html
 app-vim/vim-latex
+
+# }}}
+# {{{ libreoffice
 
 app-text/libreoffice
 app-office/libreoffice-l10n
 
 # }}}
-# {{{ media-gfx
+# {{{ gimp
 
 media-gfx/gimp
+
+# }}}
+# {{{ vector-graphics
+
 media-gfx/inkscape
+media-gfx/xfig
+media-gfx/transfig
 
 # }}}

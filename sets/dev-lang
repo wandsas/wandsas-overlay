@@ -1,63 +1,100 @@
-# {{{ app-eselect
+# {{{ Perl
 
-app-eselect/eselect-ctags
-app-eselect/eselect-python
-app-eselect/eselect-ruby
-app-eselect/eselect-rails
-app-eselect/eselect-scala
-app-eselect/eselect-lua
-app-eselect/eselect-java
-app-eselect/eselect-rust
-
-# }}}
-# {{{ app-text
-
-app-misc/colordiff
-app-text/po4a
-app-text/asciidoc
-
-# {{{ dev-lang
-
-dev-java/oracle-jdk-bin
-#dev-jave/ecj-gcj
-#dev-java/gcj-jdk
 dev-lang/perl
-dev-lang/go
-dev-lang/ruby
-dev-lang/python
-dev-lang/lua
-dev-lang/luajit
-dev-lang/rust
-dev-lang/scala
+
+dev-perl/Parse-ExuberantCTags
+dev-perl/Test-Output
+dev-perl/XML-Parser
 
 # }}}
-# {{{ dev-libs
+# {{{ Python
 
-dev-libs/libgit2
+dev-lang/python
+app-eselect/eselect-python
+
+dev-python/django
+dev-python/pip
+dev-python/python-ctags
 dev-python/github3
 dev-python/pygit2
-dev-python/python-ctags
-dev-python/neovim-python-client
-dev-ruby/neovim-ruby-client
+
+
+# }}}
+# {{{ Ruby
+
+dev-lang/ruby
+app-eselect/eselect-ruby
+
 dev-ruby/rails
+app-eselect/eselect-rails
+
 dev-ruby/bundler
 
 # }}}
-# {{{ build-system 
+# {{{ LUA
+
+dev-lang/lua
+dev-lang/luajit
+app-eselect/eselect-lua
+
+# }}}
+# {{{ Oracke JDK
+
+dev-java/oracle-jdk-bin
+app-eselect/eselect-java
+
+# }}}
+# {{{ Scala
+
+#dev-lang/scala
+#app-eselect/eselect-scala
+
+# }}}
+# {{{ Go
+
+dev-lang/go
+
+# }}}
+# {{{ Rust
+
+dev-lang/rust
+app-eselect/eselect-rust
+
+# }}}
+# {{{ Buildsystem
+
+app-text/asciidoc
+app-misc/colordiff
+app-text/po4a
 
 sys-devel/crossdev
 sys-devel/gdb
+
 dev-util/cmake
 dev-util/waf
 dev-util/ctags
-dev-perl/Parse-ExuberantCTags
-dev-util/bless
+#dev-util/bless
 dev-util/colorgcc
 dev-util/strace
 dev-util/valgrind
 dev-util/ninja
 dev-util/cutils
 dev-util/patchutils
-dev-util/glade
+
+# }}}
+# {{{ ide
+
+dev-util/android-studio
+
+# }}}
+# {{{ Development Libraries
+
+dev-libs/libgit2
+
+# }}}
+# {{{ databases
+
+dev-db/postgresql
+app-eselect/eselect-postgresql
 
 # }}}

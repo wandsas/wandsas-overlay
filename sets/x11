@@ -1,36 +1,34 @@
-# {{{ eselect
-
-app-eselect/eselect-opengl
-app-eselect/eselect-mesa
-
-# }}}
-# {{{ x11 
+# {{{ xorg-xserver
 
 x11-base/xorg-drivers
 x11-base/xorg-server
 
-x11-apps/mesa-progs
-x11-apps/setxkbmap
+# }}}
+# {{{ xorg-helper
+
 x11-apps/bdftopcf
-x11-apps/xcmsdb
 x11-apps/xfd
+x11-apps/xsetroot
+x11-apps/xkbutils
+x11-misc/xcalib
+
+# }}}
+# x11 apps
+
+x11-apps/setxkbmap
+x11-apps/xcmsdb
 x11-apps/xfontsel
 x11-apps/xlsfonts
 x11-apps/xmodmap
 x11-apps/xcalc
-#x11-apps/xbacklight
 x11-apps/xev
 x11-apps/xclock
 x11-apps/xinput
-x11-apps/xsetroot
-x11-apps/xkbutils
 x11-apps/transset
 x11-libs/libvdpau
-#x11-libs/libXfont
 x11-misc/wmctrl
 x11-misc/netwmpager::bar
 x11-misc/xclip
-x11-misc/xcalib
 x11-misc/xsel
 x11-misc/xbindkeys
 x11-misc/vdpauinfo
@@ -38,36 +36,66 @@ x11-misc/slock
 x11-misc/xautolock
 x11-misc/xdiskusage
 
-media-libs/libtxc_dxtn
-media-libs/freetype
+# }}}
+# {{{ nvidia
+
+#x11-drivers/nvidia-drivers
+
+# }}}
+# {{{ mesa
+
 media-libs/mesa
+x11-apps/mesa-progs
 
 # }}}
-# {{{ xdg
+# {{{ opengl
 
-dev-libs/libxdg-basedir
-dev-python/pyxdg
-x11-misc/xdg-user-dirs
-x11-misc/xdg-user-dirs-gtk
-x11-misc/xdg-utils
+virtual/opengl
+app-eselect/eselect-opengl
+app-eselect/eselect-opencl
+
+# {{{
+# {{{ S3TC texture (de)compression helper library
+
+media-libs/libtxc_dxtn
 
 # }}}
-# {{{ xterms
+# {{{ freetype font engine
 
-x11-terms/st
-x11-terms/xterm
-x11-terms/rxvt-unicode
-x11-misc/urxvt-font-size
-x11-misc/urxvt-perls
-x11-misc/urxvtconfig
-
-app-misc/tmux
-app-misc/tmux-mem-cpu-load
-app-misc/screen
+media-libs/freetype
 
 # }}}
 # {{{ composition-manager
 
 x11-misc/compton
+
+# }}}
+# {{{ xdg-user-dirs
+
+x11-misc/xdg-user-dirs
+x11-misc/xdg-user-dirs-gtk
+x11-misc/xdg-utils
+dev-libs/libxdg-basedir
+dev-python/pyxdg
+
+# }}}
+# {{{ uxterm
+
+x11-terms/xterm
+
+# }}}
+# {{{ rxvtz-unicode
+
+x11-terms/rxvt-unicode
+x11-misc/urxvt-font-size
+x11-misc/urxvt-perls
+x11-misc/urxvtconfig
+
+# }}}
+# {{{ tmux/screen
+
+app-misc/tmux
+app-misc/tmux-mem-cpu-load
+app-misc/screen
 
 # }}}

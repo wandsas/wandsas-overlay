@@ -1,42 +1,19 @@
-# {{{ debian
-
 app-arch/dpkg
 dev-util/debootstrap
 dev-util/schroot
 sys-apps/debianutils
 # net-misc/apt-cacher-ng
-
-# }}}
-# {{{ qemu/kvm
-
 app-emulation/qemu
 app-emulation/qemu-init-scripts
 app-emulation/aqemu
 app-emulation/virt-manager
 sys-block/nbd
-
-# }}}
-# {{{ libvirt
 app-emulation/libvirt
-# app-emulation/libvirt-glib
-# app-emulation/libvirt-snmp
-
-# }}}
-# {{{ libguestfs
-
 # app-emulatuion/libguestfs-appliance
 # app-emulation/libguestfs
-
-# }}}
-# {{{ lxc
-
 app-emulation/lxc
 app-emulation/lxd
 # sys-fs/lxcfs
-
-# }}}
-# {{{ docker
-
 # app-emulation/docker
 # app-emulation/docker-machine-kvm
 # app-emulation/docker-compose
@@ -54,5 +31,3 @@ app-emulation/lxd
 # dev-util/docker-ls
 # net-fs/docker-volume-netshare
 # sys-auth/docker_auth
-
-# }}}

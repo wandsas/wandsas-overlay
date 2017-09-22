@@ -1,34 +1,15 @@
-# {{{ dns/dhcp
-
 net-dns/dnsmasq
 net-dns/bind-tools
 net-dns/ldns-utils
 net-misc/dhcpcd
 net-misc/dhcpcd-ui
-
-# }}}
-# {{{ iptables
-
 net-firewall/ipset
 net-firewall/iptables
-
-# }}}
-# {{{ ntp
-
 net-misc/chrony
-
-# }}}
-
-# {{{ network-devices helper
-
 sys-apps/net-tools
 sys-apps/usermode-utilities
 sys-apps/ethtool
 net-misc/bridge-utils
-
-# }}}
-# {{{ network-protocols ipc helper
-
 net-misc/iputils
 net-misc/openssh
 net-misc/tipcutils
@@ -36,13 +17,9 @@ net-misc/connman
 #net-misc/pacrunner
 net-misc/mosh
 sys-apps/iproute2
-
-# }}}
-# {{{ network-analyzer
-
-#net-analyzer/fail2ban
+net-analyzer/fail2ban
 net-analyzer/tcpdump
 net-analyzer/gnu-netcat
 net-ftp/ncftp
-
-# }}}
+net-fs/nfs-utils
+net-fs/autofs

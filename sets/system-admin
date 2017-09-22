@@ -1,74 +1,55 @@
-# {{{ shells
-
-# bash
-app-shells/bash
-app-shells/bash-completion
-app-shells/gentoo-bashcomp
-
-# zsh
-app-shells/zsh
-app-shells/zsh-completions
-app-shells/gentoo-zsh-completions
-
-app-text/tree
-app-misc/mc
-
-app-shells/peco
-app-shells/fzf
-
-app-eselect/eselect-sh
-
-# }}}
-# {{{ boot-manager/initramfs
+# {{{ boot-manager
 
 sys-boot/grub
 sys-boot/syslinux
+
+# }}}
+# {{{ initramfs-system
+
 sys-kernel/dracut
 
 # }}}
-# {{{ kernel
+# {{{ kernel and utils
 
-# kernel with gentoo patches
-#sys-kernel/gentoo-sources
-
-# kernel with grsecurity and selinux integration
-#sys-kernel/hardened-sources
-
-# newest kernel from kernel.org
-sys-kernel/git-sources
+# sys-kernel/gentoo-sources
+# sys-kernel/hardened-sources
+# sys-kernel/git-sources
 
 sys-apps/kexec-tools
 sys-apps/util-linux
-sys-apps/pciutils
-sys-apps/usbutils
+sys-apps/busybox
 sys-apps/biosdevname
 
 # }}}
-# {{{ init-system
+# {{{ init-system, gentoo's udev fork and dbus
 
 sys-apps/openrc
 sys-fs/eudev
 sys-apps/sysvinit
 sys-apps/dbus
-sys-apps/busybox
 
 # }}}
-# {{{ acpi
+# {{{ acpi and power-management
 
 sys-apps/hprofile
+sys-apps/pciutils
+sys-apps/usbutils
 sys-apps/lm_sensors
+sys-apps/smartmontools
+sys-apps/hdparm
+sys-apps/sdparm
 sys-apps/usbutils
 sys-power/acpid
 sys-power/pmtools
 
 # }}}
-# {{{ cron, job-queue
+# {{{ process-management and scheduling
 
 sys-process/at
 sys-process/fcron
 sys-process/ftop
 sys-process/htop
-sys-process/lsof
+sys-process/lsof 
 
 # }}}
 # {{{ system-logging
@@ -77,87 +58,5 @@ app-admin/syslog-ng
 app-admin/logrotate
 app-admin/logcheck
 app-admin/lnav
-
-# }}}
-# {{{ filesystem
-
-# BTRFS
-sys-fs/btrfs-progs
-
-# ext2/etx4
-sys-fs/e2fsprogs
-sys-fs/extundelete
-
-# fat16/fat32
-sys-fs/dosfstools
-
-# XFS
-# sys-fs/xfsprogs
-
-# bcache
-# sys-fs/bcache-tools
-
-# tmpfs
-sys-block/zram-init
-
-# aufs
-# sys-fs/aufs-standalone
-# sys-fs/aufs-util
-
-# hfs+
-# sys-fs/hfsutils
-# sys-fs/hfsplusutils
-
-# FUSE
-# sys-fs/fuse
-# sys-fs/fuseiso
-
-# }}}
-# {{{ network-filesystem
-
-net-fs/nfs-utils
-net-fs/autofs
-
-# }}}
-# {{{ partitioning
-
-sys-apps/gptfdisk
-sys-block/gparted
-sys-block/parted
-
-# }}}
-# {{{ monitoring hard drives
-
-sys-apps/smartmontools
-sys-apps/hdparm
-sys-apps/sdparm
-
-# }}}
-# {{{ backup
-
-app-backup/btrbk
-app-backup/snapper
-
-# }}}
-# {{{ data-recovery
-
-app-admin/testdisk
-
-# }}}
-# {{{ crypt-tools
-
-app-admin/pass
-app-crypt/gnupg
-app-crypt/keybase::wandsas
-
-# }}}
-# {{{ archives 
-
-app-arch/xarchiver
-app-arch/p7zip
-app-arch/tar
-dev-libs/libtar
-virtual/perl-Archive-Tar
-dev-perl/PerlIO-gzip
 
 # }}}

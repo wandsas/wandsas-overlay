@@ -1,22 +1,24 @@
-# {{{ expoit
+# {{{ exploits
 
 app-exploits/exploitdb
 
 # }}}
-# {{{ sql-inject
-net-analyzer/sqlninja
+# {{{ sqlinject
 
+net-analyzer/sqlninja
 dev-db/sqlmap
 
 # }}}
-# {{{ network-monitoring
+# {{{ network-sniffer
 
 net-analyzer/nmap
 
 # }}}
-# {{{ penetration-testing
+# {{{ metasploit
 
 net-analyzer/metasploit
+app-eselect/eselect-metasploit
+
 net-analyzer/metasploit-payloads
 net-analyzer/metasploit_payloads-mettle
 net-analyzer/metasploit_data_models

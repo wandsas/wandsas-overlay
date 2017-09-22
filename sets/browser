@@ -1,13 +1,21 @@
-#www-client/links
+# {{{ text-browser
+
 www-client/elinks
 www-client/lynx
 www-client/w3m
+
+# }}}
+# {{{ surf browser from suckless.org
 www-client/surf
-#www-client/netsurf
-#www-client/dillo
+
+# }}}
+# {{{ firefox
+
 www-client/firefox
+
+# }}}
+# {{{ chromium
+
 www-client/chromium
 
-# binaries
-#www-client/google-chrome
-#www-client/firefox-bin
+# }}}
