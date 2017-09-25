@@ -1,11 +1,15 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
 Less	.tmuxrc.d/keybindings.conf	/^bind-key M command-prompt -p "Less:" "split-window 'which richpager && richpager -l %%'"$/;"	k
 Man	.tmuxrc.d/keybindings.conf	/^bind-key m command-prompt -p "Man:" "split-window 'man %%'"$/;"	k
+exec	.tmux.conf	/^bind-key - command-prompt -p "exec:" "split-window -v '%%'"$/;"	k
+exec	.tmux.conf	/^bind-key | command-prompt -p "exec:" "split-window -h '%%'"$/;"	k
+t	.tmux.conf	/^bind-key tab select-pane -t :.+$/;"	k
 t	.tmuxrc.d/keybindings.conf	/^bind-key -n C-o run "tmux select-pane -l || tmux select-pane -t :.+"$/;"	k
 t	.tmuxrc.d/keybindings.conf	/^bind-key -r C-h select-window -t :-$/;"	k
 t	.tmuxrc.d/keybindings.conf	/^bind-key -r C-l select-window -t :+$/;"	k
