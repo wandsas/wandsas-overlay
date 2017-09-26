@@ -101,7 +101,7 @@ app-misc/screen
 # }}}
 # {{{ feh & scrot - lightweight image-viewer and screen capture utilities
 
-media-gfx/fehg
+media-gfx/feh
 media-gfx/scrot
 
 # }}}

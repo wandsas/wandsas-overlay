@@ -1,6 +1,7 @@
 # {{{ tint - lightweight panel/taskbar
-#x11-misc/tint2
-#x11-misc/tintwizard
+
+x11-misc/tint2
+x11-misc/tintwizard
 
 # }}}
 # {{{ rofi - window switcher, run dialog and dmenu replacement
@@ -15,10 +16,25 @@ x11-misc/dmenu
 # }}}
 # {{{ gtk-engines & -themes
 
-#x11-themes/gtk-engines
+# engines
+x11-themes/gtk-engines
 x11-themes/gtk-engines-adwaita
+
+# themes
+x11-themes/adwaita-qt
 x11-themes/gnome-themes-standard
+x11-themes/gnome-colors-themes
+
+# icons
 x11-themes/adwaita-icon-theme
+x11-themes/gnome-icon-theme
+x11-themes/tango-icon-theme
+x11-themes/human-icon-theme
+
+# xcursor
+x11-themes/ardoise-xcursor-theme
+x11-themes/vanilla-dmz-aa-xcursors
+x11-themes/vanilla-dmz-xcursors
 
 # }}}
 # {{{ spacefm - multi-panel tabbed file-manager

@@ -1,35 +1,53 @@
-# {{{ filesystems
+# {{{ btrfs
 
-# BTRFS
 sys-fs/btrfs-progs
+sys-fs/btrfsmaintenance
 
-# XFS
+# }}}
+# {{{ xfs
+
 # sys-fs/xfsprogs
 
-# EXT2/EXT4
+# }}}
+# {{{ ext2/ext4
+
 sys-fs/e2fsprogs
+
+# }}}
+# {{{ extundelete - utility to undelete files from an ext3 or ext4 partition
+
 sys-fs/extundelete
 
-# FAT16/FAT32
+# }}}
+# {{{ fat16/fat43
+
 sys-fs/dosfstools
 
-# caching for other slower disks
+# }}}
+# {{{ bache - fast ssd cache for slower harddisks
+
 # sys-fs/bcache-tools
 
-# zram, provides a form of virtual memory compression.
-# (increases performance and avoids paging to disk
+# zram, provides a form of virtual memory compression (increases performance, avoids paging to disk)+
+
 sys-block/zram-init
 
-# AUFS (AnotherUnionFS) - Overlay filesystem
+# }}}
+# {{{ AUFS (AnotherUnionFS) - Overlay filesystem
+
 # sys-fs/aufs-standalone
 # sys-fs/aufs-util
 
+# }}}
 
-# HFS+ (Apple OSX filesystem)
+# {{{ HFS+ (Apple OSX filesystem)
+
 # sys-fs/hfsutils
 # sys-fs/hfsplusutils
 
-# FUSE (Filesystem in Userspace)
+# }}}
+# {{{ fuse (Filesystem in Userspace)
+
 # sys-fs/fuse
 # sys-fs/fuseiso
 
@@ -40,7 +58,7 @@ net-fs/nfs-utils
 net-fs/autofs
 
 # }}}
-# {{{ partition-manager
+# {{{ partition-manager (gpt/mbr)
 
 sys-apps/gptfdisk
 sys-block/gparted
@@ -48,7 +66,7 @@ sys-block/parted
 
 # {{{ data recovery
 
-app-admin/testdisk
+# app-admin/testdisk
 
 # }}}
 # {{{ btrfs-snapshots and -backup
@@ -59,8 +77,9 @@ app-backup/snapper
 # }}}
 # {{{ compression
 
+app-arch/xz-utils
+app-arch/lzop
 app-arch/p7zip
 app-arch/tar
-dev-libs/libtar
 
 # }}}
