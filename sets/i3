@@ -11,7 +11,12 @@ x11-misc/i3lock
 x11-misc/unclutter-xfixes
 
 # }}}
-# {{{ 
+# {{{ xedgewarp
+
+x11-misc/xedgewarp
+
+# }}}
+# {{{
 dev-perl/AnyEvent-I3
 
 

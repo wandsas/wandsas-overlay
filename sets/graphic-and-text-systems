@@ -1,0 +1,41 @@
+# {{{ mupdf - pdf-viewer
+
+app-text/mupdf
+
+# }}}
+# {{{ pdftk - Manipulating PDF documents
+
+#app-text/pdftk
+
+# FAILS, because requires gcj
+
+# }}}
+# {{{ texlive - latex-system
+
+app-text/texlive
+dev-texlive/texlive-latexextra
+dev-tex/latex2html
+dev-tex/html2latex
+app-text/texi2html
+app-text/dblatex
+app-vim/vim-latex
+
+# }}}
+# {{{ libreoffice - office-application
+
+app-office/libreoffice
+app-office/libreoffice-l10n
+
+# }}}
+# {{{ gimp - image manipulation program
+
+media-gfx/gimp
+
+# }}}
+# {{{ vector-graphics
+
+media-gfx/inkscape
+media-gfx/xfig
+media-gfx/transfig
+
+# }}}
