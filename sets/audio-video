@@ -45,7 +45,7 @@ app-cdr/dvd+rw-tools
 
 media-sound/alsa-utils
 media-libs/alsa-lib
-# media-plugins/alsa-plugins
+#media-plugins/alsa-plugins
 # media-libs/alsa-oss
 
 # }}}
@@ -53,7 +53,7 @@ media-libs/alsa-lib
 
 media-sound/jack-audio-connection-kit
 media-sound/qjackctl
-#media-sound/jack_mixer
+media-sound/jack_mixer
 #media-sound/jackbeat
 #media-sound/jack_capture
 #media-sound/jack2
@@ -117,7 +117,7 @@ media-sound/ncmpcpp
 # }}}
 # {{{ libmpdclient - library for interfacing mpd
 
-# media-libs/libmpdclient
+#media-libs/libmpdclient
 
 # }}}
 # {{{ mutagen - audio metadata tag reader/writer

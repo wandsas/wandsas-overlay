@@ -35,6 +35,7 @@ x11-misc/vdpauinfo
 x11-misc/slock
 x11-misc/xautolock
 x11-misc/xdiskusage
+x11-misc/simpleswitcher
 
 # }}}
 # {{{ nvidia
