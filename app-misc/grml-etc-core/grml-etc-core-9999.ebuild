@@ -27,11 +27,11 @@ src_install() {
 	uuse git && newins etc/skel/.gitconfig gitconfig
 	use mercurial && newins etc/skel/.hgrc mercurial/hgrc
 	use tmux && doins etc/tmux.conf tmux.conf
-	
-	
+
+
 	insinto /etc/vim
 	use vim && doins etc/vim/vimrc vimrc
-	
+
 	insinto /etc/zsh
 	use zsh && doins etc/zsh/zshrc zshrc
 	use zsh && doins etc/zsh/zlogin zlogin
@@ -46,10 +46,8 @@ src_install() {
 	use functions && doins /etc/grml/lsb-functions lsb-functions
 	use functions && doins /etc/grml/script-functions script-functions
 	use functions && doins /etc/grml/sysexits-sh sysexits-sh
-	
+
 	insinto /etc/skel
-	use emacs &&/ doins /etc/skel/.emacs .emacs
-	use git && doins /etc/skel/.gitconfig .gitconfig
 	use mercurial && doins /etc/skel/.hgrc .hgrc
 	use zsh && doins /etc/skel/.zshrc .zshrc
 	use vim && doins /etc/skel/.vim .vim
@@ -60,19 +58,6 @@ src_install() {
 	use vim && doins /etc/skel/.vim/plugin/DirDiff.vim plugin/DifDiff.vim
 
 
-
-	insinto /usr/share/grml/zsh/functions
-	use functions && doins /usr_share_grml/zsh/functions/ipv6-tunnel ipv6-tunnel
-	use functions && doins /usr_share_grml/zsh/functions/linenr linenr
-	use functions && doins /usr_share_grml/zsh/functions/ipv6-tunnel
-	use functions && doins /usr_share_grml/zsh/functions/minimal-shell minimal-shell
-	use functions && doins /usr_share_grml/zsh/functions/purge purge
-	use functions && doins /usr_share_grml/zsh/functions/readme readme
-	use functions && doins /usr_share_grml/zsh/functions/urldecode urldecode
-	use functions && doins /usr_share_grml/zsh/functions/weather weather
-	
-
-	
 
 
 }
