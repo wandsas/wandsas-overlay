@@ -7,4 +7,4 @@ IUSE=+colors +git +tmux +screen +mercurial +vim +emacs +zsh +functions
 LICENSE=GPL-2
 SLOT=0
 _eclasses_=git-r3	52a888802d25387c2c74cb845d1219bc
-_md5_=c70bdcc8ec0688e6d67ebef813fcf383
+_md5_=95e6e1fc7e71c8e452440caa19a56a47
