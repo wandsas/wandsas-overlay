@@ -29,3 +29,8 @@ sys-apps/etckeeper
 dev-vcs/git-annex
 
 # }}}
+# {{{ tig - git logging
+
+dev-vcs/tig
+
+# }}}
