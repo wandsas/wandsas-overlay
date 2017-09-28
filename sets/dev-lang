@@ -31,7 +31,7 @@ app-eselect/eselect-rails
 dev-ruby/bundler
 
 # }}}
-# {{{ LUA
+# {{{ lua
 
 dev-lang/lua
 dev-lang/luajit
@@ -66,68 +66,28 @@ app-eselect/eselect-rust
 app-text/asciidoc
 app-misc/colordiff
 app-text/po4a
-
 sys-devel/crossdev
 sys-devel/gdb
-
 dev-util/cmake
 dev-util/waf
 dev-util/ctags
-# {{{ bless - gtk hex-editor
-
 dev-util/bless
-
-# }}}
-
 dev-util/colorgcc
 dev-util/strace
 dev-util/valgrind
-
-
-# {{{ automake - generate Makefile.ion from Makefile.am
-
 sys-devel/automake
-
-# }}}
-# {{{ autoconf - create autoconfiguration file
-
 sys-devel/autoconf
-
-# }}}
-# {{{ small build system
-
 dev-util/ninja
-
-# }}}
-# {{{ pkgconfig
-
 dev-util/pkgconfig
-
-# }}}
-# {{{ cutils - C language utilities
-
 dev-util/cutils
-
-# }}}
-# {{{ patchutils - collection of tools that operate on patch fileseme    c
-#
-
 dev-util/patchutils
+dev-libs/libgit2
 
 # }}}
-# {{{ glade - gtk interface designer
-
-#dev-util/glade
-
-# }}}
-# {{{ android-studio - IntelliJ IDEA
+# {{{ android
 
 dev-util/android-studio
-
-# }}}
-# {{{ Development Libraries
-
-dev-libs/libgit2
+dev-util/android-tools
 
 # }}}
 # {{{ postgresql
