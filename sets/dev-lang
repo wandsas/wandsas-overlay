@@ -86,8 +86,8 @@ dev-libs/libgit2
 # }}}
 # {{{ android
 
-dev-util/android-studio
-dev-util/android-tools
+#dev-util/android-studio
+#dev-util/android-tools
 
 # }}}
 # {{{ postgresql

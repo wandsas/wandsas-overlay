@@ -49,8 +49,10 @@ media-sound/id3v2
 # {{{ alsa-tools
 
 media-sound/alsa-utils
+media-sound/alsa-tools
+media-sound/alsamixer-app
 media-libs/alsa-lib
-#media-plugins/alsa-plugins
+media-plugins/alsa-plugins
 # media-libs/alsa-oss
 
 # }}}
@@ -67,9 +69,14 @@ media-sound/jack-audio-connection-kit
 #media-sound/jack-keyboard
 
 # }}}
+# {{{ atomicparsley
+
+media-video/atomicparsley
+
+# }}}
 # {{{ patchage - patch bay for audio/midi
 
-# media-sound/patchage
+media-sound/patchage
 
 # }}}
 # {{{ ardour - audio workstation
