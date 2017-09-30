@@ -14,9 +14,13 @@ app-emulation/libvirt
 # app-emulation/libguestfs
 app-emulation/lxc
 app-emulation/lxd
-# sys-fs/lxcfs
-# app-emulation/docker
-# app-emulation/docker-machine-kvm
+app-admin/cgmanager
+app-emulation/lxc-gentoo
+sys-fs/lxcfs
+dev-libs/libcgroup
+
+app-emulation/docker
+app-emulation/docker-machine-kvm
 # app-emulation/docker-compose
 # app-emulation/docker-gc
 # app-emulation/docker-machine
