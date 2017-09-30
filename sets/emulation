@@ -21,9 +21,9 @@ dev-libs/libcgroup
 
 app-emulation/docker
 app-emulation/docker-machine-kvm
-# app-emulation/docker-compose
+app-emulation/docker-compose
+app-emulation/docker-machine
 # app-emulation/docker-gc
-# app-emulation/docker-machine
 # app-emulation/docker-proxy
 # app-emulation/docker-registry
 # app-emulation/docker-runc
