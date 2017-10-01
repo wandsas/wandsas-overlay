@@ -13,10 +13,10 @@ app-emulation/libvirt
 # app-emulatuion/libguestfs-appliance
 # app-emulation/libguestfs
 app-emulation/lxc
-app-emulation/lxd
+#app-emulation/lxd
 app-admin/cgmanager
 app-emulation/lxc-gentoo
-sys-fs/lxcfs
+#sys-fs/lxcfs
 dev-libs/libcgroup
 
 app-emulation/docker
@@ -36,3 +36,6 @@ app-emulation/docker-machine
 # dev-util/docker-ls
 # net-fs/docker-volume-netshare
 # sys-auth/docker_auth
+
+app-emulation/vagrant
+app-emulation/packer
