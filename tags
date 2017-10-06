@@ -6,7 +6,8 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
 t	.tmux.conf	/^bind -r C-h select-window -t :-$/;"	k
-t	.tmux.conf	/^bind -r C-v select-window -t :+$/;"	k
+t	.tmux.conf	/^bind -r C-l select-window -t :+$/;"	k
+t	.tmux.conf	/^bind-key tab select-pane -t :.+$/;"	k
 tmux_attach	lib/tmux.zsh	/^tmux_attach () {$/;"	f
 tmux_check_session_var	lib/tmux.zsh	/^tmux_check_session_var () {$/;"	f
 tmux_has_session	lib/tmux.zsh	/^tmux_has_session () {$/;"	f
