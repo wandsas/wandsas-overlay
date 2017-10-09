@@ -49,7 +49,7 @@ lxde-base/lxtask
 # lxde-base/lxinput
 # lxde-base/lxlauncher
 # lxde-base/lxmenu-data
-# lxde-base/lxsession 
+#lxde-base/lxsession 
 # lxde-base/lxsession-edit
 # lxde-base/lxshortcut
 x11-misc/pcmanfm

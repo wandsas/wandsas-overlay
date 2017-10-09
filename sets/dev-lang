@@ -35,7 +35,7 @@ dev-perl/XML-Parser
 dev-perl/Parse-ExuberantCTags
 
 # }}}
-# {{{ Python 
+# {{{ Python
 
 dev-lang/python
 
@@ -150,12 +150,5 @@ app-eselect/eselect-postgresql
 # {{{ Mariadb (fork of mysql)
 
 dev-db/mariadb
-
-# }}}
-# {{{ Documentation helper
-
-app-text/asciidoc
-app-text/po4a
-app-doc/doxygen
 
 # }}}
