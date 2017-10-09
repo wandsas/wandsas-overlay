@@ -1,57 +1,65 @@
-# {{{ C/C++
+# {{{ C/C++ Build Environment
 
+sys-devel/lvmgold
+# sys-libs/llvm-libunwind
+# dev-python/llvmlite
+# dev-python/clang-runtime
+
+sys-devel/clang-runtime
+
+sys-devel/gcc
+sys-devel/gcc-config
+
+dev-util/colorgcc
+app-misc/colordiff
+dev-util/cutils
+dev-util/cmake
+dev-util/waf
+dev-util/ctags
+dev-util/bless
+dev-util/strace
+dev-util/ninja
+dev-util/pkgconfig
 app-doc/cppman
 
+dev-util/valgrind
+dev-lang/nasm
+
+# }}}
 # {{{ Perl
 
 dev-lang/perl
 
-dev-perl/Parse-ExuberantCTags
 dev-perl/Test-Output
 dev-perl/XML-Parser
+dev-perl/Parse-ExuberantCTags
 
 # }}}
-# {{{ Python
+# {{{ Python 
 
 dev-lang/python
-app-eselect/eselect-python
 
+dev-python/django
+dev-python/pypy3
+dev-python/python-spidermonkey
 dev-python/django
 dev-python/pip
 dev-python/python-ctags
 dev-python/github3
 dev-python/pygit2
 
+app-eselect/eselect-python
 
 # }}}
 # {{{ Ruby
 
 dev-lang/ruby
-app-eselect/eselect-ruby
 
 dev-ruby/rails
-app-eselect/eselect-rails
-
 dev-ruby/bundler
 
-# }}}
-# {{{ lua
-
-dev-lang/lua
-dev-lang/luajit
-app-eselect/eselect-lua
-
-# }}}
-# {{{ Oracke JDK
-
-dev-java/oracle-jdk-bin
-app-eselect/eselect-java
-
-# }}}
-# {{{ Scala
-
-dev-lang/scala
-app-eselect/eselect-scala
+app-eselect/eselect-ruby
+app-eselect/eselect-rails
 
 # }}}
 # {{{ Go
@@ -62,41 +70,92 @@ dev-lang/go
 # {{{ Rust
 
 dev-lang/rust
+
 app-eselect/eselect-rust
 
 # }}}
-# {{{ Buildsystem
+# {{{ Lua/Luajit
+
+# dev-lang/lua
+dev-lang/luajit
+
+app-eselect/eselect-lua
+
+# }}}
+
+dev-lang/nasm# {{{ Haskell
+
+# dev-lang/ghc
+
+# }}}
+# {{{ Scala
+
+
+dev-lang/scala
+
+app-eselect/eselect-scala
+
+# }}}
+# {{{ Closure
+
+dev-lang/closure
+
+# }}}
+# {{{ Groovy
+
+# dev-java/groovy
+
+# }}}
+# {{{ Oracle-JDK
+
+dev-java/oracle-jdk-bin
+dev-java/java-config
+
+app-eselect/eselect-java
+
+# Gradle & other build tools
+dev-java/gradle-bin
+# dev-java/maven-bin
+# dev-java/ant
+
+# }}}
+# {{{ Erlangen
+
+# dev-lang/erlangen
+
+# }}}
+# {{{ Node.js
+
+net-libs/nodejs
+
+# }}}
+# {{{ Coffee-Script
+
+dev-lang/coffee-script
+
+# }}}
+# {{{ PHP#
+
+dev-lang/php
+
+app_eselect/eselect-php
+
+# }}}
+# {{{ Postgresql
+
+dev-db/postgresql
+app-eselect/eselect-postgresql
+
+# }}}
+# {{{ Mariadb (fork of mysql)
+
+dev-db/mariadb
+
+# }}}
+# {{{ Documentation helper
 
 app-text/asciidoc
-app-misc/colordiff
 app-text/po4a
-sys-devel/crossdev
-sys-devel/gdb
-dev-util/cmake
-dev-util/waf
-dev-util/ctags
-dev-util/bless
-dev-util/colorgcc
-dev-util/strace
-dev-util/valgrind
-sys-devel/automake
-sys-devel/autoconf
-dev-util/ninja
-dev-util/pkgconfig
-dev-util/cutils
-dev-util/patchutils
-dev-libs/libgit2
-
-# }}}
-# {{{ android
-
-#dev-util/android-studio
-#dev-util/android-tools
-
-# }}}
-# {{{ postgresql
-
-# dev-db/postgresql
-# app-eselect/eselect-postgresql
+app-doc/doxygen
 
 # }}}

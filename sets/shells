@@ -1,31 +1,11 @@
-# {{{ eselect-sh
-
 app-eselect/eselect-sh
-
-# }}}
-# {{{ bash
-
 app-shells/bash
 app-shells/bash-completion
 app-shells/gentoo-bashcomp
-
-# }}}
-# {{{ zsh
-
 app-shells/zsh
 app-shells/zsh-completions
 app-shells/gentoo-zsh-completions
-
-# }}}
-# {{{ midnight-commander - text-based file-manager
-
 app-misc/mc
-
-# }}}
-# {{{ other shell utilities
-
 app-text/tree
-app-shells/peco
-app-shells/fzf
-
-# }}}
+# app-shells/peco
+# app-misc/ranger

@@ -1,192 +1,43 @@
-# {{{ kernel and utils
-
-# sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
 # sys-kernel/hardened-sources
 # sys-kernel/git-sources
-
-# }}}
-
-# {{{ bootloaders
-
 sys-boot/grub
-# sys-boot/syslinux
-
-# }}}
-# {{{ dracut - initramfs generation
-
+sys-boot/syslinux
 sys-kernel/dracut
-
-# }}}
-# {{{ kexec-tools - Load another kernel from the currently executing Linux kernel
-
 sys-apps/kexec-tools
-
-# }}}
-# {{{ util-linux - Various useful Linux utilities
-
 sys-apps/util-linux
-
-# }}}
-# {{{ busybox -Utilities for rescue and embedded systems
-
 sys-apps/busybox
-
-# {{{ biosdevname - Sets BIOS-given device names instead of kernel eth* names
-
-#sys-apps/biosdevname
-
-# }}}
-# {{{ openrc - OpenRC manages the services, startup and shutdown of a host
-
+# sys-apps/biosdevname
 sys-apps/openrc
-
-# {{{ eudev - Linux dynamic and persistent device naming support (aka userspace devfs)j
-
 sys-fs/eudev
-
-# {{{ sysvinit - /sbin/init - parent of all processes
 sys-apps/sysvinit
-
-# {{{ dbus - A message bus system, a simple way for applications to talk to earch other
-
 sys-apps/dbus
-
-# }}}
-# {{{ hprofile - Utility to manage hardware, network, power or other profiles
-
 sys-apps/hprofile
-
-# {{{ various utilities dealing with the PCI bus
-
 sys-apps/pciutils
-
-# }}}
-# {{{ usbutils - USB enumeration utilities
-
 sys-apps/usbutils
-
-# }}}
-# {{{ lm_sensors - Hardware Monmitoring user-space utilities
-
 sys-apps/lm_sensors
-
-# }}}
-# {{{ smartmontools - Tools to monitor storage systems to provide advanced warning of disk degradartion
-
 sys-apps/smartmontools
-
-# }}}
-# {{{ hdparm - Utility to change hard drive performance parameters
-
 sys-apps/hdparm
-
-# }}}
-# {{{ sdparm - Utility to output and modify parameters on a SCSI device, like hdparm
-
 sys-apps/sdparm
-
-# }}}
-# {{{ various scsi-tools
-
 sys-fs/lsscsi
-sys-block/scsiadd
-sys-block/scsiping
+# sys-block/scsiadd
+# sys-block/scsiping
 sys-apps/rescan-scsi-bus
-
-# }}}
-# {{{ acpid - Daemon for Advanced Configuration and Power Interface
-
 sys-power/acpid
-
-# }}}
-# {{{ pmtools - Collection of tools for ACPI and power management
-
 sys-power/pmtools
-
-# }}}
-# {{{ hibnate-script - Hibernate script sdupporting multiple suspend methodsf
-# {{{ at - job queue for later execution
-
 sys-process/at
-
-# }}}
-# {{{ command scheduler with extended capabilities over cron and anacron
-
 sys-process/fcron
-
-# }}}
-# {{{ cronutils - utilities to assist running batch processing jobs
-
 sys-process/cronutils
-
-# }}}
-# {{{ ftop - Monitor open files and filesystems
-
 sys-process/ftop
-
-# }}}
-# {{{ htop - interactive process viewer
-
 sys-process/htop
-
-# }}}
-# {{{ lsof - list open files for running Unix processes
-
 sys-process/lsof 
-
-# }}}
-# {{{ syslog-ng - syslog replacement with advanced filtering features
-
 app-admin/syslog-ng
-
-# }}}
-# {{{ logrotate - Rotates, compresses, amd mails system logs
-
 app-admin/logrotate
-
-# }}}
-# {{{ logcheck - Mails anomalies in the system logfiles to the administrator
-
-app-admin/logcheck
-
-# }}}
-# {{{ lnav - curses-based tool for viewing and analyzing log files
-
-app-admin/lnav
-
-# }}}
-# {{{ GNU Privace Guard
-
+# app-admin/logcheck
+# app-admin/lnav
 app-crypt/gnupg
-
-# }}}
-# {{{ transparent editing of gpg encrypted files
-
 app-vim/gnupg
-
-# }}}
-# {{{ keybase.io client
-
 app-crypt/keybase::wandsas
-
-# }}}
-# {{{ keybase.io filesystem implementation
-
 app-crypt/kbfs::wandsas
-
-# }}}
-# {{{ pass - Store, retrieves, generates and synchronizees passwords securely
-
 app-admin/pass
-
-# }}}
-# {{{ sudo
-
 app-admin/sudo
-
-# }}}
-# {{{ gksu - graphical sudo-login
-
-x11-libs/gksu
-
-# }}}

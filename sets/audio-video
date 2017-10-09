@@ -1,159 +1,48 @@
-# {{{ cd/dvd-tools
-
-# app-cdr/cdemu
-# app-cdr/cuetools
-# app-cdr/cdw
+app-cdr/cdemu
+app-cdr/cuetools
+app-cdr/cdw
 app-cdr/cdrtools
 app-cdr/dvd+rw-tools
-
-# {{{ gaffitter - Genetic Algorithm File Fitter
-
-# app-cdr/gaffitter
-
-# }}}
-# {{{ iat - BIN, MDF, PDI, CDI, NRG, and BV5I converters
-
-# app-cdr/iat
-
-# }}}
-# {{{ mp3c - console-based mp3 ripper
-
-# media-sound/mp3c
-
-# }}}
-# {{{ abcde - command-line cd encoder
-
-# media-sound/abcde
-
-# }}}
-# {{{ youtube-dl - video/music downloader
-
+app-cdr/gaffitter
+app-cdr/iat
+media-sound/mp3c
+media-sound/abcde
 # net-misc/youtube-dl
-
-# }}}
-# {{{ id3v2
-
+media-video/atomicparsley
 media-sound/id3v2
-
-# }}}
-# {{{ x264-encoder - command-line encoder for X265/AVC streams
-
-# media-video/x264-encoder
-
-#  }}}
-# {{{ x265 - library for encoding video streams into H.265/HEVC fornat
-
-# media-libs/x265
-
-# }}}
-# {{{ alsa-tools
-
+media-video/x264-encoder
+media-libs/x265
 media-sound/alsa-utils
 media-sound/alsa-tools
 media-sound/alsamixer-app
 media-libs/alsa-lib
 media-plugins/alsa-plugins
-# media-libs/alsa-oss
-
-# }}}
-# {{{ jack-audio-connection-kit
-
-media-sound/jack-audio-connection-kit
-#media-sound/qjackctl
-#media-sound/jack_mixer
-#media-sound/jackbeat
-#media-sound/jack_capture
-#media-sound/jack2
-#media-sound/jack-smf-utils
-#media-sound/jack-rack
-#media-sound/jack-keyboard
-
-# }}}
-# {{{ atomicparsley
-
-media-video/atomicparsley
-
-# }}}
-# {{{ patchage - patch bay for audio/midi
-
-media-sound/patchage
-
-# }}}
-# {{{ ardour - audio workstation
-
-# media-sound/ardour
-
-# }}}
-# {{{ deadbeef - ultimate music player for GNU/Linux
-
-# media-sound/deadbeef
-
-#  }}}
-# {{{ timidity++ - midi to wav converter
-
-# media-sound/timidity++
-
-# }}}
-# {{{ a2jmidid - daemon exposing alsa sequencer applications in jack midi system
-
-# media-sound/a2jmidid
-
-# }}}
-# {{{ ecasound - multitrack audio processing
-
-# media-sound/ecasound
-
-# }}}
-# {{{ ladspa plugin for bs2b headphone filter
-
-# media-plugins/ladspa-bs2b
-
-# }}}
-# {{{ vaspoursynth - video processing framework
-
-# media-video/vapoursynth
-
-# }}}
-# {{{ ffmpeg - record,convert and stream audio/video
-
-media-video/ffmpeg
-
-# }}}
-# {{{ mpd - music player daemon
-
+media-video/ffmpeg::gentoo
 media-sound/mpc
 media-sound/mpd
 media-sound/mpdas
 media-sound/ncmpcpp
-
-# }}}
-# {{{ libmpdclient - library for interfacing mpd
-
-#media-libs/libmpdclient
-
-# }}}
-# {{{ mutagen - audio metadata tag reader/writer
-
-# media-libs/mutagen
-
-# }}}
-# {{{ beets - media-library management system }}}
-
-# media-sound/beets
-
-# }}}
-# {{{ id3 - changes the id3 tag in an mp3 file
-
-# media-sound/id3
-
-# }}}
-# {{{ vlc - media player and streamer
-
+media-libs/libmpdclient
+media-sound/beets
+media-sound/id3
 # media-video/vlc
+media-video/mpv
 
-# }}}
-# {{{ mpv - mplayer based media-player
-
-# media-video/mpv
-
-# }}}
+# media-sound/jack-audio-connection-kit
+# media-sound/qjackctl
+# media-sound/jack_mixer
+# media-sound/jackbeat
+# media-sound/jack_capture
+# media-sound/jack2
+# media-sound/jack-smf-utils
+# media-sound/jack-rack
+# media-sound/jack-keyboard
+# media-sound/patchage
+# media-sound/ardour
+# media-sound/deadbeef
+# media-sound/timidity++
+# media-sound/a2jmidid
+# media-sound/ecasound
+# media-plugins/ladspa-bs2b
+# media-video/vapoursynth
+# media-libs/mutagen

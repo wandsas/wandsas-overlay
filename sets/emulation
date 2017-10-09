@@ -1,41 +1,38 @@
 app-arch/dpkg
+sys-apps/debianutils
 dev-util/debootstrap
 dev-util/schroot
-sys-apps/debianutils
 # net-misc/apt-cacher-ng
-app-emulation/qemu
-app-emulation/qemu-init-scripts
-app-emulation/aqemu
-app-emulation/virt-manager
-net-misc/vinagre
-sys-block/nbd
-app-emulation/libvirt
+
+# app-emulation/qemu
+# app-emulation/qemu-init-scripts
+# app-emulation/virt-manager
+# net-misc/vinagre
+# sys-block/nbd
+# app-emulation/libvirt
+# dev-python/libvirt-python
+# app-emulation/vagrant
 # app-emulatuion/libguestfs-appliance
 # app-emulation/libguestfs
-app-emulation/lxc
-#app-emulation/lxd
+# app-emulation/lxc
+# app-emulation/lxc-gentoo
+# sys-fs/lxcfs
 app-admin/cgmanager
-app-emulation/lxc-gentoo
-#sys-fs/lxcfs
 dev-libs/libcgroup
 
 app-emulation/docker
-app-emulation/docker-machine-kvm
 app-emulation/docker-compose
-app-emulation/docker-machine
+# app-emulation/docker-machine-kvm
+# app-emulation/docker-machine
 # app-emulation/docker-gc
 # app-emulation/docker-proxy
 # app-emulation/docker-registry
 # app-emulation/docker-runc
 # app-emulation/docker-swarm
-# dev-python/libvirt-python
+# sys-auth/docker_auth
+# net-fs/docker-volume-netshare
+# dev-util/docker-distribution-prune
+# dev-util/docker-ls
 # dev-python/docker-py
 # dev-python/docker-pycreds
 # dev-python/dockerpty
-# dev-util/docker-distribution-prune
-# dev-util/docker-ls
-# net-fs/docker-volume-netshare
-# sys-auth/docker_auth
-
-app-emulation/vagrant
-app-emulation/packer

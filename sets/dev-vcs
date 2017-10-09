@@ -1,36 +1,10 @@
-# {{{ git
-
 dev-vcs/git
-
-# }}}
-# {{{ subversion
-
 dev-vcs/subversion
-
-# }}}
-# {{{ mercurial
-
 dev-vcs/mercurial
+# dev-vcs/mr
+# app-admin/stow
+# sys-apps/etckeeper
+b# dev-vcs/git-annex
 
-# }}}
-# {{{ Managing my user dotfiles with myrepos (mr) and gnu stow
-
-dev-vcs/mr
-app-admin/stow
-
-# }}}
-# {{{ keeping system-configs (/etc) in git
-
-sys-apps/etckeeper
-
-# }}}
-# {{{ Managing & synchronizing my data
-
-dev-vcs/git-annex
-
-# }}}
-# {{{ tig - git logging
-
-dev-vcs/tig
-
-# }}}
+dev-libs/libgit2
+dev-libs/libgit2

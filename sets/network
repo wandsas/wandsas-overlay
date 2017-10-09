@@ -1,123 +1,27 @@
-# {{{ dnsmasq - - small dns-server
-
-net-dns/dnsmasq
-
-# }}}
-# {{{ bind-tools - dig, nslookup, host, nsupdate, dnssec-keygen
-
+# net-dns/dnsmasq
 net-dns/bind-tools
-
-# }}}
-# {{{ ldns-utils - utilities to simplify various dns(sec) tasks
-
-net-dns/ldns-utils
-
-# }}}
-# {{{ dhcpcd - fully featured, yet light weight RFC2131 compliant DHCP client + gtk-interface
-
+# net-dns/ldns-utils
 net-misc/dhcpcd
 net-misc/dhcpcd-ui
-
-# }}}
-# {{{ ipset - IPset tool for iptables
-
 net-firewall/ipset
-
-# }}}
-# {{{ iptables - firewall, NAT and packet mangling tool
-
 net-firewall/iptables
-
-# }}}
-
-# }}}
-# {{{ chrony - NTP client and server
-
-net-misc/chrony
-
-# }}}
-# {{{ net-tools - Standard Linux networking tools
-
+# net-misc/chrony
 sys-apps/net-tools
-
-# }}}
-# {{{ usermode-utilities - tools for use with Usermode Linux virtual machines
-
 sys-apps/usermode-utilities
-
-# }}}
-# {{{ ethtool - utility for examining and tuning ethernet-based network interfaces
-
 sys-apps/ethtool
-
-# }}}
-# {{{ bridge-utils - tools for configuring the Linux kernel 802.1d Ethernet Bridge
-
 net-misc/bridge-utils
-
-# }}}
-# {{{ Network monitoring tools including ping/ping6
-
 net-misc/iputils
-
-# }}}
-# {{{ openssh - Port of OpenBSD' free ssh release
-
 net-misc/openssh
-
-# }}}
-# {{{ mosh - Mobile shell the supports roaming and intelligent local echo
-
 net-misc/mosh
-
-# }}}
-# {{{ tipcutils
-
-net-misc/tipcutils - utilities for TIPC (Transparent Inter-Process Communication)
-
-# }}}
-# {{{ connman - daemon for managing internet connections and gtk-interface
-
-#net-misc/connman
-#net-misc/connman-gtk
-
-# }}}
-# {{{ pacrunner - proxy configuration daemon
-
-#net-misc/pacrunner
-
-# }}}
-# {{{ iproute2 - kernel routing and traffic control utilities
-
+net-misc/tipcutils
+net-misc/connman
+net-misc/connman-gtk
+# net-misc/pacrunner
 sys-apps/iproute2
-
-# }}}
-# {{{ fail2ban - scan log files and bans IPs that show malicious signs
-
 net-analyzer/fail2ban
-
-# }}}
-# {{{ tcpdump - tool for network monitoring and data acquisition
-
 net-analyzer/tcpdump
-
-# }}}
-# {{{ gnu-netcat - the GNU network swiss army knife
-
 net-analyzer/gnu-netcat
-
-# }}}
-# {{{ ncftp - extremely configurable ftp client
 net-ftp/ncftp
-
-# }}}
-# {{{ nfs - network filesystem
-
+net-ftp/lftp
 net-fs/nfs-utils
-
-# }}}
-# {{{ autofs - Kernel based automounter
-
 net-fs/autofs
-
-# }}}

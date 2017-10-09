@@ -1,42 +1,15 @@
-# {{{ mutt - command-line mail-client
-
 mail-client/mutt
-
-# }}}
-# {{{ msmtp - smtp-client
-
 mail-mta/msmtp
-
-# }}}
-# {{{ offlineimap - powerful imap/maildir synchronization
-
 net-mail/offlineimap
-
-# }}}
-# {{{ mairix - indexes and searches maildir folders
 net-mail/mairix
-
-# {{{ mailutils - collection of mail servers, clients and filters
-
 net-mail/mailutils
-
-# }}}
-# {{{ rss- and news-reader
 
 net-news/newsbeuter
 net-nntp/slrn
 net-nntp/slrnconf
 
-# }}}
-# {{{ irc-chat clients
-
-# weechat
 net-irc/weechat
-
-# irssi
-#net-irc/irssi
-#net-irc/irssi-otr
-#net-irc/irssistats
-#net-irc/quassel-irssi
-
-# }}}
+# net-irc/irssi
+# net-irc/irssi-otr
+# net-irc/irssistats
+# net-irc/quassel-irssi

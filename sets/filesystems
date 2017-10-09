@@ -1,85 +1,30 @@
-# {{{ btrfs
-
 sys-fs/btrfs-progs
 sys-fs/btrfsmaintenance
 
-# }}}
-# {{{ xfs
-
 # sys-fs/xfsprogs
-
-# }}}
-# {{{ ext2/ext4
 
 sys-fs/e2fsprogs
 
-# }}}
-# {{{ extundelete - utility to undelete files from an ext3 or ext4 partition
-
 sys-fs/extundelete
-
-# }}}
-# {{{ fat16/fat43
-
 sys-fs/dosfstools
 
-# }}}
-# {{{ bache - fast ssd cache for slower harddisks
-
 # sys-fs/bcache-tools
-
-# zram, provides a form of virtual memory compression (increases performance, avoids paging to disk)+
-
 sys-block/zram-init
 
-# }}}
-# {{{ AUFS (AnotherUnionFS) - Overlay filesystem
-
+sys-fs/squashfs-tools
 # sys-fs/aufs-standalone
 # sys-fs/aufs-util
-
-# }}}
-
-# {{{ HFS+ (Apple OSX filesystem)
-
-# sys-fs/hfsutils
-# sys-fs/hfsplusutils
-
-# }}}
-# {{{ fuse (Filesystem in Userspace)
-
-# sys-fs/fuse
-# sys-fs/fuseiso
-
-# }}}
-# {{{ nfs - network-filesystem
-
-net-fs/nfs-utils
-net-fs/autofs
-
-# }}}
-# {{{ partition-manager (gpt/mbr)
 
 sys-apps/gptfdisk
 sys-block/gparted
 sys-block/parted
 
-# {{{ data recovery
-
-# app-admin/testdisk
-
-# }}}
-# {{{ btrfs-snapshots and -backup
+app-admin/testdisk
 
 app-backup/btrbk
 app-backup/snapper
-
-# }}}
-# {{{ compression
 
 app-arch/xz-utils
 app-arch/lzop
 app-arch/p7zip
 app-arch/tar
-
-# }}}

@@ -1,0 +1,99 @@
+# {{{ i3-gaps (forked from i3 window-manager
+
+x11-wm/i3-gaps
+# x11-misc/i3blocks-gaps
+# x11-misc/i3status
+x11-misc/i3lock
+dev-perl/AnyEvent-I3
+x11-misc/polybar
+x11-misc/dunst
+x11-misc/rofi
+x11-misc/spacefm
+# media-libs/udevil
+
+# }}}
+# {{{ x11 tools
+
+x11-misc/unclutter-xfixes
+x11-misc/xedgewarp
+x11-libs/xcb-util-xrm
+
+# }}}
+# {{{ fluxbox window-manager
+
+x11-wm/fluxbox
+x11-themes/fluxbox-styles-fluxmod
+app-vim/fluxbox-syntax
+# x11-misc/tint2
+# x11-misc/tintwizard
+
+# }}}
+# [[[ dwm window-manager
+
+x11-wm/dwm
+x11-misc/dmenu
+x11-misc/tabbed
+# x11-misc/slstatus
+x11-terms/st
+
+# }}}
+# {{{ LXDE - lightweight desktop environment
+
+lxde-base/lxde-icon-theme
+lxde-base/lxappearance
+lxde-base/lxrandr
+lxde-base/lxtask
+# lxde-base/lxde-meta
+# lxde-base/lxde-common
+# lxde-base/lxpanel
+# lxde-base/lxinput
+# lxde-base/lxlauncher
+# lxde-base/lxmenu-data
+# lxde-base/lxsession 
+# lxde-base/lxsession-edit
+# lxde-base/lxshortcut
+x11-misc/pcmanfm
+x11-libs/libfm
+x11-libs/libfm-extra
+
+# }}}
+# {{{ xdg-user-dirs
+
+x11-misc/xdg-utils
+x11-misc/xdg-user-dirs
+x11-misc/xdg-user-dirs-gtk
+# dev-libs/libxdg-basedir
+# dev-python/pyxdg
+
+# }}}
+# {{{ gtk-engines, -themes and -icon-themes
+
+# x11-themes/gtk-engines
+x11-themes/gtk-engines-adwaita
+x11-themes/adwaita-qt
+# x11-themes/gnome-themes-standard
+# x11-themes/gnome-colors-themes
+x11-themes/adwaita-icon-theme
+
+# }}}
+# {{{ 3rd-party gtk-tools
+
+x11-libs/gksu
+x11-misc/clipit
+media-gfx/gpicview
+media-gfx/pqiv
+app-arch/xarchiver
+sys-apps/pmount
+sys-apps/pmount-gui
+
+# }}}
+# {{{ fonts
+
+media-fonts/hack
+media-fonts/terminus-font
+media-fonts/open-sans
+media-fonts/roboto
+media-fonts/anonymous-pro
+media-fonts/droid
+
+# }}}

@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=x11-proto/xproto x11-libs/libX11
+DESCRIPTION=Simple generic status line
+EAPI=5
+HOMEPAGE=https://tools.suckless.org/slstatus
+IUSE=savedconfig
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=x11-libs/libX11
+SLOT=0
+SRC_URI=https://dl.suckless.org/tools/slstatus-9999.tar.gz
+_eclasses_=multilib	97f470f374f2e94ccab04a2fb21d811e	portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	e6948c872ff47e15a10e5ad1be15c18e	toolchain-funcs	185a06792159ca143528e7010368e8af
+_md5_=d98244dd21728801cc0cbb49c9a1a561
