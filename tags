@@ -56,7 +56,6 @@
 -227,7 +227,13	sys-process/runit/files/runit-2.1-sv-check.patch	/^@@ -227,7 +227,13 @@ int check(char *a) {$/;"	h	modifiedFile:a/src/sv.c
 -227,7 +227,13	sys-process/supervision/runit/files/runit-2.1-sv-check.patch	/^@@ -227,7 +227,13 @@ int check(char *a) {$/;"	h	modifiedFile:a/src/sv.c
 -24,6 +24,8	net-analyzer/check_mk/files/check_mk_agent-1.2.8_p14.linux.patch	/^@@ -24,6 +24,8 @@$/;"	h	modifiedFile:usr/share/check_mk/agent/check_mk_agent.linux
--2499,6 +2499,7	media-video/ffmpeg/files/ladspadl.patch	/^@@ -2499,6 +2499,7 @@ hqdn3d_filter_deps="gpl"$/;"	h	modifiedFile:a/configure
 -25,6 +25,9	x11-terms/xvt/files/xvt-pts.patch	/^@@ -25,6 +25,9 @@ $/;"	h	modifiedFile:a/ttyinit.c
 -256,6 +261,23	dev-vcs/git/files/git-2.7.0-mediawiki-namespaces.patch	/^@@ -256,6 +261,23 @@ sub get_mw_tracked_categories {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
 -259,16 +259,29	dev-vcs/git/files/git-2.7.0-mediawiki-500pages.patch	/^@@ -259,16 +259,29 @@ sub get_mw_tracked_categories {$/;"	h	modifiedFile:a/contrib/mw-to-git/git-remote-mediawiki.perl
@@ -194,7 +193,6 @@ a/config.mk	www-client/surf/files/surf-9999-gentoo.patch	/^--- a\/config.mk$/;"	
 a/config.mk	x11-misc/dmenu/files/dmenu-4.6-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	x11-misc/dmenu/files/dmenu-4.7-gentoo.patch	/^--- a\/config.mk$/;"	m
 a/config.mk	x11-misc/dmenu/files/dmenu-9999-gentoo.patch	/^--- a\/config.mk$/;"	m
-a/configure	media-video/ffmpeg/files/ladspadl.patch	/^--- a\/configure$/;"	m
 a/configure.ac	x11-misc/rofi/files/rofi-0.15.12-Werror.patch	/^--- a\/configure.ac$/;"	m
 a/contrib/mw-to-git/Makefile	dev-vcs/git/files/git-1.8.5-mw-vendor.patch	/^--- a\/contrib\/mw-to-git\/Makefile$/;"	m
 a/contrib/mw-to-git/git-remote-mediawiki.perl	dev-vcs/git/files/git-2.7.0-mediawiki-500pages.patch	/^--- a\/contrib\/mw-to-git\/git-remote-mediawiki.perl$/;"	m
