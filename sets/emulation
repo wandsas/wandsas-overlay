@@ -1,7 +1,7 @@
 app-arch/dpkg
 sys-apps/debianutils
 dev-util/debootstrap
-dev-util/schroot
+# dev-util/schroot
 # net-misc/apt-cacher-ng
 
 # app-emulation/qemu
@@ -14,11 +14,9 @@ dev-util/schroot
 # app-emulation/vagrant
 # app-emulatuion/libguestfs-appliance
 # app-emulation/libguestfs
-# app-emulation/lxc
-# app-emulation/lxc-gentoo
+app-emulation/lxc
+app-emulation/lxc-gentoo
 # sys-fs/lxcfs
-app-admin/cgmanager
-dev-libs/libcgroup
 
 app-emulation/docker
 app-emulation/docker-compose

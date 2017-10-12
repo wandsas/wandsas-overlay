@@ -1,3 +1,4 @@
+app-admin/sudo
 sys-kernel/gentoo-sources
 # sys-kernel/hardened-sources
 # sys-kernel/git-sources
@@ -7,7 +8,6 @@ sys-kernel/dracut
 sys-apps/kexec-tools
 sys-apps/util-linux
 sys-apps/busybox
-# sys-apps/biosdevname
 sys-apps/openrc
 sys-fs/eudev
 sys-apps/sysvinit
@@ -19,10 +19,8 @@ sys-apps/lm_sensors
 sys-apps/smartmontools
 sys-apps/hdparm
 sys-apps/sdparm
-sys-fs/lsscsi
-# sys-block/scsiadd
-# sys-block/scsiping
-sys-apps/rescan-scsi-bus
+sys-apps/pmount
+sys-apps/pmount-gui
 sys-power/acpid
 sys-power/pmtools
 sys-process/at
@@ -40,4 +38,5 @@ app-vim/gnupg
 app-crypt/keybase::wandsas
 app-crypt/kbfs::wandsas
 app-admin/pass
-app-admin/sudo
+app-admin/cgmanager
+dev-libs/libcgroup

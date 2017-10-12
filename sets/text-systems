@@ -1,6 +1,6 @@
 # {{{ PDF viewer & manipulating
 
-app-text/pdftk
+app-text/qpdf
 app-text/mupdf
 
 # fallback
@@ -51,8 +51,6 @@ media-gfx/inkscape
 # {{{ Documentation system for programming languages
 
 app-doc/doxygen
-app-text/asciidoc
-app-text/po4a
 
 # }}}
 # {{{ GNU Imape Manipulation Program

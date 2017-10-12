@@ -49,51 +49,52 @@ lxde-base/lxtask
 # lxde-base/lxinput
 # lxde-base/lxlauncher
 # lxde-base/lxmenu-data
-#lxde-base/lxsession 
+# lxde-base/lxsession 
 # lxde-base/lxsession-edit
 # lxde-base/lxshortcut
-x11-misc/pcmanfm
-x11-libs/libfm
-x11-libs/libfm-extra
+# x11-misc/pcmanfm
+# x11-libs/libfm
+# x11-libs/libfm-extra
 
 # }}}
 # {{{ xdg-user-dirs
 
-x11-misc/xdg-utils
-x11-misc/xdg-user-dirs
-x11-misc/xdg-user-dirs-gtk
-# dev-libs/libxdg-basedir
-# dev-python/pyxdg
+# perl-file-mimeinfo provides mimeopen and mimetype, which replaces xdg-open
+perl-file-mimeinfo
+
+# x11-misc/xdg-utils
+# x11-misc/xdg-user-dirs
+# x11-misc/xdg-user-dirs-gtk
 
 # }}}
 # {{{ gtk-engines, -themes and -icon-themes
 
-# x11-themes/gtk-engines
+x11-themes/gtk-engines
 x11-themes/gtk-engines-adwaita
 x11-themes/adwaita-qt
-# x11-themes/gnome-themes-standard
-# x11-themes/gnome-colors-themes
+x11-themes/gnome-themes-standard
+x11-themes/gnome-colors-themes
 x11-themes/adwaita-icon-theme
 
 # }}}
 # {{{ 3rd-party gtk-tools
 
+app-arch/xarchiver
 x11-libs/gksu
 x11-misc/clipit
-media-gfx/gpicview
 media-gfx/pqiv
-app-arch/xarchiver
-sys-apps/pmount
-sys-apps/pmount-gui
+
+# fallback for pqiv
+media-gfx/gpicview
 
 # }}}
 # {{{ fonts
 
 media-fonts/hack
 media-fonts/terminus-font
-media-fonts/open-sans
 media-fonts/roboto
-media-fonts/anonymous-pro
-media-fonts/droid
+# media-fonts/open-sans
+# media-fonts/anonymous-pro
+# media-fonts/droid
 
 # }}}

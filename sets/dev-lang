@@ -1,4 +1,4 @@
-# {{{ C/C++ Build Environment
+# {{{ clang/gcc
 
 sys-devel/lvmgold
 # sys-libs/llvm-libunwind
@@ -8,25 +8,25 @@ sys-devel/lvmgold
 sys-devel/clang-runtime
 
 sys-devel/gcc
-sys-devel/gcc-config
 
+app-doc/cppman
 dev-util/colorgcc
 app-misc/colordiff
 dev-util/cutils
 dev-util/cmake
+
 dev-util/waf
-dev-util/ctags
-dev-util/bless
-dev-util/strace
 dev-util/ninja
 dev-util/pkgconfig
-app-doc/cppman
+dev-util/ctags
 
-dev-util/valgrind
 dev-lang/nasm
+dev-util/strace
+dev-util/valgrind
+dev-util/bless
 
 # }}}
-# {{{ Perl
+# {{{ Perl & cpan modules
 
 dev-lang/perl
 
@@ -35,13 +35,10 @@ dev-perl/XML-Parser
 dev-perl/Parse-ExuberantCTags
 
 # }}}
-# {{{ Python
+# {{{ Python & frameworks
 
 dev-lang/python
 
-dev-python/django
-dev-python/pypy3
-dev-python/python-spidermonkey
 dev-python/django
 dev-python/pip
 dev-python/python-ctags
@@ -51,7 +48,7 @@ dev-python/pygit2
 app-eselect/eselect-python
 
 # }}}
-# {{{ Ruby
+# {{{ Ruby & Frameworks
 
 dev-lang/ruby
 
@@ -83,7 +80,10 @@ app-eselect/eselect-lua
 
 # }}}
 
-dev-lang/nasm# {{{ Haskell
+dev-lang/nasm
+
+# }}}
+# {{{ Haskell
 
 # dev-lang/ghc
 
@@ -91,14 +91,14 @@ dev-lang/nasm# {{{ Haskell
 # {{{ Scala
 
 
-dev-lang/scala
+# dev-lang/scala
 
 app-eselect/eselect-scala
 
 # }}}
 # {{{ Closure
 
-dev-lang/closure
+# dev-lang/closure
 
 # }}}
 # {{{ Groovy
@@ -109,7 +109,6 @@ dev-lang/closure
 # {{{ Oracle-JDK
 
 dev-java/oracle-jdk-bin
-dev-java/java-config
 
 app-eselect/eselect-java
 
@@ -134,7 +133,7 @@ net-libs/nodejs
 dev-lang/coffee-script
 
 # }}}
-# {{{ PHP#
+# {{{ PHP
 
 dev-lang/php
 
@@ -143,8 +142,8 @@ app_eselect/eselect-php
 # }}}
 # {{{ Postgresql
 
-dev-db/postgresql
-app-eselect/eselect-postgresql
+# dev-db/postgresql
+# app-eselect/eselect-postgresql
 
 # }}}
 # {{{ Mariadb (fork of mysql)

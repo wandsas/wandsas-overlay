@@ -13,7 +13,7 @@ net-misc/bridge-utils
 net-misc/iputils
 net-misc/openssh
 net-misc/mosh
-net-misc/tipcutils
+# net-misc/tipcutils
 net-misc/connman
 net-misc/connman-gtk
 # net-misc/pacrunner

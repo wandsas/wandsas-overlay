@@ -1,3 +1,18 @@
+# {{{ emacs
+
 app-editors/emacs
+
+# }}}
+# {{{ neovim
+
 app-editors/neovim
-# app-editors/vim
+
+# }}}
+# {{{ vim
+
+app-editors/vim
+app-vim/lightline
+app-vim/fugitive
+app-vim/tagbar
+
+# }}}
