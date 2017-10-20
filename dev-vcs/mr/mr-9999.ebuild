@@ -3,13 +3,16 @@
 
 EAPI=6
 
+inherit git-r3
+
 DESCRIPTION="Multiple Repository management tool"
-HOMEPAGE="https://myrepos.branchable.com/"
-SRC_URI="https://dev.gentoo.org/~tamiko/distfiles/${P}.tar.gz"
+HOMEPAGE="https://github.com/wandsas/myrepos/"
+SRC_URI=""
+EGIT_REPO_URI="git://github.com/wandsas/myrepos/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="dev-lang/perl"
