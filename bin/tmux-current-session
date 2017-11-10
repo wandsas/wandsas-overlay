@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Solution provided by thomas_adam on #tmux
-if [ -n "$TMUX" ]; then
-    tmux display-message -pF '#{client_session}'
-fi
-
-#tmux list-sessions | awk -F: '/\(attached\)/ { print $1 }'

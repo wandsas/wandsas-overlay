@@ -5,11 +5,6 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
-t	.tmux.conf	/^bind -r C-h select-window -t :-$/;"	k
-t	.tmux.conf	/^bind -r C-l select-window -t :+$/;"	k
-t	.tmux.conf	/^bind-key tab select-pane -t :.+$/;"	k
-tmux_attach	lib/tmux.zsh	/^tmux_attach () {$/;"	f
-tmux_check_session_var	lib/tmux.zsh	/^tmux_check_session_var () {$/;"	f
-tmux_has_session	lib/tmux.zsh	/^tmux_has_session () {$/;"	f
-tmux_new_session	lib/tmux.zsh	/^tmux_new_session () {$/;"	f
-tmux_new_window	lib/tmux.zsh	/^tmux_new_window () {$/;"	f
+t	.tmux.conf	/^bind-key -r C-h select-window -t :-$/;"	k
+t	.tmux.conf	/^bind-key -r C-l select-window -t :+$/;"	k
+t	.tmux.conf	/^bind-key tab    select-pane -t :.+$/;"	k

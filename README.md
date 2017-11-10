@@ -1,16 +1,23 @@
-# tmux-config (my configs for tmux respective tmuxinator and screen)
+# tmuxrc - my tmux config
+
+## Dependencies:
+
+* [Tmux] <https://github.com/tmux/tmux>
+* [Myrepos] <https://myrepos.branchable.com/>
+* [GNU Stow] <https://www.gnu.org/software/stow/>
 
 
-## References:
+## Add a .mrconfig
 
-* [tmux - terminal multiplexer] <https://github.com/tmux/tmux>
+[$HOME/.GIT/wandsas/tmuxrc]
+stowable = true
+checkout = git clone git://github.com/wandsas/tmuxrc.git
+remotes = git_add_remote wandsas git@rpi:/git/tmuxrc.git
 
-* [GNU Screen - full-screen window-manger multiplexing physical terminals] <https://www.gnu.org/software/screen/>
-
-* [tmuxinator - create and manage complex tmux sessions easily] <https://github.com/tmuxinator/tmuxinator>
+~ # mr checkout && mr stow
 
 
-## MIT License
+# MIT License
 
 Copyright (c) 2017 wandsas
 
