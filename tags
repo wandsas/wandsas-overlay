@@ -5,6 +5,59 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
+License	.tmuxp/README.rst	/^License$/;"	s	chapter:tmuxp configuration files
+PY2	.tmuxp/_bootstrap_util.py	/^PY2 = sys.version_info[0] == 2$/;"	v
+PackageInstallationException	.tmuxp/_bootstrap_util.py	/^class PackageInstallationException(EnvironmentError):$/;"	c
+PipEnv	.tmuxp/_bootstrap_util.py	/^class PipEnv(object):$/;"	c
+Project	.tmuxp/_bootstrap_util.py	/^class Project(object):$/;"	c
+__init__	.tmuxp/_bootstrap_util.py	/^    def __init__($/;"	m	class:Project
+__init__	.tmuxp/_bootstrap_util.py	/^    def __init__(self, pip_bin):$/;"	m	class:PipEnv
+_detect_manager	.tmuxp/python/bootstrap_env.sh	/^_detect_manager() {$/;"	f
+_print_message	.tmuxp/python/bootstrap_env.sh	/^_print_message() {$/;"	f
+_pyenv_virtualenv_activate	.tmuxp/python/bootstrap_env.sh	/^_pyenv_virtualenv_activate() {$/;"	f
+_pyenv_virtualenv_project	.tmuxp/python/bootstrap_env.sh	/^_pyenv_virtualenv_project() {$/;"	f
+_quit	.tmuxp/python/bootstrap_env.sh	/^_quit() {$/;"	f
+_virtualenv_activate	.tmuxp/python/bootstrap_env.sh	/^_virtualenv_activate() {$/;"	f
+_virtualenv_project	.tmuxp/python/bootstrap_env.sh	/^_virtualenv_project() {$/;"	f
+_virtualenvwrapper_activate	.tmuxp/python/bootstrap_env.sh	/^_virtualenvwrapper_activate() {$/;"	f
+_virtualenvwrapper_project	.tmuxp/python/bootstrap_env.sh	/^_virtualenvwrapper_project() {$/;"	f
+bin_exists	.tmuxp/_bootstrap_util.py	/^def bin_exists(binpath):$/;"	f
+cwd	.tmuxp/pyterm/bootstrap_env.py	/^cwd = os.path.dirname(__file__)$/;"	v
+dev_requirements	.tmuxp/_bootstrap_util.py	/^    dev_requirements = None    # path to test requirement textfile$/;"	v	class:Project
+docs_requirements	.tmuxp/_bootstrap_util.py	/^    docs_requirements = None   # path to docs requirement packages$/;"	v	class:Project
+env_dir	.tmuxp/_bootstrap_util.py	/^env_dir = os.path.join(project_dir, '.venv')$/;"	v
+expanddir	.tmuxp/_bootstrap_util.py	/^def expanddir(_dir):$/;"	f
+fail	.tmuxp/_bootstrap_util.py	/^def fail(message):$/;"	f
+has_module	.tmuxp/_bootstrap_util.py	/^def has_module(module_name):$/;"	f
+install	.tmuxp/_bootstrap_util.py	/^    def install(self, package, force=False, upgrade=False, options=None):$/;"	m	class:PipEnv
+install_project	.tmuxp/_bootstrap_util.py	/^    def install_project(self):$/;"	m	class:Project
+installed_bins	.tmuxp/_bootstrap_util.py	/^    def installed_bins(self):$/;"	m	class:PipEnv
+installed_package_names	.tmuxp/_bootstrap_util.py	/^    def installed_package_names(self):$/;"	m	class:PipEnv
+installed_packages	.tmuxp/_bootstrap_util.py	/^    def installed_packages(self):$/;"	m	class:PipEnv
+is_installed	.tmuxp/_bootstrap_util.py	/^    def is_installed(self, package):$/;"	m	class:PipEnv
+main	.tmuxp/pyterm/bootstrap_env.py	/^def main():$/;"	f
+pip	.tmuxp/_bootstrap_util.py	/^    def pip(self, command, *args):$/;"	m	class:PipEnv
+pip_bin	.tmuxp/_bootstrap_util.py	/^    def pip_bin(self):$/;"	m	class:Project
+pip_bin	.tmuxp/_bootstrap_util.py	/^pip_bin = os.path.join(env_dir, 'bin', 'pip')$/;"	v
+pip_version	.tmuxp/_bootstrap_util.py	/^    def pip_version(self):$/;"	m	class:PipEnv
+project_dir	.tmuxp/_bootstrap_util.py	/^project_dir = os.path.dirname(os.path.realpath(__file__))$/;"	v
+project_root	.tmuxp/pyterm/bootstrap_env.py	/^project_root = os.path.dirname(cwd)$/;"	v
+pymod_exists	.tmuxp/_bootstrap_util.py	/^def pymod_exists(module, msg=None, throw=False):$/;"	f
+python_bin	.tmuxp/_bootstrap_util.py	/^    def python_bin(self):$/;"	m	class:Project
+python_bin	.tmuxp/_bootstrap_util.py	/^python_bin = os.path.join(env_dir, 'bin', 'python')$/;"	v
+search	.tmuxp/_bootstrap_util.py	/^    def search(self, term):$/;"	m	class:PipEnv
+search_names	.tmuxp/_bootstrap_util.py	/^    def search_names(self, term):$/;"	m	class:PipEnv
+setup	.tmuxp/_bootstrap_util.py	/^    def setup(self):$/;"	m	class:Project
+setup_docs	.tmuxp/_bootstrap_util.py	/^    def setup_docs(self):$/;"	m	class:Project
+sphinx_requirements_filepath	.tmuxp/_bootstrap_util.py	/^sphinx_requirements_filepath = os.path.join($/;"	v
+split_package_name	.tmuxp/_bootstrap_util.py	/^def split_package_name(p):$/;"	f
 t	.tmux.conf	/^bind-key -r C-h select-window -t :-$/;"	k
 t	.tmux.conf	/^bind-key -r C-l select-window -t :+$/;"	k
 t	.tmux.conf	/^bind-key tab    select-pane -t :.+$/;"	k
+tests_requirements	.tmuxp/_bootstrap_util.py	/^    tests_requirements = None  # path to test requirement textfile$/;"	v	class:Project
+tmuxp configuration files	.tmuxp/README.rst	/^tmuxp configuration files$/;"	c
+virtualenv_bin	.tmuxp/_bootstrap_util.py	/^virtualenv_bin = which('virtualenv', throw=False)$/;"	v
+virtualenv_exists	.tmuxp/_bootstrap_util.py	/^    def virtualenv_exists(self):$/;"	m	class:Project
+virtualenv_exists	.tmuxp/_bootstrap_util.py	/^virtualenv_exists = os.path.exists(env_dir) and os.path.isfile(python_bin)$/;"	v
+warning	.tmuxp/_bootstrap_util.py	/^def warning(*objs):$/;"	f
+which	.tmuxp/_bootstrap_util.py	/^def which(exe=None, throw=True):$/;"	f
