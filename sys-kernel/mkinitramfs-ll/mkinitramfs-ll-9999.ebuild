@@ -38,7 +38,8 @@ DEPEND="sys-apps/sed"
 RDEPEND="app-arch/cpio
 	sys-apps/findutils
 	fbsplash? ( sys-apps/v86d media-gfx/splashutils[fbcondecor,png,truetype] )
-	sys-apps/busybox[mdev]
+	# sys-apps/busybox[mdev]
+	sys-fs/mdev-bb-1.21.1
 	dm-crypt? ( sys-fs/cryptsetup )
 	device-mapper? ( sys-fs/lvm2 )
 	dmraid? ( sys-fs/dmraid )
