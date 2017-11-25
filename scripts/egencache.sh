@@ -1,2 +1,2 @@
 #!/bin/sh
-egencache --repo="${1:-wandsas}" --update --update-pkg-desc-index
+egencache --repo="${1:-bar}" --update --update-pkg-desc-index
