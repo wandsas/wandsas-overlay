@@ -18,5 +18,6 @@ FBCONDECOR_VER="${GENTOO_VER}"
 HARDENED_VER="${OKV}-1"
 REISER4_VER="${MKV}.3"
 RT_VER="${MKV}.20-rt16"
+AUFS_VERS="4.9"
 
 inherit kernel-git
