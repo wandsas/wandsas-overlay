@@ -18,7 +18,11 @@ stowable = true
 checkout = git clone git://github.com/wandsas/tmuxrc.git
 remotes = git_add_remote wandsas git@rpi:/git/tmuxrc.git
 EOF
-~ # mr checkout && mr stow
+
+
+## Bootstrap on a new install machine
+
+~ # mr -t -i bootstrap https://github.com/wandsas/shell-env/home-mr-config 
 
 
 # MIT License
