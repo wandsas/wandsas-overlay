@@ -5,8 +5,8 @@ EAPI=5
 inherit savedconfig toolchain-funcs
 
 DESCRIPTION="Simple generic status line"
-HOMEPAGE="https://tools.suckless.org/slstatus"
-SRC_URI="https://dl.suckless.org/tools/${P}.tar.gz"
+HOMEPAGE="http://git.suckless.org/slstatus"
+EGIT_REPO_URI=${HOMEPAGE}
 
 LICENSE="MIT"
 SLOT="0"
