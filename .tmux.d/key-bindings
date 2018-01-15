@@ -5,8 +5,7 @@
 # Reload the tmux config
 bind-key r source-file ~/.tmux.conf \; display-message "Reloaded!"
 
-# Enable vi-mode
-set-window-option -g mode-keys vi
+# vi-mode
 bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 

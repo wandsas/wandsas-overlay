@@ -30,4 +30,9 @@ set -g mouse-select-pane on
 set -g mouse-resize-pane on
 set -g mouse-select-window on
 
+# vi-mode
+set -g status-keys vi
+set -g mode-keys vi
+set-window-option -g mode-keys vi
+
 # vim:fenc=utf-8:ft=tmux:ci:pi:ts=2:sts=2:sw=2:expandtab:
