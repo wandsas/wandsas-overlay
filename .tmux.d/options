@@ -25,10 +25,11 @@ set -g renumber-windows on
 set -g automatic-rename on
 
 # Mouse modes
-set -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
+set -g mouse on
+#set -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
+#set -g mouse-select-window on
 
 # vi-mode
 set -g status-keys vi
