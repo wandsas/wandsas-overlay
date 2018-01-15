@@ -1,0 +1,33 @@
+#
+# ~/.tmux.d/options wandsas 2017/12/06
+#
+
+set -g default-terminal screen-256color
+
+set -g default-command /bin/zsh
+
+# Remap PREFIX to "Ctrl-Space"
+set -g prefix C-space
+unbind C-b
+bind C-space send-prefix
+
+# Delay between prefix and command
+set -s escape-time 1
+
+# Set base-index for windows/panes to 1
+set -g base-index 1
+set -g pane-base-index 1
+
+# Renumber panes after closing one
+set -g renumber-windows on
+
+# Automatic rename
+set -g automatic-rename on
+
+# Mouse modes
+set -g mode-mouse on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g mouse-select-window on
+
+# vim:fenc=utf-8:ft=tmux:ci:pi:ts=2:sts=2:sw=2:expandtab:

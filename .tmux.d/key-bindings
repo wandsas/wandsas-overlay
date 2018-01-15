@@ -1,0 +1,37 @@
+#
+# ~/.tmux.d/key-bindings wandsas 2017/12/06
+#
+
+# Reload the tmux config
+bind-key r source-file ~/.tmux.conf \; display-message "Reloaded!"
+
+# Enable vi-mode
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+# Splitting panes
+bind-key | split-window -h
+bind-key - split-window -v
+
+# Moving between panes
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# Quick pane selection
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# Pane resizing
+bind-key -r H resize-pane -L 6
+bind-key -r J resize-pane -R 6
+bind-key -r K resize-pane -D 6
+bind-key -r L resize-pane -U 6
+bind-key -r S swap-pane -U
+
+# Synchronize-panes toggle
+bind C-s set-window-option synchronize-panes
+
+# vim:fenc=utf-8:ft=tmux:ci:pi:ts=2:sts=2:sw=2:expandtab:
