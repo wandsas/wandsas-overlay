@@ -33,4 +33,6 @@ bind-key -r S swap-pane -U
 # Synchronize-panes toggle
 bind C-s set-window-option synchronize-panes
 
+bind-key C-r command-prompt "rename-window '%%'"
+
 # vim:fenc=utf-8:ft=tmux:ci:pi:ts=2:sts=2:sw=2:expandtab:

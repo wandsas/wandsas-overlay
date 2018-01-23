@@ -2,7 +2,7 @@
 # ~/.tmux.d/options wandsas 2017/12/06
 #
 
-set -g default-terminal screen-256color
+set -g default-terminal tmux-256color
 
 set -g default-command /bin/zsh
 
