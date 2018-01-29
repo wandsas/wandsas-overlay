@@ -1,13 +1,5 @@
 = Our current state of tmux config =
 
-=== Stowable with the *GNU Stow* (written by _Adam Spiers_ <adam.spiers@suse.org> Plugin Module for *Myrepos(MR)* (written by Joey Hess <joey.hess@debian.org> ===
-
-  * Sascha Wander <sascha.wander@gmail.com> 2018/01/29
-  * Jenny Hoffmann <jenny.hoffmann@gmail.com> 2018/01/29
-
-Enjoy
-
-
 == Dependencies ==
 
 * [Tmux] <https://github.com/tmux/tmux>
