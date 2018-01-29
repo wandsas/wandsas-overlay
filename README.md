@@ -21,7 +21,7 @@ remotes = git_add_remote wandsas git@rpi:/git/tmuxrc.git
 EOF
 }}}
 
-== Bootstrap on a new install machine ==
+== Bootstrap a new machine ==
 
 {{{
 ~ # mr -t -i bootstrap https://github.com/wandsas/shell-env/home-mr-config 
