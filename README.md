@@ -1,6 +1,6 @@
 = Our current state of tmux config =
 
-=== Stowable with the *GNU Stow* (written by _Adam Spiers_ <adam.spiers@suse.org> Plugin Module for *Myrepos(MR)* (written by _Joey Hess_ <joey.hess@debian.org> ===
+=== Stowable with the *GNU Stow* (written by _Adam Spiers_ <adam.spiers@suse.org> Plugin Module for *Myrepos(MR)* (written by Joey Hess <joey.hess@debian.org> ===
 
   * Sascha Wander <sascha.wander@gmail.com> 2018/01/29
   * Jenny Hoffmann <jenny.hoffmann@gmail.com> 2018/01/29
@@ -17,6 +17,7 @@ Enjoy
 
 == Add a .mrconfig ==
 
+{{{
 ~ # cat > ~/.mrconfig <<'EOF'
 [DEFAULT]
 include = cat /usr/share/mr/stow
@@ -26,12 +27,13 @@ stowable = true
 checkout = git clone git://github.com/wandsas/tmuxrc.git
 remotes = git_add_remote wandsas git@rpi:/git/tmuxrc.git
 EOF
-
+}}}
 
 == Bootstrap on a new install machine ==
 
+{{{
 ~ # mr -t -i bootstrap https://github.com/wandsas/shell-env/home-mr-config 
-
+}}}
 
 == MIT License ==
 
@@ -54,7 +56,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-# vim:fenc=utf-8:ft=markdown:
