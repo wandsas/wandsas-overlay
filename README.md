@@ -1,6 +1,8 @@
-# tmuxrc - my tmux config
+= My current state of tmux config. =
 
-## Dependencies:
+=== Stowable with the *GNU Stow*(written by _dam Spiers <adam.spiers@suse.org>_ Plugin Module for *Myrepos(MR)* (written by *Joey Hess1ess@debian.org> ===
+
+== Dependencies ==
 
 * [Tmux] <https://github.com/tmux/tmux>
 * [GNU Stow] <https://www.gnu.org/software/stow/>
