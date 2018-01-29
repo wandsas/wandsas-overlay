@@ -1,10 +1,12 @@
-= My current state of tmux config. =
+= Our current state of tmux config =
+
+=== Stowable with the *GNU Stow* (written by _Adam Spiers_ <adam.spiers@suse.org> Plugin Module for *Myrepos(MR)* (written by _Joey Hess_ <joey.hess@debian.org> ===
+
   * Sascha Wander <sascha.wander@gmail.com> 2018/01/29
   * Jenny Hoffmann <jenny.hoffmann@gmail.com> 2018/01/29
 
 Enjoy
 
-=== Stowable with the *GNU Stow* (written by _Adam Spiers_ <adam.spiers@suse.org> Plugin Module for *Myrepos(MR)* (written by _Joey Hess_ <joey.hess@debian.org> ===
 
 == Dependencies ==
 
