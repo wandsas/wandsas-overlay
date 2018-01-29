@@ -1,4 +1,8 @@
 = My current state of tmux config. =
+  * Sascha Wander <sascha.wander@gmail.com> 2018/01/29
+  * Jenny Hoffmann <jenny.hoffmann@gmail.com> 2018/01/29
+
+Enjoy
 
 === Stowable with the *GNU Stow* (written by _Adam Spiers_ <adam.spiers@suse.org> Plugin Module for *Myrepos(MR)* (written by _Joey Hess_ <joey.hess@debian.org> ===
 
@@ -9,7 +13,7 @@
 * [Myrepos] <https://myrepos.branchable.com/>
 * [Myrepos stow plugin] <https://github.com/aspiers/mr-config>
 
-## Add a .mrconfig
+== Add a .mrconfig ==
 
 ~ # cat > ~/.mrconfig <<'EOF'
 [DEFAULT]
@@ -22,14 +26,14 @@ remotes = git_add_remote wandsas git@rpi:/git/tmuxrc.git
 EOF
 
 
-## Bootstrap on a new install machine
+== Bootstrap on a new install machine ==
 
 ~ # mr -t -i bootstrap https://github.com/wandsas/shell-env/home-mr-config 
 
 
-# MIT License
+== MIT License ==
 
-Copyright (c) 2017 wandsas
+Copyright (c) 2018 wandsas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -49,4 +53,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-# vim: fenc=utf-8 ft=sh
+
+
+# vim:fenc=utf-8:ft=markdown:
