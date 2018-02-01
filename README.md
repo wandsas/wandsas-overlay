@@ -1,6 +1,6 @@
 # wandsas/tmux-config
 
-## Dependencies
+### Dependencies
 * [Tmux] <https://github.com/tmux/tmux>
 * [GNU Stow] <https://www.gnu.org/software/stow/>
 * [Myrepos] <https://myrepos.branchable.com/>
