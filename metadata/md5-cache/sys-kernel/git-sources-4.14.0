@@ -6,10 +6,10 @@ HOMEPAGE=http://www.kernel.org
 IUSE=symlink build deblob aufs bfq ck fbcondecor gentoo hardened muqss
 KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86
 LICENSE=GPL-2 !deblob? ( linux-firmware )
-RDEPEND=!build? ( >=sys-libs/ncurses-5.2 sys-devel/make dev-lang/perl sys-devel/bc )
+RDEPEND=!build? ( >=sys-libs/ncurses-5.2 sys-devel/make dev-lang/perl sys-devel/bc virtual/libelf )
 REQUIRED_USE=ck? ( muqss )
 RESTRICT=binchecks strip
 SLOT=4.14.0
 SRC_URI=mirror://kernel/linux/kernel/v4.x/linux-4.14.tar.xz bfq? ( http://ck.kolivas.org/patches/4.0/4.14/4.14-ck1/4.14-ck1-broken-out.tar.xz ) ck? ( http://ck.kolivas.org/patches/4.0/4.14/4.14-ck1/4.14-ck1-broken-out.tar.xz ) fbcondecor? ( http://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-4.14-1.extras.tar.xz ) gentoo? ( http://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-4.14-1.base.tar.xz ) hardened? ( http://dev.gentoo.org/~blueness/hardened-sources/hardened-patches/hardened-patches-4.9.24-1.extras.tar.bz2 ) muqss? ( /4.14-ck1-broken-out.tar.xz )
-_eclasses_=desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	b4eee44966573b7fb6761e507910b306	git-2	d3d780fdae818c0a83fd5e9e4eadfa2c	kernel-2	7e15aacb412856eaa750db7b17a321b3	kernel-git	ef1a964f5b4c716e0c01e57815177412	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	python-any-r1	27d7f9da7187d283b7f3eae8390b7b09	python-utils-r1	c9de01becf9df3f8c10aeec3dc693f5d	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	versionator	ce21313503c41896ebcd7d58b0607e37
+_eclasses_=desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	b4eee44966573b7fb6761e507910b306	git-2	d3d780fdae818c0a83fd5e9e4eadfa2c	kernel-2	6e37f651408d80af441518a0264b59c7	kernel-git	ef1a964f5b4c716e0c01e57815177412	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	python-any-r1	27d7f9da7187d283b7f3eae8390b7b09	python-utils-r1	c9de01becf9df3f8c10aeec3dc693f5d	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	versionator	ce21313503c41896ebcd7d58b0607e37
 _md5_=0cffae305524b0b2741e0399b4f8796d
