@@ -17,9 +17,9 @@ else
 fi
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+tmux"
+IUSE="+git"
 
 src_install() {
 	insinto /etc
-	use tmux && newins .tmux.conf tmux.conf
+	use git && newins /etc/gitconfig gitconfig
 }
