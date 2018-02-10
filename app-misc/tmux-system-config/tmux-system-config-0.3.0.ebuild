@@ -5,12 +5,12 @@
 EAPI=5
 
 DESCRIPTION="My current config of the Tmux Multiplexer"
-HOMEPAGE="http://github.com/wandsas/tmux-config.git"
+HOMEPAGE="http://github.com/wandsas/tmux-system-config.git"
 
 if [[ ${PV} = *9999 ]]; then
 	inherit git-r3
 	KEYWORDS=""
-	EGIT_REPO_URI="git://github.com/wandsas/app-misc/tmux-config-0.1.0.ebuild"
+	EGIT_REPO_URI="git://github.com/wandsas/app-misc/tmux-system-config.git"
 else
 	KEYWORDS="~amd64 ~arm"
 	SRC_URI="https://github.com/wandsas/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
