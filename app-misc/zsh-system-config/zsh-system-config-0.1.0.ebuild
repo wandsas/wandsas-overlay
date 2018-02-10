@@ -21,9 +21,9 @@ IUSE="+zsh"
 
 src_install() {
 	insinto /etc/zsh
-	use zsh && newins zlogin zlogin
-	use zsh && newins zshenv zshenv
-	use zsh && newins zprofile zprofile
-	use zsh && newins zshrc zshrc
-	use zsh && newins zlogout zlogout
+	use zsh && newins etc/zsh/zlogin zlogin
+	use zsh && newins etc/zsh/zshenv zshenv
+	use zsh && newins etc/zsh/zprofile zprofile
+	use zsh && newins etc/zsh/zshrc zshrc
+	use zsh && newins etc/zsh/zlogout zlogout
 }
