@@ -13,7 +13,7 @@ if [[ ${PV} = *9999 ]]; then
 	EGIT_REPO_URI="http://rpi.gnu.local/root/zsh-system-config.ebuild"
 else
 	KEYWORDS="~amd64 ~arm"
-	SRC_URI="https://github.com/wandsas/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,9 +21,9 @@ IUSE="+zsh"
 
 src_install() {
 	insinto /etc/zsh
-	use zsh && newins etc/zsh/zlogin zlogin
-	use zsh && newins etc/zsh/zshenv zshenv
-	use zsh && newins etc/zsh/zprofile zprofile
-	use zsh && newins etc/zsh/zshrc zshrc
-	use zsh && newins etc/zsh/zlogout zlogout
+	use zsh && newins zlogin zlogin
+	use zsh && newins zshenv zshenv
+	use zsh && newins zprofile zprofile
+	use zsh && newins zshrc zshrc
+	use zsh && newins zlogout zlogout
 }

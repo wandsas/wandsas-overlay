@@ -13,7 +13,7 @@ if [[ ${PV} = *9999 ]]; then
 	EGIT_REPO_URI="git://github.com/wandsas/app-misc/tmux-system-config.git"
 else
 	KEYWORDS="~amd64 ~arm"
-	SRC_URI="https://github.com/wandsas/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 LICENSE="GPL-2"
 SLOT="0"
