@@ -1,14 +1,12 @@
-# tmuxrc - my tmux config
+# tmuxrc - tmux config with sane default keybindings
 
 ## Dependencies:
-
 * [Tmux] <https://github.com/tmux/tmux>
 * [GNU Stow] <https://www.gnu.org/software/stow/>
 * [Myrepos] <https://myrepos.branchable.com/>
 * [Myrepos stow plugin] <https://github.com/aspiers/mr-config>
 
 ## Add a .mrconfig
-
 ~ # cat > ~/.mrconfig <<'EOF'
 [DEFAULT]
 include = cat /usr/share/mr/stow
@@ -21,12 +19,10 @@ EOF
 
 
 ## Bootstrap on a new install machine
-
 ~ # mr -t -i bootstrap https://github.com/wandsas/shell-env/home-mr-config 
 
 
 # MIT License
-
 Copyright (c) 2017 wandsas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
