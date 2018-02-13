@@ -16,5 +16,5 @@ IUSE=""
 src_install() {
 	dodoc README
 	insinto /etc
-	doins .tmux.conf tmux.conf
+	newins .tmux.conf tmux.conf
 }
