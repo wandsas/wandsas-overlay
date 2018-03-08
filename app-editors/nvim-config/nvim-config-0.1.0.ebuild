@@ -4,8 +4,8 @@
 EAPI=6
 RESTRICT="mirror"
 
-DESCRIPTION="A minimized gitconfig"
-HOMEPAGE="https://github.com/wandsas/git-config/"
+DESCRIPTION="Config for the Neovim editor"
+HOMEPAGE="https://github.com/wandsas/nvim-config"
 SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
@@ -15,6 +15,10 @@ IUSE=""
 
 src_install() {
 	dodoc README
-	insinto /etc
-	newins .gitconfig gitconfig
+
+	insinto /etc/vim
+	newins .config/nvim/init.vim nvimrc.local
+
+	insinto /usr/share/nvim/runtime/autoload
+	newins .config/nvim/autoload/plug.vim plug.vim
 }
