@@ -16,5 +16,5 @@ IUSE=""
 src_install() {
 	dodoc README
 	insinto /etc
-	doins gitconfig
+	newins .gitconfig gitconfig
 }
