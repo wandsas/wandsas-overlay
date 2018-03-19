@@ -1,37 +1,36 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-inherit eutils toolchain-funcs git-2
+inherit git-r3
 
-DESCRIPTION="Simple screen locker"
+DESCRIPTION="A fancy i3lock"
 HOMEPAGE="https://github.com/meskarune/i3lock-fancy"
 EGIT_REPO_URI="https://github.com/meskarune/i3lock-fancy.git"
-EGIT_BRANCH=master
-
-LICENSE="MIT"
+LICENSE="BSD"
+SRC_URI=""
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE=""
 
-MY_PN=i3lock
+RDEPEND="app-shells/bash:0
+		media-gfx/imagemagick
+		virtual/awk
+		x11-misc/wmctrl
+		media-gfx/scrot
+		x11-misc/i3lock-color"
 
-RDEPEND="media-gfx/imagemagick[png]
-	media-gfx/scrot
-	media-libs/imlib2[png]
-	x11-misc/i3lock-color"
-DEPEND=""
-DOCS=( README.md )
+DEPEND="${RDEPEND}"
 
-src_prepare() {
-	path=/usr/share/${PN}
-	sed -ie "s:SCRIPTPATH=.*:SCRIPTPATH=${path}:" lock || die
-	epatch_user
+INST_DIR="${D}/usr/share/i3lock-fancy"
+
+src_configure() {
+	# Fix script requiring icons to be in same dir
+	sed 's,$(readlink -f -- "$0"),"/usr/share/i3lock-fancy/",' lock > lock.sh
 }
 
 src_install() {
-	newbin lock ${PN}
-	insinto /usr/share/${PN}
-	doins icons/lock{,dark}.png
+	mkdir -p "$INST_DIR" "${D%/*}/usr/bin/"
+	cp lock.sh "${D}/usr/bin/lock"
+	chmod +x "${D}/usr/bin/lock"
+	cp -r icons "${INST_DIR}"
 }

@@ -1,11 +1,10 @@
-DEFINED_PHASES=install prepare unpack
-DEPEND=dev-vcs/git
-DESCRIPTION=Simple screen locker
-EAPI=5
+DEFINED_PHASES=configure install unpack
+DEPEND=app-shells/bash:0 media-gfx/imagemagick virtual/awk x11-misc/wmctrl media-gfx/scrot x11-misc/i3lock-color >=dev-vcs/git-1.8.2.1
+DESCRIPTION=A fancy i3lock
+EAPI=6
 HOMEPAGE=https://github.com/meskarune/i3lock-fancy
-KEYWORDS=~amd64
-LICENSE=MIT
-RDEPEND=media-gfx/imagemagick[png] media-gfx/scrot media-libs/imlib2[png] x11-misc/i3lock-color
+LICENSE=BSD
+RDEPEND=app-shells/bash:0 media-gfx/imagemagick virtual/awk x11-misc/wmctrl media-gfx/scrot x11-misc/i3lock-color
 SLOT=0
-_eclasses_=desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	63392afb034aad67f17fa129019eb4d9	git-2	d3d780fdae818c0a83fd5e9e4eadfa2c	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf
-_md5_=e238e94af4a592d461acbf49ece48f57
+_eclasses_=git-r3	fec09a83ae965b041b47f5ff7c8ba29a
+_md5_=18b921ca851d31f4f12bc76f2b354313
