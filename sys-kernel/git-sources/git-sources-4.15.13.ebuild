@@ -5,8 +5,8 @@
 EAPI="5"
 ETYPE="sources"
 K_DEBLOB_AVAILABLE="1"
-#PATCHSET=(aufs bfq ck fbcondecor gentoo hardened muqss)
-PATCHSET=(aufs gentoo hardened)
+PATCHSET=(aufs bfq ck fbcondecor gentoo hardened muqss)
+#PATCHSET=(aufs gentoo hardened)
 
 OKV="${PV}"
 MKV="${PV%.*}"

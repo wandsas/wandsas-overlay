@@ -4,23 +4,9 @@
 EAPI=6
 RESTRICT="mirror"
 
-case "${PV}" in
-	(9999*)
-	KEYWORDS=""
-	VCS_ECLASS=git-2
-	EGIT_REPO_URI="git://github.com/wandsas/${PN}.git"
-	EGIT_PROJECT="${PN}.git"
-	;;
-	(*)
-	KEYWORDS="~amd64 ~arm ~x86"
-	VCS_ECLASS="vcs-snapshot"
-	SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	;;
-esac
-
-
-DESCRIPTION="A tmux config with sane default keybindings"
-HOMEPAGE="https://github.com/wandsas/tmux-config"
+DESCRIPTION="Config for the Neovim editor"
+HOMEPAGE="https://github.com/wandsas/nvim-config"
+SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -29,6 +15,10 @@ IUSE=""
 
 src_install() {
 	dodoc README.md
-	insinto /etc
-	newins .tmux.conf tmux.conf
+
+	insinto /etc/vim
+	newins .config/nvim/init.vim nvimrc.local
+
+	insinto /usr/share/nvim/runtime/autoload
+	newins .config/nvim/autoload/plug.vim plug.vim
 }
