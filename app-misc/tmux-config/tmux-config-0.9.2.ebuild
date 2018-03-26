@@ -19,34 +19,16 @@ case "${PV}" in
 esac
 
 
-DESCRIPTION="System-wide config files for bash and zsh"
+DESCRIPTION="A tmux config with sane default keybindings"
 HOMEPAGE="https://github.com/wandsas/tmux-config"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x64-cygwin ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="bash zsh"
+IUSE=""
 
 src_install() {
-
 	dodoc README.md
-
-	insinto /etc/zsh
-	use zsh && doins zsh/zshenv zshenv
-	use zsh && doins zsh/zprofile zprofile
-	use zsh && doins zsh/zshrc zshrc
-	use zsh && doins zsh/zlogin zlogin
-	use zsh && doins zsh/zlogout zlogout
-	use zsh && doins -r zsh/rc.d rc.d
-
-	insinto /etc/bash
-	use bash && doins bash/bashrc bashrc
-	use bash && doins bash/bash_logout bash_logout
-	use bash && doins -r bash/rc.d rc.d
-
-	insinto /etc/profile.d
-	newins profile.d/aliases.sh aliases.sh
-
-	insinto /usr/local/share/zsh
-	use zsh && doins -r zsh-site-functions site-function
+	insinto /etc
+	newins .tmux.conf tmux.conf
 }
