@@ -7,5 +7,5 @@ KEYWORDS=~x86 ~amd64
 LICENSE=MIT
 RDEPEND=>=x11-libs/libX11-1.6.2 >=x11-libs/libXi-1.7.4 >=x11-libs/libXrandr-1.4.2 >=x11-libs/libxcb-1.11-r1 >=x11-libs/xcb-util-0.4.0
 SLOT=0
-_eclasses_=git-r3	fec09a83ae965b041b47f5ff7c8ba29a	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9
+_eclasses_=git-r3	25b08efef07cea6bcd45b8c6dcce2782	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9
 _md5_=096372889ae4fb4bb27350fdcfcdaa3a
