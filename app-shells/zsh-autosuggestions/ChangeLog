@@ -1,0 +1,14 @@
+# ChangeLog for app-shells/zsh-autosuggestions
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*zsh-autosuggestions-99999999 (14 Jun 2018)
+*zsh-autosuggestions-0.4.4_alpha20180611 (14 Jun 2018)
+*zsh-autosuggestions-0.4.3 (14 Jun 2018)
+
+  14 Jun 2018; Martin Väth <martin@mvath.de> +metadata.xml,
+  +zsh-autosuggestions-0.4.3.ebuild,
+  +zsh-autosuggestions-0.4.4_alpha20180611.ebuild,
+  +zsh-autosuggestions-99999999.ebuild:
+  www-plugins: Version bumps
+

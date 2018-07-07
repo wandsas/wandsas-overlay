@@ -1,0 +1,10 @@
+# ChangeLog for app-shells/set_prompt
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*set_prompt-3.1 (14 Jun 2018)
+
+  14 Jun 2018; Martin Väth <martin@mvath.de> +metadata.xml,
+  +set_prompt-3.1.ebuild:
+  www-plugins: Version bumps
+

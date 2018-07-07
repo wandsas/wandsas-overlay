@@ -1,10 +1,10 @@
 DEFINED_PHASES=install unpack
-DEPEND=dev-lang/perl >=dev-vcs/git-1.8.2.1
+DEPEND=dev-lang/perl >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Multiple Repository management tool
 EAPI=6
 HOMEPAGE=https://github.com/wandsas/myrepos/
 LICENSE=GPL-2
 RDEPEND=dev-lang/perl dev-perl/libwww-perl dev-perl/HTML-Parser
 SLOT=0
-_eclasses_=git-r3	25b08efef07cea6bcd45b8c6dcce2782
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
 _md5_=1dcf82c20fb93e3383d742326838e8e0
