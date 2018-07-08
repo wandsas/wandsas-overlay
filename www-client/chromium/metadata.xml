@@ -7,7 +7,7 @@
 	</maintainer>
 	<maintainer type="project">
 		<email>wandsas28@gmail.com</email>
-		<name>Add CopperheadOS hardening patches</name>
+		<name>Integrated CopperheadOS Chromium hardened patches</name>
 	</maintainer>
 	<longdescription>Chromium is the open-source web browser project behind Google Chrome</longdescription>
 	<use>
