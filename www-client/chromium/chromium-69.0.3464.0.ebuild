@@ -138,32 +138,7 @@ PATCHES=(
 	"${FILESDIR}/chromium-stdint.patch"
 	"${FILESDIR}/chromium-ffmpeg-r1.patch"
 	"${FILESDIR}/chromium-disable_xml_catalogs.patch"
-	"${FILESDIR}/0023-CopperheadOS-icon-recolor.patch"
 )
-
-#	"${FILESDIR}/0001-enable-dubious-Do-Not-Track-feature-by-default.patch"
-#	"${FILESDIR}/0002-disable-navigation-error-correction-by-default.patch"
-#	"${FILESDIR}/0003-disable-contextual-search-by-default.patch"
-#	"${FILESDIR}/0004-disable-network-prediction-by-default.patch"
-#	"${FILESDIR}/0005-disable-metrics-by-default.patch"
-#	"${FILESDIR}/0006-disable-hyperlink-auditing-by-default.patch"
-#	"${FILESDIR}/0007-disable-autofill-by-default.patch"
-#	"${FILESDIR}/0008-disable-first-run-welcome-page.patch"
-#	"${FILESDIR}/0009-disable-data-reduction-proxy-promotions.patch"
-#	"${FILESDIR}/0010-disable-showing-popular-sites.patch"
-#	"${FILESDIR}/0011-disable-article-suggestions-feature-by-default.patch"
-#	"${FILESDIR}/0012-always-use-the-WebView-sandbox.patch"
-#	"${FILESDIR}/0013-use-64-bit-WebView-processes.patch"
-#	"${FILESDIR}/0014-use-64-bit-Monochrome-processes.patch"
-#	"${FILESDIR}/0015-mark-non-secure-origins-as-non-secure.patch"
-#	"${FILESDIR}/0016-remove-mremap-from-the-system-call-whitelist.patch"
-#	"${FILESDIR}/0017-switch-to-fstack-protector-strong.patch"
-#	"${FILESDIR}/0018-enable-fwrapv-in-non-UBSan-builds-for-clang.patch"
-#	"${FILESDIR}/0019-add-DuckDuckGo-as-the-default-search-engine.patch"
-#	"${FILESDIR}/0020-stop-enabling-search-engine-geolocation-by-default.patch"
-#	"${FILESDIR}/0021-use-Chromium-branding-in-more-places.patch"
-#	"${FILESDIR}/0022-hide-passwords.google.com-link-when-not-supported.patch"
-#	"${FILESDIR}/0023-CopperheadOS-icon-recolor.patch"
 
 pre_build_checks() {
 	#if [[ ${MERGE_TYPE} != binary ]]; then
