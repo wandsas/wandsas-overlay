@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>wandsas28@gmail.com</email>
+    <name>wandsas</name>
+  </maintainer>
+  <stabilize-allarches/>
+  </use>
+  <upstream>
+    <remote-id type="grm.org">grml</remote-id>
+  </upstream>
+</pkgmetadata>
