@@ -21,7 +21,7 @@ else
 fi
 
 # default unless configured otherwise:
-ISO_LOCATION="/boot/grml64/"
+ISO_LOCATION="/boot/grml/"
 
 if [ -r /etc/default/grml-rescueboot ] ; then
   . /etc/default/grml-rescueboot

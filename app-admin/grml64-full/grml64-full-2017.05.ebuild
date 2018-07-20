@@ -20,6 +20,6 @@ IUSE=""
 S=${WORKDIR}
 
 src_install() {
-	insinto "/boot/${PN%-*}"
+	insinto "/boot/grml"
 	doins "${DISTDIR}/${MY_P}.iso"
 }

@@ -10,7 +10,7 @@ fi
 
 # srcd = path of newest link to iso of systemrescuecd, created by the ebuild
 #        of systemrescuecd-x86
-srcd="/boot/systemrescuecd/systemrescuecd-x86-5.2.2.iso"
+srcd="/boo/sysresccd/systemrescuecd-x86-5.2.2.iso"
 
 longname="SystemRescueCD"
 bootops=")"
