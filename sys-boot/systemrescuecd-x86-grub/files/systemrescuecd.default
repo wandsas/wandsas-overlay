@@ -18,4 +18,4 @@
 # Note:
 #  After changing this, you must update your grub configuration file, to take effect
 
-SRCD_BOOTOPTIONS="setkbmap=de docache ssh=sysrcd"
+SRCD_BOOTOPTIONS="setkbmap=de docache ssh=sysresccd"
