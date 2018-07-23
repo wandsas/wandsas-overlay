@@ -18,7 +18,7 @@ DEPEND="isohybrid? ( >=sys-boot/syslinux-4 )"
 S=${WORKDIR}
 
 src_install() {
-	insinto /boot/${PN%-*}"
+	insinto "/boot/${PN%-*}"
 	doins "${DISTDIR}/${P}.iso"
 
 	if use isohybrid; then
