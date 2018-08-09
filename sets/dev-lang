@@ -1,0 +1,186 @@
+#
+# C++ Build tools
+#
+dev-util/ninja
+sys-devel/automake
+sys-devel/automake-wrapper
+sys-devel/autoconf
+sys-devel/autoconf-wrapper
+sys-devel/autogen
+sys-devel/bc
+sys-devel/m4
+sys-devel/boost-m4
+sys-devel/bison
+sys-devel/flex
+sys-devel/libtool
+sys-devel/patch
+
+#
+# C++ Build utils (helper)
+#
+app-doc/cppman
+app-misc/colordiff
+dev-cpp/cpplint
+dev-util/colorgcc
+dev-util/pkgconfig
+dev-perl/ExtUtils-PkgConfig
+dev-python/pkgconfig
+dev-ruby/pkg-config
+
+#
+# C++ libraries
+#
+dev-cpp/yaml-cpp
+dev-libs/jsoncpp
+dev-libs/utfcpp
+dev-libs/cxxtools
+
+#
+# Debug tools
+#
+sys-devel/gdb
+dev-lang/yasm
+dev-lang/nasm
+dev-util/ddd
+dev-util/debugedit
+dev-util/patchutils
+dev-util/quilt
+dev-util/strace
+dev-util/ltrace
+dev-util/valgrind
+dev-util/cscope
+dev-util/cutils
+
+#
+# Clang Compiler/LLVM frontend
+#
+sys-devel/llvm
+sys-devel/llvm-common
+sys-devel/llvmgold
+sys-devel/clang
+sys-devel/clang-common
+sys-devel/clang-runtime
+
+#
+# Gnu Compiler Collection (GCC)
+#
+sys-devel/gcc
+sys-devel/gcc-config
+sys-devel/binutils
+sys-devel/binutils-config
+
+#
+# Cross Compiler
+#
+sys-devel/multilib-gcc-wrapper
+sys-devel/crossdev
+
+#
+# Cross Compiler utils
+#
+dev-util/ccache
+sys-devel/distcc
+
+#
+# Perl
+#
+dev-lang/perl
+dev-perl/libwww-perl
+dev-perl/Test-Output
+dev-perl/HTML-Parser
+dev-perl/URI
+dev-perl/Parse-ExuberantCTags
+
+#
+# Python
+#
+dev-lang/python
+dev-python/virtualenv
+dev-python/virtualenvwrapper
+dev-python/django
+dev-python/pip
+dev-python/setuptools
+dev-python/pygments
+dev-python/python-ctags
+dev-python/sqlalchemy
+dev-util/pycharm-community
+
+#
+# Ruby
+#
+dev-lang/ruby
+dev-ruby/bundler
+dev-ruby/rails
+
+#
+# JavaVM
+#
+dev-java/oracle-jdk-bin
+dev-java/groovy
+dev-lang/scala
+app-vim/scala-syntax
+
+#
+# Android NDK & SDKs
+#
+dev-util/android-studio
+dev-util/android-tools
+dev-util/android-sdk-update-manager
+dev-util/android-ndk
+
+#
+# Go
+#
+dev-lang/go
+
+#
+# Rust
+#
+dev-lang/rust
+
+#
+# Lua/Luajit
+#
+dev-lang/lua
+dev-lang/luajit
+dev-lua/luadoc
+dev-lua/luarocks
+
+#
+# Node.js
+#
+net-libs/nodejs
+sys-apps/yarn
+#dev-lang/coffee-script
+
+#
+# SQL
+#
+dev-db/sqlite
+# dev-db/postgresql
+dev-db/mariadb
+# dev-db/mysql
+
+#
+# Webserver
+#
+
+#www-servers/apache
+#www-servers/lighttpd
+www-servers/nginx
+app-vim/nginx-syntax
+
+#
+# Version Control System
+#
+dev-vcs/git
+dev-vcs/hub
+dev-vcs/subversion
+dev-vcs/mercurial
+dev-vcs/mr
+dev-vcs/git-wrappers-mv
+
+dev-python/github3
+dev-python/pygit2
+dev-libs/libgit2
+dev-util/ctags

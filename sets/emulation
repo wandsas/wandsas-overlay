@@ -1,0 +1,17 @@
+
+app-emulation/docker
+#app-emulation/docker-compose
+app-emulation/docker-machine
+app-emulation/docker-machine-kvm
+
+app-emulation/qemu
+app-emulation/libvirt
+app-emulation/diskimage-builder
+
+app-emulation/lxc
+app-emulation/lxc-gentoo
+
+dev-util/catalyst
+dev-util/debootstrap
+dev-util/schroot
+sys-apps/debianutils

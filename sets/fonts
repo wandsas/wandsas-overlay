@@ -1,0 +1,20 @@
+
+# X.Org fonts for the console and X11
+media-fonts/dejavu
+# media-fonts/font-bh-ttf
+# media-fonts/font-bh-type1
+# media-fonts/font-mutt-misc
+# media-fonts/font-cursor-misc
+
+# Clean and modern typeface
+# media-fonts/freefont
+# media-fonts/open-sans
+
+# Designed for source code listings
+# media-fonts/inconsolata
+media-fonts/terminus-font
+media-fonts/hack
+
+# Google's font family for the Android Open Source Project 
+# media-fonts/droid
+media-fonts/roboto

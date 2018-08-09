@@ -1,0 +1,16 @@
+# /etc/portage/sets/mail
+
+mail-client/neomutt
+mail-client/alot
+mail-filter/procmail
+mail-mta/msmtp
+net-mail/offlineimap
+net-mail/mairix
+net-mail/notmuch
+
+net-news/newsboat
+net-im/bitlbee
+net-irc/weechat
+
+net-nntp/slrn
+net-nntp/slrnconf

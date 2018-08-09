@@ -1,0 +1,16 @@
+
+app-backup/snapper
+app-backup/snapper-gui
+app-backup/btrbk
+
+sys-apps/gptfdisk
+sys-block/gparted
+
+sys-fs/btrfs-progs
+sys-fs/btrfsmaintenance
+sys-fs/bcache-tools
+sys-fs/e2fsprogs
+sys-fs/dosfstools
+sys-fs/squashfs-tools
+sys-fs/squashmount
+sys-fs/emount
