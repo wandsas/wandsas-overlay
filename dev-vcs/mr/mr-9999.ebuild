@@ -21,10 +21,12 @@ RDEPEND="${DEPEND}
 	dev-perl/HTML-Parser"
 
 src_install() {
-	dobin mr webcheckout
+	dobin mr mr-recache mrdir webcheckout
 	doman mr.1 webcheckout.1
 	dodoc README debian/changelog \
 		mrconfig mrconfig.complex
 	insinto /usr/share/${PN}
 	doins lib/*
+	insinto /usr/local/share/zsh/site-functions
+	doins zsh/mrcd zsh/_mr_repositories
 }
