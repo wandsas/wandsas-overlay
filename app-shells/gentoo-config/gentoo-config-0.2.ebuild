@@ -4,8 +4,8 @@
 EAPI=6
 RESTRICT="mirror"
 
-DESCRIPTION="System shell environment files for bash and zsh"
-HOMEPAGE="https://github.com/wandsas/system-shell-env"
+DESCRIPTION="Gentoo shell config files"
+HOMEPAGE="https://github.com/wandsas/gentoo-config"
 SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
