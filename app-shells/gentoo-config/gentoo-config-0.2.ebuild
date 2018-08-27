@@ -4,8 +4,8 @@
 EAPI=6
 RESTRICT="mirror"
 
-DESCRIPTION="System shell environment files for bash and zsh"
-HOMEPAGE="https://github.com/wandsas/system-shell-env"
+DESCRIPTION="Gentoo shell config files"
+HOMEPAGE="https://github.com/wandsas/gentoo-config"
 SRC_URI="https://github.com/wandsas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
@@ -15,17 +15,17 @@ IUSE=""
 
 src_install() {
 	dodoc README.md
-
+	# /etc/profile.d
 	insinto /etc/profile.d
-	newins etc/profile.d/aliases.sh aliases.sh
-	newins etc/profile.d/functions.sh functions.sh
-
+	doins etc/profile.d/aliases.sh
+	doins etc/profile.d/functions.sh
+	# /etc/bash
 	insinto /etc/zsh
-	newins etc/zsh/zshenv
-	newins etc/zsh/zshrc
-	newins etc/zsh/zshrc.d/completions.sh
-	newins etc/zsh/options
-
+	doins etc/zsh/zshenv
+	# /etc/zsh
 	insinto /etc/bash/bash
-	newins etc/bash/bashrc.d/bash-prompt.sh
+	doins etc/bash/bashrc.d/bash-prompt.sh
+	# /usr/local/share/zsh/site-functions
+	insinto /usr/local/share/site-functions
+
 }
