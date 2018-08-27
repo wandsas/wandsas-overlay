@@ -19,13 +19,18 @@ src_install() {
 	insinto /etc/profile.d
 	doins etc/profile.d/aliases.sh
 	doins etc/profile.d/functions.sh
+
 	# /etc/bash
 	insinto /etc/zsh
 	doins etc/zsh/zshenv
+
 	# /etc/zsh
-	insinto /etc/bash/bash
+	insinto /etc/bash/bashrc.d
 	doins etc/bash/bashrc.d/bash-prompt.sh
+
 	# /usr/local/share/zsh/site-functions
-	insinto /usr/local/share/site-functions
+	insinto /usr/local/share/zsh/site-functions
+	doins usr/local/share/zsh/site-functions/prompt_wandsas_setup
+	doins usr/local/share/zsh/site-functions/prompt_wandsas2_setup
 
 }
