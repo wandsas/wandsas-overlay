@@ -5,4 +5,4 @@ ISO_LOCATION="/boot/grml/"
 
 # To set any specific bootoptions for rescue images
 # present in /boot/grml just set and enable the following option:
-CUSTOM_BOOTOPTIONS="ssh=grml lang=de"
+CUSTOM_BOOTOPTIONS="lang=en utc tz=Europe/Berlin keyboard=de xkeyboard=de myconfig=LABEL=boot toram persistence hostname=z800 dns=10.0.6.1,1.1.1.1 ip=10.0.6.10:0:10.0.6.1:255.255.255.0:z800:eth0:off ssh=grml scripts=grml/scripts noswraid nodmraid nolvm vga=791"
