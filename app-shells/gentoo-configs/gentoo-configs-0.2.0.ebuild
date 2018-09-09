@@ -15,18 +15,19 @@ IUSE=""
 
 src_install() {
 	dodoc README.md
+
 	# /etc/profile.d
 	insinto /etc/profile.d
 	doins etc/profile.d/aliases.sh
 	doins etc/profile.d/functions.sh
 
 	# /etc/bash
-	insinto /etc/zsh
-	doins etc/zsh/zshenv
+	insinto /etc/bash/bashrc.d
+	doins etc/bash/bash_logout
 
 	# /etc/zsh
-	insinto /etc/bash/bashrc.d
-	doins etc/bash/bashrc.d/bash-prompt.sh
+	insinto /etc/zsh
+	doins etc/zsh/zshenv
 
 	# /usr/local/share/zsh/site-functions
 	insinto /usr/local/share/zsh/site-functions
