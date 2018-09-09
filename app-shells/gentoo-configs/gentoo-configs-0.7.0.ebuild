@@ -32,6 +32,7 @@ src_install() {
 
 	# /etc/zsh
 	insinto /etc/zsh
+	doins etc/zsh/zlogout
 	doins etc/zsh/zshenv
 
 	# /usr/local/share/zsh/site-functions
