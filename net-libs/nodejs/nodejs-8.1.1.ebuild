@@ -22,7 +22,7 @@ RDEPEND="icu? ( >=dev-libs/icu-56:= )
 	npm? ( ${PYTHON_DEPS} )
 	>=net-libs/http-parser-2.6.2:=
 	>=dev-libs/libuv-1.11.0:=
-    dev-libs/libressl	
+    dev-libs/libressl
 	sys-libs/zlib"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
@@ -34,7 +34,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 PATCHES=(
 	"${FILESDIR}"/gentoo-global-npm-config.patch
-	"${FILESDIR}"/nodejs-8.1.0-libressl.patch
+	"${FILESDIR}"/nodejs-8.1.1-libressl.patch
 )
 
 pkg_pretend() {
