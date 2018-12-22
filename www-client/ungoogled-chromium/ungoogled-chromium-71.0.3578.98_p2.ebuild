@@ -1,7 +1,8 @@
 # Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=7
+
 PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
 
 CHROMIUM_LANGS="
@@ -10,16 +11,16 @@ CHROMIUM_LANGS="
 	th tr uk vi zh-CN zh-TW
 "
 
-inherit check-reqs chromium-2 gnome2-utils eapi7-ver flag-o-matic multilib ninja-utils pax-utils portability python-r1 readme.gentoo-r1 toolchain-funcs xdg-utils
+inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-r1 readme.gentoo-r1 toolchain-funcs xdg-utils
 
-UGC_PV="$(ver_cut 1-4)-$(ver_cut 5)"
-UGC_P="ungoogled-chromium-${UGC_PV}"
+UGC_PV="${PV/_p/-}"
+UGC_P="${PN}-${UGC_PV}"
 UGC_WD="${WORKDIR}/${UGC_P}"
 
 DESCRIPTION="Modifications to Chromium for removing Google integration and enhancing privacy"
-HOMEPAGE="https://github.com/Eloston/ungoogled-chromium https://www.chromium.org/"
+HOMEPAGE="https://www.chromium.org/Home https://github.com/Eloston/ungoogled-chromium"
 SRC_URI="
-	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-$(ver_cut 1-4).tar.xz
+	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
 	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
 "
 
@@ -27,43 +28,53 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
-	cups custom-cflags jumbo-build kerberos new-tcmalloc +openh264 optimize-webui
-	+proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-harfbuzz
-	+system-icu +system-libevent +system-libvpx +system-openjpeg +tcmalloc vaapi
-	widevine
+	+atk cfi cups custom-cflags gnome gold jumbo-build kerberos libcxx +lld
+	new-tcmalloc optimize-thinlto optimize-webui +proprietary-codecs pulseaudio
+	selinux +suid +system-ffmpeg system-harfbuzz +system-icu +system-jsoncpp
+	+system-libevent +system-libvpx +system-openh264 +system-openjpeg +tcmalloc
+	+thinlto vaapi widevine
 "
 REQUIRED_USE="
+	^^ ( gold lld )
 	|| ( $(python_gen_useflags 'python3*') )
 	|| ( $(python_gen_useflags 'python2*') )
+	cfi? ( amd64 thinlto )
+	libcxx? ( new-tcmalloc )
 	new-tcmalloc? ( tcmalloc )
+	optimize-thinlto? ( thinlto )
 "
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
-	!openh264? ( bindist )
+	!system-openh264? ( bindist )
 "
 
 COMMON_DEPEND="
-	app-accessibility/at-spi2-atk:2
+	atk? (
+		>=app-accessibility/at-spi2-atk-2.26:2
+		>=dev-libs/atk-2.26
+	)
 	app-arch/bzip2:=
 	cups? ( >=net-print/cups-1.3.11:= )
-	dev-libs/atk
 	dev-libs/expat:=
+	system-jsoncpp? ( dev-libs/jsoncpp )
 	dev-libs/glib:2
-	system-icu? ( >=dev-libs/icu-59:= )
+	system-icu? ( >=dev-libs/icu-58.2:= )
 	system-libevent? ( dev-libs/libevent )
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
 	dev-libs/libxslt:=
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
-	>=dev-libs/re2-0.2016.05.01:=
+	>=dev-libs/re2-0.2016.11.01:=
 	>=media-libs/alsa-lib-1.0.19:=
 	media-libs/fontconfig:=
-	media-libs/freetype:=
-	system-harfbuzz? ( >=media-libs/harfbuzz-1.8.8:0=[icu(-)] )
+	system-harfbuzz? (
+		media-libs/freetype:=
+		>=media-libs/harfbuzz-2.0.0:0=[icu(-)]
+	)
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	system-libvpx? ( >=media-libs/libvpx-1.7.0:=[postproc,svc] )
-	openh264? ( >=media-libs/openh264-1.6.0:= )
+	system-openh264? ( >=media-libs/openh264-1.6.0:= )
 	system-openjpeg? ( media-libs/openjpeg:2 )
 	pulseaudio? ( media-sound/pulseaudio:= )
 	system-ffmpeg? (
@@ -76,6 +87,10 @@ COMMON_DEPEND="
 	)
 	sys-apps/dbus:=
 	sys-apps/pciutils:=
+	libcxx? (
+		sys-libs/libcxx
+		sys-libs/libcxxabi
+	)
 	virtual/udev
 	x11-libs/cairo:=
 	x11-libs/gdk-pixbuf:2
@@ -112,7 +127,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 # dev-vcs/git (Bug #593476)
 # sys-apps/sandbox - https://crbug.com/586444
-DEPEND="${COMMON_DEPEND}
+DEPEND="${COMMON_DEPEND}"
+BDEPEND="
 	>=app-arch/gzip-1.7
 	dev-lang/perl
 	dev-lang/yasm
@@ -123,9 +139,10 @@ DEPEND="${COMMON_DEPEND}
 	sys-apps/hwids[usb(+)]
 	>=sys-devel/bison-2.4.3
 	>=sys-devel/clang-7.0.0
+	cfi? ( >=sys-devel/clang-runtime-7.0.0[sanitize] )
 	sys-devel/flex
-	>=sys-devel/lld-7.0.0
-	>=sys-devel/llvm-7.0.0
+	lld? ( >=sys-devel/lld-7.0.0 )
+	>=sys-devel/llvm-7.0.0[gold?]
 	virtual/libusb:1
 	virtual/pkgconfig
 	dev-vcs/git
@@ -156,30 +173,30 @@ GTK+ icon theme.
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-compiler-r4.patch"
-	"${FILESDIR}/chromium-webrtc-r0.patch"
-	"${FILESDIR}/chromium-memcpy-r0.patch"
-	"${FILESDIR}/chromium-math.h-r0.patch"
-	"${FILESDIR}/chromium-stdint.patch"
+	"${FILESDIR}/${PN}-atk-r0.patch"
+	"${FILESDIR}/${PN}-compiler-r5.patch"
+	"${FILESDIR}/${PN}-gold-r0.patch"
 )
 
-S="${WORKDIR}/chromium-$(ver_cut 1-4)"
+S="${WORKDIR}/chromium-${PV/_*}"
 
 pre_build_checks() {
 	# Check build requirements (Bug #541816)
 	CHECKREQS_MEMORY="3G"
 	CHECKREQS_DISK_BUILD="5G"
-	if use custom-cflags; then
-		eshopts_push -s extglob
-		if is-flagq '-g?(gdb)?([1-9])'; then
-			CHECKREQS_DISK_BUILD="25G"
-		fi
-		eshopts_pop
+	if use custom-cflags && ( shopt -s extglob; is-flagq '-g?(gdb)?([1-9])' ); then
+		CHECKREQS_DISK_BUILD="25G"
 	fi
 	check-reqs_pkg_setup
 }
 
 pkg_pretend() {
+	if use custom-cflags && [[ "${MERGE_TYPE}" != binary ]]; then
+		ewarn
+		ewarn "USE=custom-cflags bypass strip-flags; you are on your own."
+		ewarn "Expect build failures. Don't file bugs using that unsupported USE flag!"
+		ewarn
+	fi
 	pre_build_checks
 }
 
@@ -189,38 +206,23 @@ pkg_setup() {
 }
 
 src_prepare() {
-	if use custom-cflags; then
-		ewarn
-		ewarn "USE=custom-cflags bypass strip-flags; you are on your own."
-		ewarn "Expect build failures. Don't file bugs using that unsupported USE flag!"
-		ewarn
-		sleep 5
-	fi
-
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup 'python3*'
 
 	default
 
 	mkdir -p third_party/node/linux/node-linux-x64/bin || die
-	ln -s "${EPREFIX%/}/usr/bin/node" third_party/node/linux/node-linux-x64/bin/node || die
-
-	# Fix build with harfbuzz-2 (Bug #669034)
-	if use system-harfbuzz; then
-		if has_version '>=media-libs/harfbuzz-2.0.0'; then
-			eapply "${FILESDIR}/chromium-harfbuzz-r0.patch"
-		fi
-	fi
+	ln -s "${EPREFIX}/usr/bin/node" third_party/node/linux/node-linux-x64/bin/node || die
 
 	# Apply extra patches (taken from openSUSE)
-	local ep
-	for ep in "${FILESDIR}/extra-$(ver_cut 1-1)"/*.patch; do
-		eapply "${ep}"
+	local p
+	for p in "${FILESDIR}/extra-$(ver_cut 1-1)"/*.patch; do
+		eapply "${p}"
 	done
 
 	# Hack for libusb stuff (taken from openSUSE)
 	rm third_party/libusb/src/libusb/libusb.h || die
-	cp -a "${EPREFIX%/}/usr/include/libusb-1.0/libusb.h" \
+	cp -a "${EPREFIX}/usr/include/libusb-1.0/libusb.h" \
 		third_party/libusb/src/libusb/libusb.h || die
 
 	# From here we adapt ungoogled-chromium's patches to our needs
@@ -229,63 +231,84 @@ src_prepare() {
 	local ugc_common_dir="${UGC_WD}/config_bundles/common"
 	local ugc_rooted_dir="${UGC_WD}/config_bundles/linux_rooted"
 
-	# Remove ARM and GCC related patches
-	sed -i \
-		-e '/arm\/skia.patch/d' \
-		-e '/arm\/gcc_skcms_ice.patch/d' \
-		-e '/fixes\/alignof.patch/d' \
-		-e '/fixes\/as-needed.patch/d' \
-		-e '/fixes\/member-assignment.patch/d' \
-		-e '/fixes\/sizet.patch/d' \
-		-e '/warnings\/attribute.patch/d' \
-		-e '/warnings\/enum-compare.patch/d' \
-		-e '/warnings\/multichar.patch/d' \
-		-e '/warnings\/null-destination.patch/d' \
-		"${ugc_common_dir}/patch_order.list" || die
+	local ugc_unneeded=(
+		# ARM related patch
+		common:gcc_skcms_ice
+		# GCC fixes/warnings
+		#common:alignof
+		common:as-needed
+		common:enum-compare
+		common:explicit-constructor
+		common:initialization
+		common:int-in-bool-context
+		common:multichar
+		common:null-destination
+		common:printf
+		common:sizet
+		rooted:attribute
+		# We already have "-Wno-unknown-warning-option" defined below
+		common:clang-compiler-flags
+		# GN bootstrap
+		common:no-such-option-no-sysroot
+		common:parallel
+		rooted:libcxx
+	)
 
-	# The licensing issue only matters to Debian folks, it also
-	# depends on system icu (https://bugs.debian.org/900596)
-	sed -i '/system\/convertutf.patch/d' "${ugc_rooted_dir}/patch_order.list" || die
+	local ugc_use=(
+		system-icu:convertutf
+		system-icu:icu
+		system-jsoncpp:jsoncpp
+		system-libevent:event
+		system-libvpx:vpx
+		vaapi:chromium-vaapi-r18
+	)
+
+	local ugc_p ugc_dir
+	for p in "${ugc_unneeded[@]}"; do
+		ugc_p="${p#*:}"
+		ugc_dir="ugc_${p%:*}_dir"
+		einfo "Removing ${ugc_p}.patch"
+		sed -i "/${ugc_p}.patch/d" "${!ugc_dir}/patch_order.list" || die
+	done
+
+	for p in "${ugc_use[@]}"; do
+		use "${p%:*}" && break
+		ugc_p="${p#*:}"
+		einfo "Removing ${ugc_p}.patch"
+		sed -i "/${ugc_p}.patch/d" "${ugc_rooted_dir}/patch_order.list" || die
+	done
 
 	if ! use system-icu; then
 		sed -i '/common\/icudtl.dat/d' "${ugc_rooted_dir}/pruning.list" || die
 	fi
 
-	if ! use system-libevent; then
-		sed -i '/system\/event.patch/d' "${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
-	if ! use system-libvpx; then
-		sed -i '/system\/vpx.patch/d' "${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
-	if use system-openjpeg; then
-		sed -i '/system\/nspr.patch/a debian/system/openjpeg.patch' \
+	# Fix build with harfbuzz-2 (Bug #669034)
+	if use system-harfbuzz; then
+		sed -i '/system\/jpeg.patch/i debian_buster/system/harfbuzz.patch' \
 			"${ugc_rooted_dir}/patch_order.list" || die
 	fi
 
-	if ! use vaapi; then
-		sed -i '/chromium-vaapi-r18.patch/d' "${ugc_rooted_dir}/patch_order.list" || die
-	else
-		if has_version '<x11-libs/libva-2.0.0'; then
-			sed -i '/build.patch/i ungoogled-chromium/linux/fix-libva1-compatibility.patch' \
-				"${ugc_rooted_dir}/patch_order.list" || die
-		fi
+	if use system-openjpeg; then
+		sed -i '/system\/nspr.patch/a debian_buster/system/openjpeg.patch' \
+			"${ugc_rooted_dir}/patch_order.list" || die
+	fi
+
+	if use vaapi && has_version '<x11-libs/libva-2.0.0'; then
+		sed -i "/build.patch/i ${PN}/linux/fix-libva1-compatibility.patch" \
+			"${ugc_rooted_dir}/patch_order.list" || die
 	fi
 
 	ebegin "Pruning binaries"
-	"${ugc_cli}" prune -b "${ugc_config}" ./ || die
-	eend $?
+	"${ugc_cli}" prune -b "${ugc_config}" ./
+	eend $? || die
 
 	ebegin "Applying ungoogled-chromium patches"
-	"${ugc_cli}" patches apply -b "${ugc_config}" ./ || die
-	eend $?
+	"${ugc_cli}" patches apply -b "${ugc_config}" ./
+	eend $? || die
 
 	ebegin "Applying domain substitution"
-	"${ugc_cli}" domains apply -b "${ugc_config}" -c domainsubcache.tar.gz ./ || die
-	eend $?
-
-	python_setup 'python2*'
+	"${ugc_cli}" domains apply -b "${ugc_config}" -c domainsubcache.tar.gz ./
+	eend $? || die
 
 	local keeplibs=(
 		base/third_party/dmg_fp
@@ -296,8 +319,6 @@ src_prepare() {
 		base/third_party/valgrind
 		base/third_party/xdg_mime
 		base/third_party/xdg_user_dirs
-		buildtools/third_party/libc++
-		buildtools/third_party/libc++abi
 		chrome/third_party/mozilla_security_manager
 		courgette/third_party
 		net/third_party/http2
@@ -415,10 +436,10 @@ src_prepare() {
 		third_party/skia/third_party/vulkan
 		third_party/smhasher
 		third_party/spirv-headers
+		third_party/SPIRV-Tools
 		third_party/spirv-tools-angle
 		third_party/sqlite
 		third_party/ungoogled
-		third_party/unrar
 		third_party/usrsctp
 		third_party/vulkan
 		third_party/vulkan-validation-layers
@@ -449,23 +470,83 @@ src_prepare() {
 		third_party/yasm/run_yasm.py
 	)
 
-	use openh264 || keeplibs+=( third_party/openh264 )
 	use system-ffmpeg || keeplibs+=( third_party/ffmpeg third_party/opus )
 	if ! use system-harfbuzz; then
 		keeplibs+=( third_party/freetype )
 		keeplibs+=( third_party/harfbuzz-ng )
 	fi
 	use system-icu || keeplibs+=( third_party/icu )
+	use system-jsoncpp || keeplibs+=( third_party/jsoncpp )
 	use system-libevent || keeplibs+=( base/third_party/libevent )
 	if ! use system-libvpx; then
 		keeplibs+=( third_party/libvpx )
 		keeplibs+=( third_party/libvpx/source/libvpx/third_party/x86inc )
 	fi
+	use system-openh264 || keeplibs+=( third_party/openh264 )
 	use system-openjpeg || keeplibs+=( third_party/pdfium/third_party/libopenjpeg20 )
 	use tcmalloc && keeplibs+=( third_party/tcmalloc )
 
 	# Remove most bundled libraries, some are still needed
+	python_setup 'python2*'
 	build/linux/unbundle/remove_bundled_libraries.py "${keeplibs[@]}" --do-remove || die
+}
+
+# Handle all CFLAGS/CXXFLAGS/etc... munging here.
+setup_compile_flags() {
+	# Avoid CFLAGS problems (Bug #352457, #390147)
+	if ! use custom-cflags; then
+		replace-flags "-Os" "-O2"
+		strip-flags
+
+		# Filter common/redundant flags. See build/config/compiler/BUILD.gn
+		filter-flags -fomit-frame-pointer -fno-omit-frame-pointer
+		filter-flags '-fstack-protector*' '-fno-stack-protector*'
+		filter-flags '-fuse-ld=*' '-g*' '-Wl,*'
+
+		# Prevent libvpx build failures (Bug #530248, #544702, #546984)
+		filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2
+	fi
+
+	if use libcxx; then
+		append-cxxflags "-stdlib=libc++"
+		append-ldflags "-stdlib=libc++ -Wl,-lc++abi"
+	else
+		has_version 'sys-devel/clang[default-libcxx]' && \
+			append-cxxflags "-stdlib=libstdc++"
+	fi
+
+	# 'gcc_s' is still required if 'compiler-rt' is Clang's default rtlib
+	has_version 'sys-devel/clang[default-compiler-rt]' && \
+		append-ldflags "-Wl,-lgcc_s"
+
+	if use thinlto; then
+		# We need to change the default value of import-instr-limit in
+		# LLVM to limit the text size increase. The default value is
+		# 100, and we change it to 30 to reduce the text size increase
+		# from 25% to 10%. The performance number of page_cycler is the
+		# same on two of the thinLTO configurations, we got 1% slowdown
+		# on speedometer when changing import-instr-limit from 100 to 30.
+		append-ldflags "-Wl,-plugin-opt,-import-instr-limit=30"
+	fi
+
+	# Enable std::vector []-operator bounds checking (https://crbug.com/333391)
+	append-cxxflags -D__google_stl_debug_vector=1
+
+	# Don't complain if Chromium uses a diagnostic option that is not yet
+	# implemented in the compiler version used by the user. This is only
+	# supported by Clang.
+	append-flags -Wno-unknown-warning-option
+
+	# Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
+	append-cflags -Wno-builtin-macro-redefined
+	append-cxxflags -Wno-builtin-macro-redefined
+	append-cppflags "-D__DATE__= -D__TIME__= -D__TIMESTAMP__="
+
+	local flags
+	einfo "Building with the compiler settings:"
+	for flags in {C,CXX,CPP,LD}FLAGS; do
+		einfo "  ${flags} = ${!flags}"
+	done
 }
 
 src_configure() {
@@ -481,17 +562,6 @@ src_configure() {
 	AR=llvm-ar
 	NM=llvm-nm
 	strip-unsupported-flags
-
-	# shellcheck disable=SC2086
-	if has ccache ${FEATURES}; then
-		# Avoid falling back to preprocessor mode when sources contain time macros
-		export CCACHE_SLOPPINESS=time_macros
-	fi
-
-	# Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
-	append-cflags -Wno-builtin-macro-redefined
-	append-cxxflags -Wno-builtin-macro-redefined
-	append-cppflags "-D__DATE__= -D__TIME__= -D__TIMESTAMP__="
 
 	# Use system-provided libraries
 	# TODO: freetype -- remove sources (https://crbug.com/pdfium/733)
@@ -517,19 +587,26 @@ src_configure() {
 		zlib
 	)
 
-	use openh264 && gn_system_libraries+=( openh264 )
 	use system-ffmpeg && gn_system_libraries+=( ffmpeg opus )
 	use system-harfbuzz && gn_system_libraries+=( freetype harfbuzz-ng )
 	use system-icu && gn_system_libraries+=( icu )
 	use system-libevent && gn_system_libraries+=( libevent )
 	use system-libvpx && gn_system_libraries+=( libvpx )
+	use system-openh264 && gn_system_libraries+=( openh264 )
 
 	build/linux/unbundle/replace_gn_files.py --system-libraries "${gn_system_libraries[@]}" || die
 
 	local myconf_gn=""
+	# Clang features
+	myconf_gn+=" is_cfi=$(usetf cfi)" # Implies use_cfi_icall=true
+	myconf_gn+=" is_clang=true"
+	myconf_gn+=" clang_use_chrome_plugins=false"
+	myconf_gn+=" thin_lto_enable_optimizations=$(usetf optimize-thinlto)"
+	myconf_gn+=" use_lld=$(usetf lld)"
+	myconf_gn+=" use_thin_lto=$(usetf thinlto)"
+
 	# UGC's "common" GN flags (config_bundles/common/gn_flags.map)
 	myconf_gn+=" blink_symbol_level=0"
-	myconf_gn+=" clang_use_chrome_plugins=false"
 	myconf_gn+=" enable_ac3_eac3_audio_demuxing=true"
 	myconf_gn+=" enable_hangout_services_extension=false"
 	myconf_gn+=" enable_hevc_demuxing=true"
@@ -544,7 +621,7 @@ src_configure() {
 	myconf_gn+=" enable_reporting=false"
 	myconf_gn+=" enable_service_discovery=false"
 	myconf_gn+=" enable_swiftshader=false"
-	myconf_gn+=" enable_widevine=$(usex widevine true false)"
+	myconf_gn+=" enable_widevine=$(usetf widevine)"
 	myconf_gn+=" exclude_unwind_tables=true"
 	myconf_gn+=" fatal_linker_warnings=false"
 	myconf_gn+=" ffmpeg_branding=\"$(usex proprietary-codecs Chrome Chromium)\""
@@ -552,16 +629,16 @@ src_configure() {
 	myconf_gn+=" google_api_key=\"\""
 	myconf_gn+=" google_default_client_id=\"\""
 	myconf_gn+=" google_default_client_secret=\"\""
-	myconf_gn+=" is_clang=true" # Implies use_lld=true
 	myconf_gn+=" is_debug=false"
-	myconf_gn+=" is_official_build=true" # Implies is_cfi=true
-	myconf_gn+=" optimize_webui=$(usex optimize-webui true false)"
-	myconf_gn+=" proprietary_codecs=$(usex proprietary-codecs true false)"
+	myconf_gn+=" is_official_build=true"
+	myconf_gn+=" optimize_webui=$(usetf optimize-webui)"
+	myconf_gn+=" proprietary_codecs=$(usetf proprietary-codecs)"
 	myconf_gn+=" safe_browsing_mode=0"
 	myconf_gn+=" symbol_level=0"
 	myconf_gn+=" treat_warnings_as_errors=false"
+	myconf_gn+=" use_atk=$(usetf atk)"
 	myconf_gn+=" use_gnome_keyring=false" # Deprecated by libsecret
-	myconf_gn+=" use_jumbo_build=$(usex jumbo-build true false)"
+	myconf_gn+=" use_jumbo_build=$(usetf jumbo-build)"
 	myconf_gn+=" use_official_google_api_keys=false"
 	myconf_gn+=" use_ozone=false"
 	myconf_gn+=" use_sysroot=false"
@@ -571,61 +648,34 @@ src_configure() {
 	myconf_gn+=" custom_toolchain=\"//build/toolchain/linux/unbundle:default\""
 	myconf_gn+=" gold_path=\"\""
 	myconf_gn+=" goma_dir=\"\""
-	if tc-is-cross-compiler; then
-		tc-export BUILD_{AR,CC,CXX,NM}
-		myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:host\""
-		myconf_gn+=" v8_snapshot_toolchain=\"//build/toolchain/linux/unbundle:host\""
-	else
-		myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:default\""
-	fi
-	myconf_gn+=" link_pulseaudio=$(usex pulseaudio true false)"
+	myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:default\""
+	myconf_gn+=" link_pulseaudio=$(usetf pulseaudio)"
 	myconf_gn+=" linux_use_bundled_binutils=false"
 	myconf_gn+=" optimize_for_size=false"
 	myconf_gn+=" use_allocator=\"$(usex tcmalloc tcmalloc none)\""
-	myconf_gn+=" use_cups=$(usex cups true false)"
+	myconf_gn+=" use_cups=$(usetf cups)"
 	myconf_gn+=" use_custom_libcxx=false"
-	myconf_gn+=" use_gio=true"
-	myconf_gn+=" use_kerberos=$(usex kerberos true false)"
-	myconf_gn+=" use_openh264=$(usex !openh264 true false)" # Enable this to
-	# build OpenH264 for encoding, hence the restriction: !openh264? ( bindist )
-	myconf_gn+=" use_pulseaudio=$(usex pulseaudio true false)"
-	myconf_gn+=" use_system_freetype=$(usex system-harfbuzz true false)"
-	myconf_gn+=" use_system_harfbuzz=$(usex system-harfbuzz true false)"
+	myconf_gn+=" use_gio=$(usetf gnome)"
+	myconf_gn+=" use_kerberos=$(usetf kerberos)"
+	# If enabled, it will build the bundled OpenH264 for encoding,
+	# hence the restriction: !system-openh264? ( bindist )
+	myconf_gn+=" use_openh264=$(usetf !system-openh264)"
+	myconf_gn+=" use_pulseaudio=$(usetf pulseaudio)"
+	# HarfBuzz and FreeType need to be built together in a specific way
+	# to get FreeType autohinting to work properly. Chromium bundles
+	# FreeType and HarfBuzz to meet that need. (https://crbug.com/694137)
+	myconf_gn+=" use_system_freetype=$(usetf system-harfbuzz)"
+	myconf_gn+=" use_system_harfbuzz=$(usetf system-harfbuzz)"
 	myconf_gn+=" use_system_lcms2=true"
 	myconf_gn+=" use_system_libjpeg=true"
 	myconf_gn+=" use_system_zlib=true"
-	myconf_gn+=" use_vaapi=$(usex vaapi true false)"
+	myconf_gn+=" use_vaapi=$(usetf vaapi)"
 
-	# Optionally enable new tcmalloc (https://crbug.com/724399)
-	# It's relevant only when use_allocator == "tcmalloc"
-	myconf_gn+=" use_new_tcmalloc=$(usex new-tcmalloc true false)"
+	# Enables the experimental tcmalloc (https://crbug.com/724399)
+	# It is relevant only when use_allocator == "tcmalloc"
+	myconf_gn+=" use_new_tcmalloc=$(usetf new-tcmalloc)"
 
-	# SC2155
-	local myarch
-	myarch="$(tc-arch)"
-	if [[ $myarch = amd64 ]]; then
-		myconf_gn+=" target_cpu=\"x64\""
-	elif [[ $myarch = x86 ]]; then
-		myconf_gn+=" target_cpu=\"x86\""
-	else
-		die "Failed to determine target arch, got '$myarch'."
-	fi
-
-	# Avoid CFLAGS problems (Bug #352457, #390147)
-	if ! use custom-cflags; then
-		replace-flags "-Os" "-O2"
-		strip-flags
-
-		# Filter common/redundant flags. See build/config/compiler/BUILD.gn
-		filter-flags -fomit-frame-pointer -fno-omit-frame-pointer
-		filter-flags '-fstack-protector*' '-fno-stack-protector*'
-		filter-flags '-fuse-ld=*' '-g*' '-Wl,*'
-
-		# Prevent libvpx build failures (Bug #530248, #544702, #546984)
-		if [[ ${myarch} == amd64 || ${myarch} == x86 ]]; then
-			filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2
-		fi
-	fi
+	setup_compile_flags
 
 	# Bug #491582
 	export TMPDIR="${WORKDIR}/temp"
@@ -642,24 +692,26 @@ src_configure() {
 }
 
 src_compile() {
+	# Final link uses lots of file descriptors
+	ulimit -n 2048
+
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup 'python2*'
+
+	# shellcheck disable=SC2086
+	# Avoid falling back to preprocessor mode when sources contain time macros
+	has ccache ${FEATURES} && \
+		export CCACHE_SLOPPINESS="${CCACHE_SLOPPINESS:-time_macros}"
 
 	# Build mksnapshot and pax-mark it
 	local x
 	for x in mksnapshot v8_context_snapshot_generator; do
-		if tc-is-cross-compiler; then
-			eninja -C out/Release "host/${x}"
-			pax-mark m "out/Release/host/${x}"
-		else
-			eninja -C out/Release "${x}"
-			pax-mark m "out/Release/${x}"
-		fi
+		eninja -C out/Release "${x}"
+		pax-mark m "out/Release/${x}"
 	done
 
 	# Work around broken deps
-	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom.h
-	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom-shared.h
+	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom{,-shared}.h
 
 	# Even though ninja autodetects number of CPUs, we respect
 	# user's options, for debugging with -j 1 or any other reason
@@ -670,8 +722,7 @@ src_compile() {
 }
 
 src_install() {
-	# SC2155
-	local CHROMIUM_HOME
+	local CHROMIUM_HOME # SC2155
 	CHROMIUM_HOME="/usr/$(get_libdir)/chromium-browser"
 	exeinto "${CHROMIUM_HOME}"
 	doexe out/Release/chrome
@@ -685,7 +736,7 @@ src_install() {
 
 	newexe "${FILESDIR}/${PN}-launcher-r3.sh" chromium-launcher.sh
 	sed -i "s:/usr/lib/:/usr/$(get_libdir)/:g" \
-		"${ED%/}${CHROMIUM_HOME}/chromium-launcher.sh" || die
+		"${ED}${CHROMIUM_HOME}/chromium-launcher.sh" || die
 
 	# It is important that we name the target "chromium-browser",
 	# xdg-utils expect it (Bug #355517)
@@ -697,7 +748,7 @@ src_install() {
 
 	# Allow users to override command-line options (Bug #357629)
 	insinto /etc/chromium
-	newins "${FILESDIR}/chromium.default" "default"
+	newins "${FILESDIR}/${PN}.default" "default"
 
 	pushd out/Release/locales > /dev/null || die
 	chromium_remove_language_paks
@@ -727,14 +778,13 @@ src_install() {
 	mime_types+="x-scheme-handler/http;x-scheme-handler/https;" # Bug #360797
 	mime_types+="x-scheme-handler/ftp;" # Bug #412185
 	mime_types+="x-scheme-handler/mailto;x-scheme-handler/webcal;" # Bug #416393
-	# shellcheck disable=SC1117
 	make_desktop_entry \
 		chromium-browser \
 		"Chromium" \
 		chromium-browser \
 		"Network;WebBrowser" \
-		"MimeType=${mime_types}\nStartupWMClass=chromium-browser"
-	sed -i "/^Exec/s/$/ %U/" "${ED%/}"/usr/share/applications/*.desktop || die
+		"MimeType=${mime_types}\\nStartupWMClass=chromium-browser"
+	sed -i "/^Exec/s/$/ %U/" "${ED}"/usr/share/applications/*.desktop || die
 
 	# Install GNOME default application entry (Bug #303100)
 	insinto /usr/share/gnome-control-center/default-apps
@@ -743,17 +793,24 @@ src_install() {
 	readme.gentoo_create_doc
 }
 
-pkg_preinst() {
-	gnome2_icon_savelist
+usetf() {
+	usex "$1" true false
+}
+
+update_caches() {
+	if type gtk-update-icon-cache &>/dev/null; then
+		ebegin "Updating GTK icon cache"
+		gtk-update-icon-cache "${EROOT}/usr/share/icons/hicolor"
+		eend $? || die
+	fi
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
-	xdg_desktop_database_update
+	update_caches
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
-	xdg_desktop_database_update
+	update_caches
 	readme.gentoo_print_elog
 }
