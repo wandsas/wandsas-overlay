@@ -1,0 +1,93 @@
+diff --git chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/baseline_policy.cc
+index 46a54ed..d8b8094 100644
+--- chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/baseline_policy.cc
++++ chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/baseline_policy.cc
+@@ -202,6 +202,9 @@ ResultExpr EvaluateSyscallImpl(int fs_denied_errno,
+   if (sysno == __NR_prctl)
+     return RestrictPrctl();
+ 
++  if (sysno == __NR_set_tid_address)
++    return RestrictSetTIDAddress();
++
+ #if defined(__x86_64__) || defined(__arm__) || defined(__mips__) || \
+     defined(__aarch64__)
+   if (sysno == __NR_socketpair) {
+diff --git chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
+index 2577f02..37fa09b 100644
+--- chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
++++ chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
+@@ -129,23 +129,13 @@ namespace sandbox {
+ // CLONE_VM, nor CLONE_THREAD, which includes all fork() implementations.
+ ResultExpr RestrictCloneToThreadsAndEPERMFork() {
+   const Arg<unsigned long> flags(0);
++  const int required = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND |
++                       CLONE_THREAD | CLONE_SYSVSEM;
++  const int safe = CLONE_SETTLS | CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID |
++                   CLONE_DETACHED;
++  const BoolExpr thread_clone_ok = (flags&~safe)==required;
+ 
+-  // TODO(mdempsky): Extend DSL to support (flags & ~mask1) == mask2.
+-  const uint64_t kAndroidCloneMask = CLONE_VM | CLONE_FS | CLONE_FILES |
+-                                     CLONE_SIGHAND | CLONE_THREAD |
+-                                     CLONE_SYSVSEM;
+-  const uint64_t kObsoleteAndroidCloneMask = kAndroidCloneMask | CLONE_DETACHED;
+-
+-  const uint64_t kGlibcPthreadFlags =
+-      CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD |
+-      CLONE_SYSVSEM | CLONE_SETTLS | CLONE_PARENT_SETTID | CLONE_CHILD_CLEARTID;
+-  const BoolExpr glibc_test = flags == kGlibcPthreadFlags;
+-
+-  const BoolExpr android_test =
+-      AnyOf(flags == kAndroidCloneMask, flags == kObsoleteAndroidCloneMask,
+-            flags == kGlibcPthreadFlags);
+-
+-  return If(IsAndroid() ? android_test : glibc_test, Allow())
++  return If(thread_clone_ok, Allow())
+       .ElseIf((flags & (CLONE_VM | CLONE_THREAD)) == 0, Error(EPERM))
+       .Else(CrashSIGSYSClone());
+ }
+@@ -383,4 +373,10 @@ ResultExpr RestrictPrlimit(pid_t target_pid) {
+   return If(AnyOf(pid == 0, pid == target_pid), Allow()).Else(Error(EPERM));
+ }
+ 
++ResultExpr RestrictSetTIDAddress() {
++  const Arg<uintptr_t> address(0);
++  // Only allow clearing the TID address.
++  return If(address == 0, Allow()).Else(CrashSIGSYS());
++}
++
+ }  // namespace sandbox.
+diff --git chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.h
+index 71c5609..5d5ebfc 100644
+--- chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.h
++++ chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.h
+@@ -103,6 +103,9 @@ SANDBOX_EXPORT bpf_dsl::ResultExpr RestrictGetRandom();
+ // gracefully; see crbug.com/160157.
+ SANDBOX_EXPORT bpf_dsl::ResultExpr RestrictPrlimit(pid_t target_pid);
+ 
++// Restrict the address to NULL.
++SANDBOX_EXPORT bpf_dsl::ResultExpr RestrictSetTIDAddress();
++
+ }  // namespace sandbox.
+ 
+ #endif  // SANDBOX_LINUX_SECCOMP_BPF_HELPERS_SYSCALL_PARAMETERS_RESTRICTIONS_H_
+diff --git chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc
+index 9f1cdef..a330d9a 100644
+--- chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc
++++ chromium-69.0.3497.100/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc
+@@ -496,6 +496,7 @@ bool SyscallSets::IsAllowedAddressSpaceAccess(int sysno) {
+     case __NR_mlock:
+     case __NR_munlock:
+     case __NR_munmap:
++    case __NR_mremap:
+       return true;
+     case __NR_madvise:
+     case __NR_mincore:
+@@ -511,7 +512,6 @@ bool SyscallSets::IsAllowedAddressSpaceAccess(int sysno) {
+     case __NR_modify_ldt:
+ #endif
+     case __NR_mprotect:
+-    case __NR_mremap:
+     case __NR_msync:
+     case __NR_munlockall:
+     case __NR_readahead:

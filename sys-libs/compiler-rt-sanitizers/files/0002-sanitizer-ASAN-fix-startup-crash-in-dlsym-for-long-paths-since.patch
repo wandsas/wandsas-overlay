@@ -1,0 +1,95 @@
+From 76cbc7a1fc8ea0f87c2d81d285b2c2bd143dbe4d Mon Sep 17 00:00:00 2001
+From: Peter Wu <peter@lekensteyn.nl>
+Date: Thu, 14 Jun 2018 10:42:54 +0000
+Subject: [PATCH 2/8] [ASAN] fix startup crash in dlsym for long paths since
+ glibc 2.27
+
+Summary:
+Error messages for dlsym used to be stored on the stack, but since
+commit 2449ae7b ("ld.so: Introduce struct dl_exception") in glibc 2.27
+these are now stored on the heap (and thus use the dlsym alloc pool).
+
+Messages look like "undefined symbol: __isoc99_printf\0/path/to/a.out".
+With many missing library functions and long object paths, the pool is
+quickly exhausted. Implement a simple mechanism to return freed memory
+to the pool (clear it in case it is used for calloc).
+
+Fixes https://github.com/google/sanitizers/issues/957
+
+Reviewed By: vitalybuka
+
+Differential Revision: https://reviews.llvm.org/D47995
+
+git-svn-id: https://llvm.org/svn/llvm-project/compiler-rt/trunk@334703 91177308-0d34-0410-b5e6-96231b3b80d8
+---
+ lib/asan/asan_malloc_linux.cc           | 19 ++++++++++++++++++-
+ test/asan/TestCases/long-object-path.cc |  7 +++++++
+ 2 files changed, 25 insertions(+), 1 deletion(-)
+ create mode 100644 test/asan/TestCases/long-object-path.cc
+
+diff --git a/lib/asan/asan_malloc_linux.cc b/lib/asan/asan_malloc_linux.cc
+index 6697ff876..af05af9d6 100644
+--- a/lib/asan/asan_malloc_linux.cc
++++ b/lib/asan/asan_malloc_linux.cc
+@@ -28,6 +28,7 @@
+ using namespace __asan;  // NOLINT
+ 
+ static uptr allocated_for_dlsym;
++static uptr last_dlsym_alloc_size_in_words;
+ static const uptr kDlsymAllocPoolSize = 1024;
+ static uptr alloc_memory_for_dlsym[kDlsymAllocPoolSize];
+ 
+@@ -39,11 +40,25 @@ static INLINE bool IsInDlsymAllocPool(const void *ptr) {
+ static void *AllocateFromLocalPool(uptr size_in_bytes) {
+   uptr size_in_words = RoundUpTo(size_in_bytes, kWordSize) / kWordSize;
+   void *mem = (void*)&alloc_memory_for_dlsym[allocated_for_dlsym];
++  last_dlsym_alloc_size_in_words = size_in_words;
+   allocated_for_dlsym += size_in_words;
+   CHECK_LT(allocated_for_dlsym, kDlsymAllocPoolSize);
+   return mem;
+ }
+ 
++static void DeallocateFromLocalPool(const void *ptr) {
++  // Hack: since glibc 2.27, dlsym longer use stack-allocated memory to store
++  // error messages and instead use malloc followed by free. To avoid pool
++  // exhaustion due to long object filenames, handle that special case here.
++  uptr prev_offset = allocated_for_dlsym - last_dlsym_alloc_size_in_words;
++  void *prev_mem = (void*)&alloc_memory_for_dlsym[prev_offset];
++  if (prev_mem == ptr) {
++    REAL(memset)(prev_mem, 0, last_dlsym_alloc_size_in_words * kWordSize);
++    allocated_for_dlsym = prev_offset;
++    last_dlsym_alloc_size_in_words = 0;
++  }
++}
++
+ static INLINE bool MaybeInDlsym() {
+   // Fuchsia doesn't use dlsym-based interceptors.
+   return !SANITIZER_FUCHSIA && asan_init_is_running;
+@@ -66,8 +81,10 @@ static void *ReallocFromLocalPool(void *ptr, uptr size) {
+ 
+ INTERCEPTOR(void, free, void *ptr) {
+   GET_STACK_TRACE_FREE;
+-  if (UNLIKELY(IsInDlsymAllocPool(ptr)))
++  if (UNLIKELY(IsInDlsymAllocPool(ptr))) {
++    DeallocateFromLocalPool(ptr);
+     return;
++  }
+   asan_free(ptr, &stack, FROM_MALLOC);
+ }
+ 
+diff --git a/test/asan/TestCases/long-object-path.cc b/test/asan/TestCases/long-object-path.cc
+new file mode 100644
+index 000000000..592b0abb0
+--- /dev/null
++++ b/test/asan/TestCases/long-object-path.cc
+@@ -0,0 +1,7 @@
++// RUN: mkdir -p %T/a-long-directory-name-to-test-allocations-for-exceptions-in-_dl_lookup_symbol_x-since-glibc-2.27
++// RUN: %clangxx_asan -g %s -o %T/long-object-path
++// RUN: %run %T/a-*/../a-*/../a-*/../a-*/../a-*/../a-*/../a-*/../a-*/../long-object-path
++
++int main(void) {
++    return 0;
++}
+-- 
+2.18.0
+
