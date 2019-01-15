@@ -207,6 +207,8 @@ PATCHES=(
 	# musl patches
 	"${FILESDIR}"/${PN}-2.8.0-F_SHLCK-and-F_EXLCK.patch
 	"${FILESDIR}"/${PN}-2.2.0-_sigev_un.patch
+	"${FILESDIR}"/${PN}-2.8.0-F_SHLCK-and-F_EXLCK.patch
+	"${FILESDIR}"/${PN}-3.1.0-linux-user-signal.c-define-__SIGRTMIN-MAX-for-non-GN.patch
 
 	# gentoo patches
 	"${FILESDIR}"/${PN}-2.5.0-cflags.patch

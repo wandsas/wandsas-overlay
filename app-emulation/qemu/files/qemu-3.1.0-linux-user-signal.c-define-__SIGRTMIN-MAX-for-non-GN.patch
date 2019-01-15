@@ -1,0 +1,30 @@
+diff --git i/hw/9pfs/9p.c w/hw/9pfs/9p.c
+index bdf7919abf..714513c84c 100644
+--- i/hw/9pfs/9p.c
++++ w/hw/9pfs/9p.c
+@@ -25,6 +25,7 @@
+ #include "trace.h"
+ #include "migration/blocker.h"
+ #include "sysemu/qtest.h"
++#include <linux/limits.h>
+ 
+ int open_fd_hw;
+ int total_open_fd;
+diff --git i/linux-user/signal.c w/linux-user/signal.c
+index 602b631b92..87f9240134 100644
+--- i/linux-user/signal.c
++++ w/linux-user/signal.c
+@@ -26,6 +26,13 @@
+ #include "trace.h"
+ #include "signal-common.h"
+ 
++#ifndef __SIGRTMIN
++#define __SIGRTMIN 32
++#endif
++#ifndef __SIGRTMAX
++#define __SIGRTMAX (NSIG-1)
++#endif
++
+ struct target_sigaltstack target_sigaltstack_used = {
+     .ss_sp = 0,
+     .ss_size = 0,
