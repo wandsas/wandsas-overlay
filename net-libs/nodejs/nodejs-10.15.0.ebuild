@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-RESTRICT="test"
+EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads"
@@ -12,30 +11,39 @@ inherit bash-completion-r1 eutils flag-o-matic pax-utils python-single-r1 toolch
 DESCRIPTION="A JavaScript runtime built on Chrome's V8 JavaScript engine"
 HOMEPAGE="https://nodejs.org/"
 SRC_URI="https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz"
+RESTRICT="mirror"
 
 LICENSE="Apache-1.1 Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x64-macos"
-IUSE="cpu_flags_x86_sse2 debug doc icu +npm +snapshot +ssl systemtap test"
+IUSE="bundled-ssl cpu_flags_x86_sse2 debug doc icu inspector libressl +npm +snapshot +ssl systemtap test"
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	bundled-ssl? ( ssl )
+	inspector? ( icu ssl )
+	libressl? ( bundled-ssl )
+	npm? ( ssl )
+"
 
-RDEPEND="icu? ( >=dev-libs/icu-56:= )
-	npm? ( ${PYTHON_DEPS} )
-	>=net-libs/http-parser-2.6.2:=
-	>=dev-libs/libuv-1.11.0:=
-    dev-libs/libressl
-	sys-libs/zlib"
-DEPEND="${RDEPEND}
+RDEPEND="
+	>=dev-libs/libuv-1.23.2:=
+	>=net-dns/c-ares-1.14.0
+	>=net-libs/http-parser-2.9.0:=
+	>=net-libs/nghttp2-1.34.0
+	sys-libs/zlib
+	icu? ( >=dev-libs/icu-62.1:= )
+	ssl? ( !bundled-ssl? ( =dev-libs/openssl-1.1.0*:0= ) )
+"
+DEPEND="
+	${RDEPEND}
 	${PYTHON_DEPS}
 	systemtap? ( dev-util/systemtap )
-	test? ( net-misc/curl )"
+	test? ( net-misc/curl )
+"
+
+PATCHES=( "${FILESDIR}/${PN}-10.3.0-global-npm-config.patch" )
 
 S="${WORKDIR}/node-v${PV}"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-PATCHES=(
-	"${FILESDIR}"/gentoo-global-npm-config.patch
-	"${FILESDIR}"/nodejs-8.1.1-libressl.patch
-)
 
 pkg_pretend() {
 	(use x86 && ! use cpu_flags_x86_sse2) && \
@@ -56,19 +64,21 @@ src_prepare() {
 
 	# make sure we use python2.* while using gyp
 	sed -i -e "s/python/${EPYTHON}/" deps/npm/node_modules/node-gyp/gyp/gyp || die
-	sed -i -e "s/|| 'python'/|| '${EPYTHON}'/" deps/npm/node_modules/node-gyp/lib/configure.js || die
+	sed -i -e "s/|| 'python2'/|| '${EPYTHON}'/" deps/npm/node_modules/node-gyp/lib/configure.js || die
 
 	# less verbose install output (stating the same as portage, basically)
 	sed -i -e "/print/d" tools/install.py || die
 
 	# proper libdir, hat tip @ryanpcmcquen https://github.com/iojs/io.js/issues/504
-	local LIBDIR=$(get_libdir)
+	local LIBDIR
+	LIBDIR=$(get_libdir)
 	sed -i -e "s|lib/|${LIBDIR}/|g" tools/install.py || die
-	sed -i -e "s/'lib'/'${LIBDIR}'/" lib/module.js || die
-	sed -i -e "s|\"lib\"|\"${LIBDIR}\"|" deps/npm/lib/npm.js || die
+	sed -i -e "s/'lib'/'${LIBDIR}'/" deps/npm/lib/npm.js || die
 
 	# Avoid writing a depfile, not useful
 	sed -i -e "/DEPFLAGS =/d" tools/gyp/pylib/gyp/generator/make.py || die
+
+	sed -i -e "/'-O3'/d" common.gypi deps/v8/gypfiles/toolchain.gypi || die
 
 	# Avoid a test that I've only been able to reproduce from emerge. It doesnt
 	# seem sandbox related either (invoking it from a sandbox works fine).
@@ -76,6 +86,11 @@ src_prepare() {
 	# It doesn't really belong upstream , so it'll just be removed until someone
 	# with more gentoo-knowledge than me (jbergstroem) figures it out.
 	rm test/parallel/test-stdout-close-unref.js || die
+
+	# 'gcc_s' is required if 'compiler-rt' is Clang's default
+	if tc-is-clang && has_version 'sys-devel/clang[default-compiler-rt]'; then
+		eapply "${FILESDIR}/${PN}-10.13.0-clang-compat.patch"
+	fi
 
 	# debug builds. change install path, remove optimisations and override buildtype
 	if use debug; then
@@ -86,15 +101,18 @@ src_prepare() {
 	default
 }
 
+# shellcheck disable=SC2191
 src_configure() {
-	local myarch=""
-	local myconf=( --shared-openssl --shared-libuv --shared-http-parser --shared-zlib )
-	use npm || myconf+=( --without-npm )
-	use icu && myconf+=( --with-intl=system-icu )
-	use snapshot && myconf+=( --with-snapshot )
-	use ssl || myconf+=( --without-ssl )
+	local myconf=( --shared-cares --shared-http-parser --shared-libuv --shared-nghttp2 --shared-zlib )
 	use debug && myconf+=( --debug )
+	use icu && myconf+=( --with-intl=system-icu ) || myconf+=( --with-intl=none )
+	use inspector || myconf+=( --without-inspector )
+	use npm || myconf+=( --without-npm )
+	use snapshot && myconf+=( --with-snapshot )
+	use ssl && use bundled-ssl || myconf+=( --shared-openssl )
+	use ssl || myconf+=( --without-ssl )
 
+	local myarch=""
 	case ${ABI} in
 		amd64) myarch="x64";;
 		arm) myarch="arm";;
@@ -105,12 +123,13 @@ src_configure() {
 		*) myarch="${ABI}";;
 	esac
 
+	# shellcheck disable=SC2046
 	GYP_DEFINES="linux_use_gold_flags=0
 		linux_use_bundled_binutils=0
 		linux_use_bundled_gold=0" \
 	"${PYTHON}" configure \
 		--prefix="${EPREFIX}"/usr \
-		--dest-cpu=${myarch} \
+		--dest-cpu="${myarch}" \
 		$(use_with systemtap dtrace) \
 		"${myconf[@]}" || die
 }
@@ -122,9 +141,10 @@ src_compile() {
 }
 
 src_install() {
-	local LIBDIR="${ED}/usr/$(get_libdir)"
+	local LIBDIR npm_config tmp_npm_completion_file
+	LIBDIR="${ED}/usr/$(get_libdir)"
 	emake install DESTDIR="${D}"
-	pax-mark -m "${ED}"usr/bin/node
+	pax-mark -m "${ED}"/usr/bin/node
 
 	# set up a symlink structure that node-gyp expects..
 	dodir /usr/include/node/deps/{v8,uv}
@@ -135,11 +155,13 @@ src_install() {
 
 	if use doc; then
 		# Patch docs to make them offline readable
-		for i in `grep -rl 'fonts.googleapis.com' "${S}"/out/doc/api/*`; do
-			sed -i '/fonts.googleapis.com/ d' $i;
+		# shellcheck disable=SC2013
+		for i in $(grep -rl 'fonts.googleapis.com' "${S}"/out/doc/api/*); do
+			sed -i '/fonts.googleapis.com/ d' "$i";
 		done
-		# Install docs!
-		dohtml -r "${S}"/doc/*
+		# Install docs
+		HTML_DOCS=( doc/* )
+		einstalldocs
 	fi
 
 	if use npm; then
@@ -148,9 +170,9 @@ src_install() {
 		# Install bash completion for `npm`
 		# We need to temporarily replace default config path since
 		# npm otherwise tries to write outside of the sandbox
-		local npm_config="usr/$(get_libdir)/node_modules/npm/lib/config/core.js"
+		npm_config="usr/$(get_libdir)/node_modules/npm/lib/config/core.js"
 		sed -i -e "s|'/etc'|'${ED}/etc'|g" "${ED}/${npm_config}" || die
-		local tmp_npm_completion_file="$(emktemp)"
+		tmp_npm_completion_file="$(emktemp)"
 		"${ED}/usr/bin/npm" completion > "${tmp_npm_completion_file}"
 		newbashcomp "${tmp_npm_completion_file}" npm
 		sed -i -e "s|'${ED}/etc'|'/etc'|g" "${ED}/${npm_config}" || die
@@ -164,10 +186,11 @@ src_install() {
 
 		local find_exp="-or -name"
 		local find_name=()
+		# shellcheck disable=SC2206
 		for match in "AUTHORS*" "CHANGELOG*" "CONTRIBUT*" "README*" \
 			".travis.yml" ".eslint*" ".wercker.yml" ".npmignore" \
 			"*.md" "*.markdown" "*.bat" "*.cmd"; do
-			find_name+=( ${find_exp} "${match}" )
+			find_name+=( ${find_exp} ${match} )
 		done
 
 		# Remove various development and/or inappropriate files and
@@ -178,6 +201,8 @@ src_install() {
 				"${find_name[@]}" \
 			\) \) -exec rm -rf "{}" \;
 	fi
+
+	mv "${D}/usr/share/doc/node" "${D}/usr/share/doc/${PF}" || die
 }
 
 src_test() {
@@ -186,10 +211,12 @@ src_test() {
 }
 
 pkg_postinst() {
+	einfo
 	einfo "The global npm config lives in /etc/npm. This deviates slightly"
 	einfo "from upstream which otherwise would have it live in /usr/etc/."
-	einfo ""
+	einfo
 	einfo "Protip: When using node-gyp to install native modules, you can"
 	einfo "avoid having to download extras by doing the following:"
-	einfo "$ node-gyp --nodedir /usr/include/node <command>"
+	einfo "$ node-gyp --nodedir ${EROOT}/usr/include/node <command>"
+	einfo
 }
