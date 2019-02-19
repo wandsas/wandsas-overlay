@@ -13,7 +13,7 @@ CHROMIUM_LANGS="
 
 inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-r1 readme.gentoo-r1 toolchain-funcs xdg-utils
 
-UGC_PV="47c6164c3b2c4a84ff54d90893ab5b650e9838cb"
+UGC_PV="${PV/_p/-}"
 UGC_P="${PN}-${UGC_PV}"
 UGC_WD="${WORKDIR}/${UGC_P}"
 
@@ -22,13 +22,14 @@ HOMEPAGE="https://www.chromium.org/Home https://github.com/Eloston/ungoogled-chr
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
 	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
+	https://dev.gentoo.org/~floppym/dist/chromium-webrtc-includes-r1.patch.xz
 "
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
-	+atk +cfi cups custom-cflags +dbus gnome gold jumbo-build kerberos libcxx
+	+cfi cups custom-cflags gnome gold jumbo-build kerberos libcxx
 	+lld new-tcmalloc optimize-thinlto optimize-webui +pdf +proprietary-codecs
 	pulseaudio selinux +suid +system-ffmpeg system-harfbuzz +system-icu
 	+system-jsoncpp +system-libevent +system-libvpx +system-openh264
@@ -38,7 +39,6 @@ REQUIRED_USE="
 	^^ ( gold lld )
 	|| ( $(python_gen_useflags 'python3*') )
 	|| ( $(python_gen_useflags 'python2*') )
-	atk? ( dbus )
 	cfi? ( thinlto )
 	libcxx? ( new-tcmalloc )
 	new-tcmalloc? ( tcmalloc )
@@ -46,13 +46,15 @@ REQUIRED_USE="
 	system-openjpeg? ( pdf )
 	x86? ( !lld !thinlto !widevine )
 "
-RESTRICT="mirror
+RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
 	!system-openh264? ( bindist )
 "
 
 CDEPEND="
+	>=app-accessibility/at-spi2-atk-2.26:2
 	app-arch/snappy:=
+	>=dev-libs/atk-2.26
 	dev-libs/expat:=
 	dev-libs/glib:2
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
@@ -66,6 +68,7 @@ CDEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	>=media-libs/libwebp-0.4.0:=
+	sys-apps/dbus:=
 	sys-apps/pciutils:=
 	sys-libs/zlib:=[minizip]
 	virtual/udev
@@ -84,12 +87,7 @@ CDEPEND="
 	x11-libs/libXScrnSaver:=
 	x11-libs/libXtst:=
 	x11-libs/pango:=
-	atk? (
-		>=app-accessibility/at-spi2-atk-2.26:2
-		>=dev-libs/atk-2.26
-	)
 	cups? ( >=net-print/cups-1.3.11:= )
-	dbus? ( sys-apps/dbus:= )
 	kerberos? ( virtual/krb5 )
 	pdf? ( media-libs/lcms:= )
 	pulseaudio? ( media-sound/pulseaudio:= )
@@ -113,13 +111,11 @@ CDEPEND="
 	system-openjpeg? ( media-libs/openjpeg:2= )
 	vaapi? ( x11-libs/libva:= )
 "
-# For nvidia-drivers blocker (Bug #413637)
 RDEPEND="${CDEPEND}
 	virtual/opengl
 	virtual/ttf-fonts
 	x11-misc/xdg-utils
 	selinux? ( sec-policy/selinux-chromium )
-	tcmalloc? ( !<x11-drivers/nvidia-drivers-331.20 )
 	widevine? ( !x86? ( www-plugins/chrome-binary-plugins[widevine(-)] ) )
 	!www-client/chromium
 	!www-client/ungoogled-chromium-bin
@@ -178,10 +174,11 @@ GTK+ icon theme.
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-atk-r0.patch"
-	"${FILESDIR}/${PN}-dbus-r0.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
-	"${FILESDIR}/${PN}-gold-r1.patch"
+	"${FILESDIR}/${PN}-gold-r2.patch"
+	# Extra patches taken from openSUSE
+	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r0.patch"
+	"${FILESDIR}/${PN}-system-libusb-r0.patch"
 )
 
 S="${WORKDIR}/chromium-${PV/_*}"
@@ -217,17 +214,15 @@ src_prepare() {
 
 	default
 
+	pushd third_party/webrtc >/dev/null || die
+	eapply "${WORKDIR}"/chromium-webrtc-includes-r1.patch
+	popd >/dev/null || die
+
 	if use optimize-webui; then
 		mkdir -p third_party/node/linux/node-linux-x64/bin || die
 		ln -s "${EPREFIX}/usr/bin/node" \
 			third_party/node/linux/node-linux-x64/bin/node || die
 	fi
-
-	# Apply extra patches (taken from openSUSE)
-	local p
-	for p in "${FILESDIR}/extra-$(ver_cut 1-1)"/*.patch; do
-		eapply "${p}"
-	done
 
 	# Hack for libusb stuff (taken from openSUSE)
 	rm third_party/libusb/src/libusb/libusb.h || die
@@ -241,8 +236,10 @@ src_prepare() {
 	local ugc_rooted_dir="${UGC_WD}/config_bundles/linux_rooted"
 
 	local ugc_unneeded=(
-		# ARM related patch
+		# ARM related patches
+		common:crashpad
 		common:gcc_skcms_ice
+		common:skia-aarch64-buildfix
 		# GCC specific fixes/warnings
 		common:alignof
 		common:as-needed
@@ -254,12 +251,8 @@ src_prepare() {
 		common:multichar
 		common:null-destination
 		common:printf
-		common:sizet
 		rooted:attribute
-		# We already have "-Wno-unknown-warning-option" defined below
-		common:clang-compiler-flags
 		# GN bootstrap
-		common:no-such-option-no-sysroot
 		common:parallel
 		rooted:libcxx
 	)
@@ -270,7 +263,7 @@ src_prepare() {
 		system-jsoncpp:jsoncpp
 		system-libevent:event
 		system-libvpx:vpx
-		vaapi:chromium-vaapi-r18
+		vaapi:enable-vaapi
 	)
 
 	local ugc_p ugc_dir
@@ -294,18 +287,12 @@ src_prepare() {
 			"${ugc_rooted_dir}/patch_order.list" || die
 	fi
 
-	# Fix build with harfbuzz-2 (Bug #669034)
-	if use system-harfbuzz; then
-		sed -i '/jpeg.patch/i debian_buster/system/harfbuzz.patch' \
-			"${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
 	if ! use system-icu; then
 		sed -i '/icudtl.dat/d' "${ugc_rooted_dir}/pruning.list" || die
 	fi
 
 	if use system-openjpeg; then
-		sed -i '/nspr.patch/a debian_buster/system/openjpeg.patch' \
+		sed -i '/jpeg.patch/a debian_buster/system/openjpeg.patch' \
 			"${ugc_rooted_dir}/patch_order.list" || die
 	fi
 
@@ -343,12 +330,12 @@ src_prepare() {
 		net/third_party/quic
 		net/third_party/spdy
 		net/third_party/uri_template
-		third_party/WebKit
 		third_party/abseil-cpp
 		third_party/adobe
 		third_party/angle
 		third_party/angle/src/common/third_party/base
 		third_party/angle/src/common/third_party/smhasher
+		third_party/angle/src/common/third_party/xxhash
 		third_party/angle/src/third_party/compiler
 		third_party/angle/src/third_party/libXNVCtrl
 		third_party/angle/src/third_party/trace_event
@@ -392,7 +379,6 @@ src_prepare() {
 		third_party/flatbuffers
 		third_party/flot
 		third_party/glslang
-		third_party/glslang-angle
 		third_party/google_input_tools
 		third_party/google_input_tools/third_party/closure_library
 		third_party/google_input_tools/third_party/closure_library/third_party/closure
@@ -424,6 +410,7 @@ src_prepare() {
 		third_party/mesa
 		third_party/metrics_proto
 		third_party/modp_b64
+		third_party/nasm
 		third_party/openmax_dl
 		third_party/ots
 		third_party/ply
@@ -444,13 +431,11 @@ src_prepare() {
 		third_party/speech-dispatcher
 		third_party/spirv-headers
 		third_party/SPIRV-Tools
-		third_party/spirv-tools-angle
 		third_party/sqlite
 		third_party/ungoogled
 		third_party/usb_ids
 		third_party/usrsctp
 		third_party/vulkan
-		third_party/vulkan-validation-layers
 		third_party/web-animations-js
 		third_party/webdriver
 		third_party/webrtc
@@ -482,10 +467,11 @@ src_prepare() {
 		third_party/pdfium/third_party/base
 		third_party/pdfium/third_party/bigint
 		third_party/pdfium/third_party/freetype
+		third_party/pdfium/third_party/lcms
 		third_party/pdfium/third_party/libtiff
 		third_party/pdfium/third_party/skia_shared
 	)
-	use pdf && use system-openjpeg || keeplibs+=(
+	use system-openjpeg || keeplibs+=(
 		third_party/pdfium/third_party/libopenjpeg20
 	)
 	use system-ffmpeg || keeplibs+=( third_party/ffmpeg third_party/opus )
@@ -625,6 +611,7 @@ src_configure() {
 
 		# UGC's "common" GN flags (config_bundles/common/gn_flags.map)
 		"blink_symbol_level=0"
+		"closure_compile=false"
 		"enable_ac3_eac3_audio_demuxing=true"
 		"enable_hangout_services_extension=false"
 		"enable_hevc_demuxing=true"
@@ -688,10 +675,10 @@ src_configure() {
 		"use_vaapi=$(usetf vaapi)"
 
 		# Additional flags
+		"enable_desktop_in_product_help=false"
 		"enable_pdf=$(usetf pdf)"
 		"enable_print_preview=$(usetf pdf)"
-		"use_atk=$(usetf atk)"
-		"use_dbus=$(usetf dbus)"
+		"rtc_build_examples=false"
 		"use_icf=true"
 		# Enables the soon-to-be default tcmalloc (https://crbug.com/724399)
 		# It is relevant only when use_allocator == "tcmalloc"
