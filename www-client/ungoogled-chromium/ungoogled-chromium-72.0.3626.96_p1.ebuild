@@ -29,7 +29,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
-	+cfi cups custom-cflags gnome gold jumbo-build kerberos libcxx
+	+atk +cfi cups custom-cflags +dbus gnome gold jumbo-build kerberos libcxx
 	+lld new-tcmalloc optimize-thinlto optimize-webui +pdf +proprietary-codecs
 	pulseaudio selinux +suid +system-ffmpeg system-harfbuzz +system-icu
 	+system-jsoncpp +system-libevent +system-libvpx +system-openh264
@@ -52,9 +52,9 @@ RESTRICT="
 "
 
 CDEPEND="
-	>=app-accessibility/at-spi2-atk-2.26:2
+	atk? ( >=app-accessibility/at-spi2-atk-2.26:2 )
 	app-arch/snappy:=
-	>=dev-libs/atk-2.26
+	atk? ( >=dev-libs/atk-2.26 )
 	dev-libs/expat:=
 	dev-libs/glib:2
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
@@ -68,7 +68,7 @@ CDEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	>=media-libs/libwebp-0.4.0:=
-	sys-apps/dbus:=
+	dbus? ( sys-apps/dbus:= )
 	sys-apps/pciutils:=
 	sys-libs/zlib:=[minizip]
 	virtual/udev
@@ -138,6 +138,7 @@ BDEPEND="
 	sys-devel/flex
 	>=sys-devel/llvm-7.0.0[gold?]
 	virtual/libusb:1
+	elibc_musl? ( sys-libs/queue-standalone )
 	virtual/pkgconfig
 	cfi? ( >=sys-devel/clang-runtime-7.0.0[sanitize] )
 	libcxx? (
@@ -147,6 +148,12 @@ BDEPEND="
 	lld? ( >=sys-devel/lld-7.0.0 )
 	optimize-webui? ( >=net-libs/nodejs-7.6.0[inspector] )
 "
+
+: ${CHROMIUM_FORCE_CLANG=no}
+
+if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
+	BDEPEND+=" >=sys-devel/clang-5"
+fi
 
 # shellcheck disable=SC2086
 if ! has chromium_pkg_die ${EBUILD_DEATH_HOOKS}; then
@@ -179,9 +186,35 @@ PATCHES=(
 	# Extra patches taken from openSUSE
 	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r0.patch"
 	"${FILESDIR}/${PN}-system-libusb-r0.patch"
+	"${FILESDIR}/${PN}-compiler-r6.patch"
+	"${FILESDIR}/${PN}-widevine-r3.patch"
+	"${FILESDIR}/${PN}-webrtc-r0.patch"
+	"${FILESDIR}/${PN}-harfbuzz-r0.patch"
+	"${FILESDIR}/${PN}-71-gcc-0.patch"
+	"${FILESDIR}/${PN}-optional-atk-r0.patch"
+	"${FILESDIR}/${PN}-optional-dbus-r5.patch"
+#	"${FILESDIR}/${PN}-url-formatter.patch"
+	"${FILESDIR}/musl-cdefs-r2.patch"
+	"${FILESDIR}/musl-dlopen.patch"
+	"${FILESDIR}/musl-dns-r2.patch"
+	"${FILESDIR}/musl-execinfo-r8.patch"
+	"${FILESDIR}/musl-fpstate-r1.patch"
+	"${FILESDIR}/musl-headers-r1.patch"
+	"${FILESDIR}/musl-libcpp.patch"
+	"${FILESDIR}/musl-mallinfo-r7.patch"
+	"${FILESDIR}/musl-pthread-r5.patch"
+	"${FILESDIR}/musl-ptrace.patch"
+	"${FILESDIR}/musl-sandbox-r3.patch"
+	"${FILESDIR}/musl-secure_getenv-r1.patch"
+	"${FILESDIR}/musl-siginfo.patch"
+	"${FILESDIR}/musl-socket.patch"
+	"${FILESDIR}/musl-stacksize-r3.patch"
+	"${FILESDIR}/musl-stacktrace-r2.patch"
+	"${FILESDIR}/musl-syscall.patch"
+	"${FILESDIR}/musl-ucontext-r1.patch"
+	"${FILESDIR}/musl-wordsize-r1.patch"
 )
-
-S="${WORKDIR}/chromium-${PV/_*}"
+S="${WORKDIR}/ungoogled-chromium-${PV/_*}"
 
 pre_build_checks() {
 	# Check build requirements (Bug #541816)

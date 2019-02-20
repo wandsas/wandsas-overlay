@@ -109,7 +109,7 @@ BDEPEND="
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	sys-devel/lld
-	elibc_musl? ( sys-libs/queue )
+	elibc_musl? ( sys-libs/queue-standalone )
 	virtual/pkgconfig
 	dev-vcs/git
 "

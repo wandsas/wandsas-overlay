@@ -23,8 +23,6 @@ SRC_URI="https://static.rust-lang.org/dist/${SRC} -> rustc-${PV}-src.tar.xz
 	amd64? ( https://portage.smaeul.xyz/distfiles/rust-${RUST_STAGE0_VERSION}-x86_64-gentoo-linux-musl.tar.xz )
 	arm? ( https://portage.smaeul.xyz/distfiles/rust-${RUST_STAGE0_VERSION}-armv7a-unknown-linux-musleabihf.tar.xz )
 	arm64? ( https://portage.smaeul.xyz/distfiles/rust-${RUST_STAGE0_VERSION}-aarch64-gentoo-linux-musl.tar.xz )
-	ppc? ( https://portage.smaeul.xyz/distfiles/rust-${RUST_STAGE0_VERSION}-powerpc-gentoo-linux-musl.tar.xz )
-	ppc64? ( https://portage.smaeul.xyz/distfiles/rust-${RUST_STAGE0_VERSION}-powerpc64-gentoo-linux-musl.tar.xz )
 	x86? ( https://portage.smaeul.xyz/distfiles/rust-${RUST_STAGE0_VERSION}-i686-gentoo-linux-musl.tar.xz )
 "
 
