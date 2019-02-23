@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,8 +16,8 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="+atk component-build cups +dbus gnome-keyring +hangouts jumbo-build kerberos neon pic +proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-icu +system-libvpx +tcmalloc widevine"
+KEYWORDS="~amd64 ~x86"
+IUSE="+atk +closure-compile component-build cups +dbus gnome-keyring +hangouts jumbo-build kerberos neon pic +proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-icu +system-libvpx +tcmalloc widevine"
 RESTRICT="!system-ffmpeg? ( proprietary-codecs? ( bindist ) )"
 
 REQUIRED_USE="atk? ( dbus )"
@@ -82,6 +82,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	!<www-plugins/chrome-binary-plugins-57
 	x11-misc/xdg-utils
+	virtual/opengl
 	virtual/ttf-fonts
 	selinux? ( sec-policy/selinux-chromium )
 	tcmalloc? ( !<x11-drivers/nvidia-drivers-331.20 )
@@ -101,6 +102,7 @@ BDEPEND="
 	)
 	dev-lang/perl
 	dev-util/gn
+	dev-vcs/git
 	>=dev-util/gperf-3.0.3
 	>=dev-util/ninja-1.7.2
 	>=net-libs/nodejs-7.6.0[inspector]
@@ -109,8 +111,8 @@ BDEPEND="
 	sys-devel/flex
 	sys-devel/lld
 	elibc_musl? ( sys-libs/queue-standalone )
+	closure-compile? ( virtual/jre )
 	virtual/pkgconfig
-	dev-vcs/git
 "
 
 : ${CHROMIUM_FORCE_CLANG=no}
@@ -143,11 +145,20 @@ GTK+ icon theme.
 "
 
 PATCHES=(
-	"${FILESDIR}/chromium-compiler-r6.patch"
+#	"${FILESDIR}/chromium-73-gcc-0.patch"
+#	"${FILESDIR}/chromium-73-gcc-1.patch"
+#	"${FILESDIR}/chromium-73-gcc-2.patch"
+#	"${FILESDIR}/chromium-73-gcc-3.patch"
+#	"${FILESDIR}/chromium-73-gcc-4.patch"
+#	"${FILESDIR}/chromium-73-gcc-5.patch"
+#	"${FILESDIR}/chromium-73-gcc-6.patch"
+#	"${FILESDIR}/chromium-compiler-r6.patch"
+	"${FILESDIR}/chromium-compiler-r7.patch"
 	"${FILESDIR}/chromium-widevine-r3.patch"
+#	"${FILESDIR}/chromium-widevine-r4.patch"
 	"${FILESDIR}/chromium-webrtc-r0.patch"
-	"${FILESDIR}/chromium-harfbuzz-r0.patch"
-	"${FILESDIR}/chromium-71-gcc-0.patch"
+#	"${FILESDIR}/chromium-harfbuzz-r0.patch"
+#	"${FILESDIR}/chromium-71-gcc-0.patch"
 	"${FILESDIR}/chromium-optional-atk-r0.patch"
 	"${FILESDIR}/chromium-optional-dbus-r5.patch"
 #	"${FILESDIR}/chromium-url-formatter.patch"
@@ -216,9 +227,6 @@ src_prepare() {
 	mkdir -p third_party/node/linux/node-linux-x64/bin || die
 	ln -s "${EPREFIX}"/usr/bin/node third_party/node/linux/node-linux-x64/bin/node || die
 
-	# These can cause the final link to take several hours.
-	filter-ldflags "*sort*"
-
 	local keeplibs=(
 		base/third_party/dmg_fp
 		base/third_party/dynamic_annotations
@@ -233,18 +241,15 @@ src_prepare() {
 		buildtools/third_party/libc++abi
 		chrome/third_party/mozilla_security_manager
 		courgette/third_party
-		net/third_party/http2
 		net/third_party/mozilla_security_manager
 		net/third_party/nss
 		net/third_party/quic
-		net/third_party/spdy
 		net/third_party/uri_template
-		third_party/WebKit
 		third_party/abseil-cpp
-		third_party/analytics
 		third_party/angle
 		third_party/angle/src/common/third_party/base
 		third_party/angle/src/common/third_party/smhasher
+		third_party/angle/src/common/third_party/xxhash
 		third_party/angle/src/third_party/compiler
 		third_party/angle/src/third_party/libXNVCtrl
 		third_party/angle/src/third_party/trace_event
@@ -278,6 +283,7 @@ src_prepare() {
 		third_party/catapult/tracing/third_party/pako
 		third_party/ced
 		third_party/cld_3
+		third_party/closure_compiler
 		third_party/crashpad
 		third_party/crashpad/crashpad/third_party/zlib
 		third_party/crc32c
@@ -288,7 +294,6 @@ src_prepare() {
 		third_party/flatbuffers
 		third_party/flot
 		third_party/freetype
-		third_party/glslang-angle
 		third_party/google_input_tools
 		third_party/google_input_tools/third_party/closure_library
 		third_party/google_input_tools/third_party/closure_library/third_party/closure
@@ -322,6 +327,7 @@ src_prepare() {
 		third_party/mesa
 		third_party/metrics_proto
 		third_party/modp_b64
+		third_party/nasm
 		third_party/node
 		third_party/node/node_modules/polymer-bundler/lib/third_party/UglifyJS2
 		third_party/openmax_dl
@@ -348,13 +354,13 @@ src_prepare() {
 		third_party/sfntly
 		third_party/simplejson
 		third_party/skia
+		third_party/skia/include/third_party/vulkan
 		third_party/skia/third_party/gif
 		third_party/skia/third_party/skcms
 		third_party/skia/third_party/vulkan
 		third_party/smhasher
 		third_party/spirv-headers
 		third_party/SPIRV-Tools
-		third_party/spirv-tools-angle
 		third_party/sqlite
 		third_party/swiftshader
 		third_party/swiftshader/third_party/llvm-subzero
@@ -362,7 +368,6 @@ src_prepare() {
 		third_party/unrar
 		third_party/usrsctp
 		third_party/vulkan
-		third_party/vulkan-validation-layers
 		third_party/web-animations-js
 		third_party/webdriver
 		third_party/webrtc
@@ -377,6 +382,7 @@ src_prepare() {
 		third_party/woff2
 		third_party/zlib/google
 		url/third_party/mozilla
+		v8/src/third_party/siphash
 		v8/src/third_party/valgrind
 		v8/src/third_party/utf8-decoder
 		v8/third_party/inspector_protocol
@@ -498,11 +504,10 @@ src_configure() {
 	myconf_gn+=" use_system_harfbuzz=true"
 
 	# Optional dependencies.
+	myconf_gn+=" closure_compile=$(usex closure-compile true false)"
 	myconf_gn+=" enable_hangout_services_extension=$(usex hangouts true false)"
 	myconf_gn+=" enable_widevine=$(usex widevine true false)"
-	myconf_gn+=" use_atk=$(usex atk true false)"
 	myconf_gn+=" use_cups=$(usex cups true false)"
-	myconf_gn+=" use_dbus=$(usex dbus true false)"
 	myconf_gn+=" use_gnome_keyring=$(usex gnome-keyring true false)"
 	myconf_gn+=" use_kerberos=$(usex kerberos true false)"
 	myconf_gn+=" use_pulseaudio=$(usex pulseaudio true false)"
@@ -515,6 +520,9 @@ src_configure() {
 	# Do not use bundled clang.
 	# Trying to use gold results in linker crash.
 	myconf_gn+=" use_gold=false use_sysroot=false linux_use_bundled_binutils=false use_custom_libcxx=false"
+
+	# Disable forced lld, bug 641556
+	myconf_gn+=" use_lld=false"
 
 	ffmpeg_branding="$(usex proprietary-codecs Chrome Chromium)"
 	myconf_gn+=" proprietary_codecs=$(usex proprietary-codecs true false)"
@@ -532,6 +540,23 @@ src_configure() {
 	myconf_gn+=" google_default_client_secret=\"${google_default_client_secret}\""
 
 	local myarch="$(tc-arch)"
+
+	# Avoid CFLAGS problems, bug #352457, bug #390147.
+	if ! use custom-cflags; then
+		replace-flags "-Os" "-O2"
+		strip-flags
+
+		# Prevent linker from running out of address space, bug #471810 .
+		if use x86; then
+			filter-flags "-g*"
+		fi
+
+		# Prevent libvpx build failures. Bug 530248, 544702, 546984.
+		if [[ ${myarch} == amd64 || ${myarch} == x86 ]]; then
+			filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2
+		fi
+	fi
+
 	if [[ $myarch = amd64 ]] ; then
 		myconf_gn+=" target_cpu=\"x64\""
 		ffmpeg_target_arch=x64
@@ -559,27 +584,6 @@ src_configure() {
 
 	# Disable fatal linker warnings, bug 506268.
 	myconf_gn+=" fatal_linker_warnings=false"
-
-	# Avoid CFLAGS problems, bug #352457, bug #390147.
-	if ! use custom-cflags; then
-		replace-flags "-Os" "-O2"
-		strip-flags
-
-		# Prevent linker from running out of address space, bug #471810 .
-		if use x86; then
-			filter-flags "-g*"
-		fi
-
-		# Prevent libvpx build failures. Bug 530248, 544702, 546984.
-		if [[ ${myarch} == amd64 || ${myarch} == x86 ]]; then
-			filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2
-		fi
-	fi
-
-	# musl does not support malloc interposition
-	if use elibc_musl; then
-		myconf_gn+=" use_allocator_shim=false"
-	fi
 
 	# https://bugs.gentoo.org/588596
 	#append-cxxflags $(test-flags-CXX -fno-delete-null-pointer-checks)
