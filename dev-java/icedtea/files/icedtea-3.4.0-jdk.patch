@@ -1,0 +1,38 @@
+diff --git openjdk/jdk/src/share/native/common/jni_util.c.orig openjdk/jdk/src/share/native/common/jni_util.c
+index 0d00897..2a02769 100644
+--- openjdk/jdk/src/share/native/common/jni_util.c.orig
++++ openjdk/jdk/src/share/native/common/jni_util.c
+@@ -26,6 +26,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
++#include "io_util.h"
+ #include "jvm.h"
+ #include "jni.h"
+ #include "jni_util.h"
+diff --git openjdk/jdk/src/solaris/javavm/export/jvm_md.h.orig openjdk/jdk/src/solaris/javavm/export/jvm_md.h
+index 5c68191..62415ee 100644
+--- openjdk/jdk/src/solaris/javavm/export/jvm_md.h.orig
++++ openjdk/jdk/src/solaris/javavm/export/jvm_md.h
+@@ -65,7 +65,7 @@
+ #include <sys/stat.h>
+ #include <fcntl.h>
+ #include <errno.h>
+-#include <sys/signal.h>
++#include <signal.h>
+ 
+ /* O Flags */
+ 
+diff --git openjdk/jdk/src/solaris/native/java/net/net_util_md.h.orig openjdk/jdk/src/solaris/native/java/net/net_util_md.h
+index 58be690..49d3923 100644
+--- openjdk/jdk/src/solaris/native/java/net/net_util_md.h.orig
++++ openjdk/jdk/src/solaris/native/java/net/net_util_md.h
+@@ -33,7 +33,7 @@
+ #include <unistd.h>
+ 
+ #ifndef USE_SELECT
+-#include <sys/poll.h>
++#include <poll.h>
+ #endif
+ 
+ int NET_Timeout(int s, long timeout);
