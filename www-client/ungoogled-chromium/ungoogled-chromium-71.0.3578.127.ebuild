@@ -143,8 +143,8 @@ BDEPEND="
 	>=sys-devel/llvm-7.0.0[gold?]
 	virtual/libusb:1
 	virtual/pkgconfig
+	cfi? ( >=sys-devel/clang-runtime-7.0.0[-sanitize] )
 	elibc_musl? ( sys-libs/queue-standalone )
-	cfi? ( >=sys-devel/clang-runtime-7.0.0[sanitize] )
 	libcxx? (
 		sys-libs/libcxx
 		sys-libs/libcxxabi
@@ -183,6 +183,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-dbus-r0.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
 	"${FILESDIR}/${PN}-gold-r1.patch"
+	"${FILESDIR}/${PN}-webrtc-r0.patch"
+	"${FILESDIR}/${PN}-harfbuzz-r0.patch"
 	"${FILESDIR}/musl-cdefs-r2.patch"
 	"${FILESDIR}/musl-dlopen.patch"
 	"${FILESDIR}/musl-dns-r2.patch"
