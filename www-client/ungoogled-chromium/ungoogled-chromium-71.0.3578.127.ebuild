@@ -726,6 +726,47 @@ src_configure() {
 
 	setup_compile_flags
 
+	# GN needs explicit config for Debug/Release as opposed to inferring it from build directory.
+	myconf_gn+=" is_debug=false"
+
+	# Disable nacl, we can't build without pnacl (http://crbug.com/269560).
+	myconf_gn+=" enable_nacl=false"
+
+	myconf_gn+=" fieldtrial_testing_like_official_build=true"
+
+	# Never use bundled gold binary. Disable gold linker flags for now.
+	# Do not use bundled clang.
+	# Trying to use gold results in linker crash.
+	myconf_gn+=" use_gold=false use_sysroot=false linux_use_bundled_binutils=false use_custom_libcxx=false"
+
+	# Make sure that -Werror doesn't get added to CFLAGS by the build system.
+	# Depending on GCC version the warnings are different and we don't want
+	# the build to fail because of that.
+	myconf_gn+=" treat_warnings_as_errors=false"
+
+	# Disable fatal linker warnings, bug 506268.
+	myconf_gn+=" fatal_linker_warnings=false"
+
+	# Avoid CFLAGS problems, bug #352457, bug #390147.
+	if ! use custom-cflags; then
+		replace-flags "-Os" "-O2"
+		strip-flags
+
+		# Prevent linker from running out of address space, bug #471810 .
+		if use x86; then
+			filter-flags "-g*"
+		fi
+
+		# Prevent libvpx build failures. Bug 530248, 544702, 546984.
+		if [[ ${myarch} == amd64 || ${myarch} == x86 ]]; then
+			filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2
+		fi
+	fi
+
+	# musl does not support malloc interposition
+	if use elibc_musl; then
+		myconf_gn+=" use_allocator_shim=false"
+	fi
 	# Bug #491582
 	export TMPDIR="${WORKDIR}/temp"
 	# shellcheck disable=SC2174
@@ -741,29 +782,36 @@ src_configure() {
 }
 
 src_compile() {
-	# Final link uses lots of file descriptors
+	# Final link uses lots of file descriptors.
 	ulimit -n 4096
 
 	# Calling this here supports resumption via FEATURES=keepwork
-	python_setup 'python2*'
+	python_setup
+
+	#"${EPYTHON}" tools/clang/scripts/update.py --force-local-build --gcc-toolchain /usr --skip-checkout --use-system-cmake --without-android || die
+
+	# Work around broken deps
+	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom{,-shared}.h
+
+	# Build mksnapshot and pax-mark it.
+	local x
+	for x in mksnapshot v8_context_snapshot_generator; do
+		if tc-is-cross-compiler; then
+			eninja -C out/Release "host/${x}"
+			pax-mark m "out/Release/host/${x}"
+		else
+			eninja -C out/Release "${x}"
+			pax-mark m "out/Release/${x}"
+		fi
+	done
 
 	# shellcheck disable=SC2086
 	# Avoid falling back to preprocessor mode when sources contain time macros
 	has ccache ${FEATURES} && \
 		export CCACHE_SLOPPINESS="${CCACHE_SLOPPINESS:-time_macros}"
 
-	# Build mksnapshot and pax-mark it
-	local x
-	for x in mksnapshot v8_context_snapshot_generator; do
-		eninja -C out/Release "${x}"
-		pax-mark m "out/Release/${x}"
-	done
-
-	# Work around broken deps
-	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom{,-shared}.h
-
 	# Even though ninja autodetects number of CPUs, we respect
-	# user's options, for debugging with -j 1 or any other reason
+	# user's options, for debugging with -j 1 or any other reason.
 	eninja -C out/Release chrome chromedriver
 	use suid && eninja -C out/Release chrome_sandbox
 
