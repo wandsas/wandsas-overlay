@@ -183,27 +183,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-dbus-r0.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
 	"${FILESDIR}/${PN}-gold-r1.patch"
-	"${FILESDIR}/${PN}-webrtc-r0.patch"
-	"${FILESDIR}/${PN}-harfbuzz-r0.patch"
-	"${FILESDIR}/musl-cdefs-r2.patch"
-	"${FILESDIR}/musl-dlopen.patch"
-	"${FILESDIR}/musl-dns-r2.patch"
-	"${FILESDIR}/musl-execinfo-r8.patch"
-	"${FILESDIR}/musl-fpstate-r1.patch"
-	"${FILESDIR}/musl-headers-r1.patch"
-	"${FILESDIR}/musl-libcpp.patch"
-	"${FILESDIR}/musl-mallinfo-r7.patch"
-	"${FILESDIR}/musl-pthread-r5.patch"
-	"${FILESDIR}/musl-ptrace.patch"
-	"${FILESDIR}/musl-sandbox-r3.patch"
-	"${FILESDIR}/musl-secure_getenv-r1.patch"
-	"${FILESDIR}/musl-siginfo.patch"
-	"${FILESDIR}/musl-socket.patch"
-	"${FILESDIR}/musl-stacksize-r3.patch"
-	"${FILESDIR}/musl-stacktrace-r2.patch"
-	"${FILESDIR}/musl-syscall.patch"
-	"${FILESDIR}/musl-ucontext-r1.patch"
-	"${FILESDIR}/musl-wordsize-r1.patch"
 )
 
 S="${WORKDIR}/chromium-${PV/_*}"
@@ -726,11 +705,7 @@ src_configure() {
 
 	setup_compile_flags
 
-	# GN needs explicit config for Debug/Release as opposed to inferring it from build directory.
-	myconf_gn+=" is_debug=false"
 
-	# Disable nacl, we can't build without pnacl (http://crbug.com/269560).
-	myconf_gn+=" enable_nacl=false"
 
 	myconf_gn+=" fieldtrial_testing_like_official_build=true"
 
@@ -738,14 +713,6 @@ src_configure() {
 	# Do not use bundled clang.
 	# Trying to use gold results in linker crash.
 	myconf_gn+=" use_gold=false use_sysroot=false linux_use_bundled_binutils=false use_custom_libcxx=false"
-
-	# Make sure that -Werror doesn't get added to CFLAGS by the build system.
-	# Depending on GCC version the warnings are different and we don't want
-	# the build to fail because of that.
-	myconf_gn+=" treat_warnings_as_errors=false"
-
-	# Disable fatal linker warnings, bug 506268.
-	myconf_gn+=" fatal_linker_warnings=false"
 
 	# Avoid CFLAGS problems, bug #352457, bug #390147.
 	if ! use custom-cflags; then
@@ -767,6 +734,35 @@ src_configure() {
 	if use elibc_musl; then
 		myconf_gn+=" use_allocator_shim=false"
 	fi
+
+
+
+
+
+
+	#if ! use system-ffmpeg; then
+	if false; then
+		local build_ffmpeg_args=""
+		if use pic && [[ "${ffmpeg_target_arch}" == "ia32" ]]; then
+			build_ffmpeg_args+=" --disable-asm"
+		fi
+
+		# Re-configure bundled ffmpeg. See bug #491378 for example reasons.
+		einfo "Configuring bundled ffmpeg..."
+		pushd third_party/ffmpeg > /dev/null || die
+		chromium/scripts/build_ffmpeg.py linux ${ffmpeg_target_arch} \
+			--branding ${ffmpeg_branding} -- ${build_ffmpeg_args} || die
+		chromium/scripts/copy_config.sh || die
+		chromium/scripts/generate_gn.py || die
+		popd > /dev/null || die
+	fi
+
+
+
+
+
+
+
 	# Bug #491582
 	export TMPDIR="${WORKDIR}/temp"
 	# shellcheck disable=SC2174
@@ -780,6 +776,7 @@ src_configure() {
 	echo "$@"
 	"$@" || die
 }
+
 
 src_compile() {
 	# Final link uses lots of file descriptors.
@@ -809,6 +806,7 @@ src_compile() {
 	# Avoid falling back to preprocessor mode when sources contain time macros
 	has ccache ${FEATURES} && \
 		export CCACHE_SLOPPINESS="${CCACHE_SLOPPINESS:-time_macros}"
+
 
 	# Even though ninja autodetects number of CPUs, we respect
 	# user's options, for debugging with -j 1 or any other reason.
