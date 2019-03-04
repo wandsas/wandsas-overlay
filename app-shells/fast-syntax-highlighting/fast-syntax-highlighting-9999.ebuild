@@ -14,10 +14,6 @@ case ${PV} in
 	PROPERTIES="live"
 	SRC_URI=""
 	KEYWORDS="";;
-*alpha*)
-	EGIT_COMMIT="3361bb62d66540eda6dfa23f3df34125c27d420f"
-	SRC_URI="https://github.com/zdharma/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${EGIT_COMMIT}";;
 *)
 	SRC_URI="https://github.com/zdharma/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz";;
 esac

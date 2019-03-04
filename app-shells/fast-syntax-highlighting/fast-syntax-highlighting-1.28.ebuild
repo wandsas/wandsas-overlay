@@ -8,16 +8,12 @@ inherit readme.gentoo-r1
 RESTRICT="mirror"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x64-cygwin ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 case ${PV} in
-99999999*)
+9999*)
 	EGIT_REPO_URI="https://github.com/zdharma/${PN}.git"
 	inherit git-r3
 	PROPERTIES="live"
 	SRC_URI=""
 	KEYWORDS="";;
-*alpha*)
-	EGIT_COMMIT="3361bb62d66540eda6dfa23f3df34125c27d420f"
-	SRC_URI="https://github.com/zdharma/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${EGIT_COMMIT}";;
 *)
 	SRC_URI="https://github.com/zdharma/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz";;
 esac

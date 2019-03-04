@@ -1,4 +1,4 @@
-# Copyright 2011-2018 Gentoo Foundation
+# Copyright 2011-2018 Martin V\"ath
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,19 +9,20 @@ RESTRICT="mirror"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x64-cygwin ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 case ${PV} in
 9999*)
-	EGIT_REPO_URI="https://github.com/psprint/${PN}.git"
+	EGIT_REPO_URI="https://github.com/zsh-users/zsh-history-substring-search"
+	EGIT_BRANCH="features/completion-suggestions" # "develop"
 	inherit git-r3
 	PROPERTIES="live"
 	SRC_URI=""
 	KEYWORDS="";;
 *)
-	SRC_URI="https://github.com/psprint/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz";;
+	SRC_URI="https://github.com/zsh-users/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz";;
 esac
 
-DESCRIPTION="Zsh morpho sreen saver"
-HOMEPAGE="https://github.com/psprint/zsh-morpho/"
+DESCRIPTION="Fish-like history search feature for zsh"
+HOMEPAGE="https://github.com/zsh-users/zsh-history-substring-search/"
 
-LICENSE="HPND"
+LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
@@ -33,12 +34,14 @@ src_install() {
 	dir="/usr/share/zsh/site-contrib/${PN}"
 	DISABLE_AUTOFORMATTING="true"
 	DOC_CONTENTS="In order to use ${CATEGORY}/${PN} add
-. ${EPREFIX}${dir}/zsh-morpho.plugin.zsh"'
+. ${EPREFIX}${dir}/zsh-history-substring-search.zsh"'
 at the end of your ~/.zshrc
 For testing, you can also execute the above command in your zsh.'
 	readme.gentoo_create_doc
 	insinto "${dir}"
-	doins -r *
+	doins *.zsh
+	doins -r spec src
+	dodoc *.md
 }
 
 pkg_postinst() {
