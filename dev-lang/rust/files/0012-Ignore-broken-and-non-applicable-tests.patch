@@ -1,24 +1,25 @@
-From e8d020665645cab48f5039acf60f708bcd452595 Mon Sep 17 00:00:00 2001
+From cc6c989b6bd1891bdbc38b242d394b16d8996b0c Mon Sep 17 00:00:00 2001
 From: Samuel Holland <samuel@sholland.org>
 Date: Sun, 16 Sep 2018 16:38:48 +0000
-Subject: [PATCH 19/22] Ignore broken and non-applicable tests
+Subject: [PATCH 12/15] Ignore broken and non-applicable tests
 
-env-funky-keys: broken by sandbox LD_PRELOAD
 long-linker-command-lines: takes >10 minutes to run (but still passes)
 sparc-struct-abi: no sparc target
 sysroot-crates-are-unstable: can't run rustc without rpath
+env-funky-keys: can't handle LD_PRELOAD
 ---
  src/test/codegen/sparc-struct-abi.rs                            | 1 +
  src/test/run-make-fulldeps/long-linker-command-lines/Makefile   | 1 -
  src/test/run-make-fulldeps/sysroot-crates-are-unstable/Makefile | 2 +-
  src/test/run-pass/env-funky-keys.rs                             | 1 +
- 4 files changed, 3 insertions(+), 2 deletions(-)
+ src/test/run-pass/simd/simd-intrinsic-generic-select.rs         | 2 ++
+ 5 files changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/src/test/codegen/sparc-struct-abi.rs b/src/test/codegen/sparc-struct-abi.rs
-index 56c4364d59..9aebf8f002 100644
+index 78e5b14a21..6f93e93286 100644
 --- a/src/test/codegen/sparc-struct-abi.rs
 +++ b/src/test/codegen/sparc-struct-abi.rs
-@@ -13,6 +13,7 @@
+@@ -4,6 +4,7 @@
  
  // only-sparc64
  // compile-flags: -O --target=sparc64-unknown-linux-gnu --crate-type=rlib
@@ -46,17 +47,29 @@ index 9e77070685..7784230b46 100644
 -	env '$(HOST_RPATH_ENV)' python2.7 test.py
 +	true
 diff --git a/src/test/run-pass/env-funky-keys.rs b/src/test/run-pass/env-funky-keys.rs
-index 12e1cbe97d..b63bd3837c 100644
+index 79f32bd6c2..fc171687c9 100644
 --- a/src/test/run-pass/env-funky-keys.rs
 +++ b/src/test/run-pass/env-funky-keys.rs
-@@ -10,6 +10,7 @@
- 
+@@ -1,5 +1,6 @@
  // Ignore this test on Android, because it segfaults there.
  
 +// ignore-test
  // ignore-android
  // ignore-windows
  // ignore-cloudabi no execve
+diff --git a/src/test/run-pass/simd/simd-intrinsic-generic-select.rs b/src/test/run-pass/simd/simd-intrinsic-generic-select.rs
+index f79b140494..39080c8c90 100644
+--- a/src/test/run-pass/simd/simd-intrinsic-generic-select.rs
++++ b/src/test/run-pass/simd/simd-intrinsic-generic-select.rs
+@@ -2,6 +2,8 @@
+ #![allow(non_camel_case_types)]
+ 
+ // ignore-emscripten
++// ignore-powerpc
++// ignore-powerpc64
+ 
+ // Test that the simd_select intrinsics produces correct results.
+ 
 -- 
 2.19.2
 
