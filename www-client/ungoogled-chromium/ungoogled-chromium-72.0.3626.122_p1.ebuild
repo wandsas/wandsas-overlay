@@ -13,7 +13,7 @@ CHROMIUM_LANGS="
 
 inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-r1 readme.gentoo-r1 toolchain-funcs xdg-utils
 
-UGC_PV="47c6164c3b2c4a84ff54d90893ab5b650e9838cb"
+UGC_PV="${PV/_p/-}"
 UGC_P="${PN}-${UGC_PV}"
 UGC_WD="${WORKDIR}/${UGC_P}"
 
@@ -22,13 +22,14 @@ HOMEPAGE="https://www.chromium.org/Home https://github.com/Eloston/ungoogled-chr
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
 	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
+	https://dev.gentoo.org/~floppym/dist/chromium-webrtc-includes-r1.patch.xz
 "
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
-	+atk +cfi cups custom-cflags +dbus gnome gold jumbo-build kerberos libcxx
+	atk +cfi closure-compile cups custom-cflags dbus gnome gold jumbo-build kerberos libcxx
 	+lld new-tcmalloc optimize-thinlto optimize-webui +pdf +proprietary-codecs
 	pulseaudio selinux +suid +system-ffmpeg system-harfbuzz +system-icu
 	+system-jsoncpp +system-libevent +system-libvpx +system-openh264
@@ -46,12 +47,13 @@ REQUIRED_USE="
 	system-openjpeg? ( pdf )
 	x86? ( !lld !thinlto !widevine )
 "
-RESTRICT="mirror
+RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
 	!system-openh264? ( bindist )
 "
 
 CDEPEND="
+	>=app-accessibility/at-spi2-atk-2.26:2
 	app-arch/snappy:=
 	dev-libs/expat:=
 	dev-libs/glib:2
@@ -66,6 +68,7 @@ CDEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	>=media-libs/libwebp-0.4.0:=
+	dbus? ( sys-apps/dbus:= )
 	sys-apps/pciutils:=
 	sys-libs/zlib:=[minizip]
 	virtual/udev
@@ -84,12 +87,8 @@ CDEPEND="
 	x11-libs/libXScrnSaver:=
 	x11-libs/libXtst:=
 	x11-libs/pango:=
-	atk? (
-		>=app-accessibility/at-spi2-atk-2.26:2
-		>=dev-libs/atk-2.26
-	)
+	closure-compile? ( virtual/jre:* )
 	cups? ( >=net-print/cups-1.3.11:= )
-	dbus? ( sys-apps/dbus:= )
 	kerberos? ( virtual/krb5 )
 	pdf? ( media-libs/lcms:= )
 	pulseaudio? ( media-sound/pulseaudio:= )
@@ -100,6 +99,10 @@ CDEPEND="
 			>=net-fs/samba-4.5.16[-debug(-)]
 		)
 		media-libs/opus:=
+	)
+	atk? (
+		>=app-accessibility/at-spi2-atk-2.26:2
+		>=dev-libs/atk-2.26
 	)
 	system-harfbuzz? (
 		media-libs/freetype:=
@@ -113,13 +116,11 @@ CDEPEND="
 	system-openjpeg? ( media-libs/openjpeg:2= )
 	vaapi? ( x11-libs/libva:= )
 "
-# For nvidia-drivers blocker (Bug #413637)
 RDEPEND="${CDEPEND}
 	virtual/opengl
 	virtual/ttf-fonts
 	x11-misc/xdg-utils
 	selinux? ( sec-policy/selinux-chromium )
-	tcmalloc? ( !<x11-drivers/nvidia-drivers-331.20 )
 	widevine? ( !x86? ( www-plugins/chrome-binary-plugins[widevine(-)] ) )
 	!www-client/chromium
 	!www-client/ungoogled-chromium-bin
@@ -143,7 +144,7 @@ BDEPEND="
 	>=sys-devel/llvm-7.0.0[gold?]
 	virtual/libusb:1
 	virtual/pkgconfig
-	cfi? ( >=sys-devel/clang-runtime-7.0.0[-sanitize] )
+	cfi? ( >=sys-devel/clang-runtime-7.0.0[sanitize] )
 	elibc_musl? ( sys-libs/queue-standalone )
 	libcxx? (
 		sys-libs/libcxx
@@ -179,10 +180,11 @@ GTK+ icon theme.
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-atk-r0.patch"
-	"${FILESDIR}/${PN}-dbus-r0.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
-	"${FILESDIR}/${PN}-gold-r1.patch"
+	"${FILESDIR}/${PN}-gold-r2.patch"
+	# Extra patches taken from openSUSE
+	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r0.patch"
+	"${FILESDIR}/${PN}-system-libusb-r0.patch"
 )
 
 S="${WORKDIR}/chromium-${PV/_*}"
@@ -218,17 +220,15 @@ src_prepare() {
 
 	default
 
+	pushd third_party/webrtc >/dev/null || die
+	eapply "${WORKDIR}"/chromium-webrtc-includes-r1.patch
+	popd >/dev/null || die
+
 	if use optimize-webui; then
 		mkdir -p third_party/node/linux/node-linux-x64/bin || die
 		ln -s "${EPREFIX}/usr/bin/node" \
 			third_party/node/linux/node-linux-x64/bin/node || die
 	fi
-
-	# Apply extra patches (taken from openSUSE)
-	local p
-	for p in "${FILESDIR}/extra-$(ver_cut 1-1)"/*.patch; do
-		eapply "${p}"
-	done
 
 	# Hack for libusb stuff (taken from openSUSE)
 	rm third_party/libusb/src/libusb/libusb.h || die
@@ -242,8 +242,10 @@ src_prepare() {
 	local ugc_rooted_dir="${UGC_WD}/config_bundles/linux_rooted"
 
 	local ugc_unneeded=(
-		# ARM related patch
+		# ARM related patches
+		common:crashpad
 		common:gcc_skcms_ice
+		common:skia-aarch64-buildfix
 		# GCC specific fixes/warnings
 		common:alignof
 		common:as-needed
@@ -255,12 +257,8 @@ src_prepare() {
 		common:multichar
 		common:null-destination
 		common:printf
-		common:sizet
 		rooted:attribute
-		# We already have "-Wno-unknown-warning-option" defined below
-		common:clang-compiler-flags
 		# GN bootstrap
-		common:no-such-option-no-sysroot
 		common:parallel
 		rooted:libcxx
 	)
@@ -271,7 +269,10 @@ src_prepare() {
 		system-jsoncpp:jsoncpp
 		system-libevent:event
 		system-libvpx:vpx
-		vaapi:chromium-vaapi-r18
+		vaapi:enable-vaapi
+		vaapi:chromium-vaapi-relax-the-version-check-for-VA-API
+		vaapi:chromium-enable-mojo-video-decoders-by-default
+		vaapi:chromium-vaapi-fix-the-VA_CHECK_VERSION
 	)
 
 	local ugc_p ugc_dir
@@ -295,18 +296,12 @@ src_prepare() {
 			"${ugc_rooted_dir}/patch_order.list" || die
 	fi
 
-	# Fix build with harfbuzz-2 (Bug #669034)
-	if use system-harfbuzz; then
-		sed -i '/jpeg.patch/i debian_buster/system/harfbuzz.patch' \
-			"${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
 	if ! use system-icu; then
 		sed -i '/icudtl.dat/d' "${ugc_rooted_dir}/pruning.list" || die
 	fi
 
 	if use system-openjpeg; then
-		sed -i '/nspr.patch/a debian_buster/system/openjpeg.patch' \
+		sed -i '/jpeg.patch/a debian_buster/system/openjpeg.patch' \
 			"${ugc_rooted_dir}/patch_order.list" || die
 	fi
 
@@ -344,12 +339,12 @@ src_prepare() {
 		net/third_party/quic
 		net/third_party/spdy
 		net/third_party/uri_template
-		third_party/WebKit
 		third_party/abseil-cpp
 		third_party/adobe
 		third_party/angle
 		third_party/angle/src/common/third_party/base
 		third_party/angle/src/common/third_party/smhasher
+		third_party/angle/src/common/third_party/xxhash
 		third_party/angle/src/third_party/compiler
 		third_party/angle/src/third_party/libXNVCtrl
 		third_party/angle/src/third_party/trace_event
@@ -393,7 +388,6 @@ src_prepare() {
 		third_party/flatbuffers
 		third_party/flot
 		third_party/glslang
-		third_party/glslang-angle
 		third_party/google_input_tools
 		third_party/google_input_tools/third_party/closure_library
 		third_party/google_input_tools/third_party/closure_library/third_party/closure
@@ -425,6 +419,7 @@ src_prepare() {
 		third_party/mesa
 		third_party/metrics_proto
 		third_party/modp_b64
+		third_party/nasm
 		third_party/openmax_dl
 		third_party/ots
 		third_party/ply
@@ -445,13 +440,11 @@ src_prepare() {
 		third_party/speech-dispatcher
 		third_party/spirv-headers
 		third_party/SPIRV-Tools
-		third_party/spirv-tools-angle
 		third_party/sqlite
 		third_party/ungoogled
 		third_party/usb_ids
 		third_party/usrsctp
 		third_party/vulkan
-		third_party/vulkan-validation-layers
 		third_party/web-animations-js
 		third_party/webdriver
 		third_party/webrtc
@@ -473,6 +466,7 @@ src_prepare() {
 		v8/third_party/v8
 	)
 
+	use closure-compile && keeplibs+=( third_party/closure_compiler )
 	use optimize-webui && keeplibs+=(
 		third_party/node
 		third_party/node/node_modules/polymer-bundler/lib/third_party/UglifyJS2
@@ -483,10 +477,11 @@ src_prepare() {
 		third_party/pdfium/third_party/base
 		third_party/pdfium/third_party/bigint
 		third_party/pdfium/third_party/freetype
+		third_party/pdfium/third_party/lcms
 		third_party/pdfium/third_party/libtiff
 		third_party/pdfium/third_party/skia_shared
 	)
-	use pdf && use system-openjpeg || keeplibs+=(
+	use system-openjpeg || keeplibs+=(
 		third_party/pdfium/third_party/libopenjpeg20
 	)
 	use system-ffmpeg || keeplibs+=( third_party/ffmpeg third_party/opus )
@@ -581,14 +576,13 @@ src_configure() {
 	python_setup 'python2*'
 
 	# Make sure the build system will use the right tools (Bug #340795)
-	tc-export AR CC CXX NM RANLIB
+	tc-export AR CC CXX NM
 
 	# Force clang
 	CC=${CHOST}-clang
 	CXX=${CHOST}-clang++
 	AR=llvm-ar
 	NM=llvm-nm
-	RANLIB=llvm-ranlib
 	strip-unsupported-flags
 
 	local gn_system_libraries=(
@@ -627,6 +621,7 @@ src_configure() {
 
 		# UGC's "common" GN flags (config_bundles/common/gn_flags.map)
 		"blink_symbol_level=0"
+		"closure_compile=$(usetf closure-compile)"
 		"enable_ac3_eac3_audio_demuxing=true"
 		"enable_hangout_services_extension=false"
 		"enable_hevc_demuxing=true"
@@ -690,10 +685,10 @@ src_configure() {
 		"use_vaapi=$(usetf vaapi)"
 
 		# Additional flags
+		"enable_desktop_in_product_help=false"
 		"enable_pdf=$(usetf pdf)"
 		"enable_print_preview=$(usetf pdf)"
-		"use_atk=$(usetf atk)"
-		"use_dbus=$(usetf dbus)"
+		"rtc_build_examples=false"
 		"use_icf=true"
 		# Enables the soon-to-be default tcmalloc (https://crbug.com/724399)
 		# It is relevant only when use_allocator == "tcmalloc"
@@ -705,63 +700,10 @@ src_configure() {
 
 	setup_compile_flags
 
-
-
-	myconf_gn+=" fieldtrial_testing_like_official_build=true"
-
-	# Never use bundled gold binary. Disable gold linker flags for now.
-	# Do not use bundled clang.
-	# Trying to use gold results in linker crash.
-	myconf_gn+=" use_gold=false use_sysroot=false linux_use_bundled_binutils=false use_custom_libcxx=false"
-
-	# Avoid CFLAGS problems, bug #352457, bug #390147.
-	if ! use custom-cflags; then
-		replace-flags "-Os" "-O2"
-		strip-flags
-
-		# Prevent linker from running out of address space, bug #471810 .
-		if use x86; then
-			filter-flags "-g*"
-		fi
-
-		# Prevent libvpx build failures. Bug 530248, 544702, 546984.
-		if [[ ${myarch} == amd64 || ${myarch} == x86 ]]; then
-			filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2
-		fi
-	fi
-
 	# musl does not support malloc interposition
 	if use elibc_musl; then
 		myconf_gn+=" use_allocator_shim=false"
 	fi
-
-
-
-
-
-
-	#if ! use system-ffmpeg; then
-	if false; then
-		local build_ffmpeg_args=""
-		if use pic && [[ "${ffmpeg_target_arch}" == "ia32" ]]; then
-			build_ffmpeg_args+=" --disable-asm"
-		fi
-
-		# Re-configure bundled ffmpeg. See bug #491378 for example reasons.
-		einfo "Configuring bundled ffmpeg..."
-		pushd third_party/ffmpeg > /dev/null || die
-		chromium/scripts/build_ffmpeg.py linux ${ffmpeg_target_arch} \
-			--branding ${ffmpeg_branding} -- ${build_ffmpeg_args} || die
-		chromium/scripts/copy_config.sh || die
-		chromium/scripts/generate_gn.py || die
-		popd > /dev/null || die
-	fi
-
-
-
-
-
-
 
 	# Bug #491582
 	export TMPDIR="${WORKDIR}/temp"
@@ -777,39 +719,30 @@ src_configure() {
 	"$@" || die
 }
 
-
 src_compile() {
-	# Final link uses lots of file descriptors.
+	# Final link uses lots of file descriptors
 	ulimit -n 4096
 
 	# Calling this here supports resumption via FEATURES=keepwork
-	python_setup
-
-	#"${EPYTHON}" tools/clang/scripts/update.py --force-local-build --gcc-toolchain /usr --skip-checkout --use-system-cmake --without-android || die
-
-	# Work around broken deps
-	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom{,-shared}.h
-
-	# Build mksnapshot and pax-mark it.
-	local x
-	for x in mksnapshot v8_context_snapshot_generator; do
-		if tc-is-cross-compiler; then
-			eninja -C out/Release "host/${x}"
-			pax-mark m "out/Release/host/${x}"
-		else
-			eninja -C out/Release "${x}"
-			pax-mark m "out/Release/${x}"
-		fi
-	done
+	python_setup 'python2*'
 
 	# shellcheck disable=SC2086
 	# Avoid falling back to preprocessor mode when sources contain time macros
 	has ccache ${FEATURES} && \
 		export CCACHE_SLOPPINESS="${CCACHE_SLOPPINESS:-time_macros}"
 
+	# Build mksnapshot and pax-mark it
+	local x
+	for x in mksnapshot v8_context_snapshot_generator; do
+		eninja -C out/Release "${x}"
+		pax-mark m "out/Release/${x}"
+	done
+
+	# Work around broken deps
+	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom{,-shared}.h
 
 	# Even though ninja autodetects number of CPUs, we respect
-	# user's options, for debugging with -j 1 or any other reason.
+	# user's options, for debugging with -j 1 or any other reason
 	eninja -C out/Release chrome chromedriver
 	use suid && eninja -C out/Release chrome_sandbox
 
