@@ -1,36 +1,26 @@
-From 6861c8305fc6449fdc019405d501e5740d44b818 Mon Sep 17 00:00:00 2001
+From 799529380ffbd6ffb51afd09cbcebba99a28f7ee Mon Sep 17 00:00:00 2001
 From: Samuel Holland <samuel@sholland.org>
 Date: Wed, 10 Jan 2018 13:36:41 -0600
-Subject: [PATCH 01/15] Don't pass CFLAGS to the C++ compiler
+Subject: [PATCH 01/19] Don't pass CFLAGS to the C++ compiler
 
 ---
- src/bootstrap/builder.rs | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ src/bootstrap/builder.rs | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/src/bootstrap/builder.rs b/src/bootstrap/builder.rs
-index 9c58f5b179..bbb275c572 100644
+index 5d586f0c461..6b1b1e62a2c 100644
 --- a/src/bootstrap/builder.rs
 +++ b/src/bootstrap/builder.rs
-@@ -1037,7 +1037,7 @@ impl<'a> Builder<'a> {
-             let cflags = self.cflags(target, GitRepo::Rustc).join(" ");
-             cargo
-                 .env(format!("CFLAGS_{}", target), cflags.clone())
--                .env("CFLAGS", cflags.clone());
-+                .env("CFLAGS", cflags);
- 
-             if let Some(ar) = self.ar(target) {
-                 let ranlib = format!("{} s", ar.display());
-@@ -1052,9 +1052,7 @@ impl<'a> Builder<'a> {
+@@ -1129,8 +1129,7 @@ impl<'a> Builder<'a> {
+             if let Ok(cxx) = self.cxx(target) {
                  let cxx = ccacheify(&cxx);
                  cargo
-                     .env(format!("CXX_{}", target), &cxx)
--                    .env("CXX", &cxx)
--                    .env(format!("CXXFLAGS_{}", target), cflags.clone())
--                    .env("CXXFLAGS", cflags);
-+                    .env("CXX", &cxx);
+-                    .env(format!("CXX_{}", target), &cxx)
+-                    .env(format!("CXXFLAGS_{}", target), cflags);
++                    .env(format!("CXX_{}", target), &cxx);
              }
          }
  
 -- 
-2.19.2
+2.23.0
 
