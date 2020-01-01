@@ -6,9 +6,9 @@ EAPI=6
 inherit git-r3
 
 DESCRIPTION="Multiple Repository management tool"
-HOMEPAGE="https://github.com/wandsas/myrepos/"
+HOMEPAGE="https://github.com/wandsas/kitenet-mr"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/wandsas/myrepos/"
+EGIT_REPO_URI="git://github.com/wandsas/kitenet-mr/"
 
 LICENSE="GPL-2"
 SLOT="0"
